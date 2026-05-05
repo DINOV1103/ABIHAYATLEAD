@@ -3,210 +3,914 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ABIHAYAT — Диабетга Қарши Табиий Дамлама</title>
+  <title>ABIHAYAT — Диабетга Қарши Табиий Даmlама</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap');
 
-    * { font-family: 'Montserrat', sans-serif; box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body { background-color: #f0faf4; margin: 0; padding: 0; }
-
-    .hero-gradient {
-      background: linear-gradient(135deg, #e6f7ee 0%, #c8edda 50%, #d4f0e5 100%);
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f0f7f0;
+      color: #1a2e1a;
     }
 
-    .btn-main {
-      background: linear-gradient(135deg, #16a34a, #15803d);
-      color: #fff;
+    /* ---- COLORS ---- */
+    :root {
+      --green-dark: #1b5e20;
+      --green-mid: #2e7d32;
+      --green-light: #4caf50;
+      --green-pale: #e8f5e9;
+      --gold: #f9a825;
+      --gold-dark: #e65100;
+      --white: #ffffff;
+    }
+
+    /* ---- HEADER / HOOK ---- */
+    .hook-section {
+      background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #1b5e20 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hook-section::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+    .hook-section::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 250px; height: 250px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .hook-title {
+      font-size: clamp(1.6rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .hook-title span {
+      color: #ffeb3b;
+    }
+    .hook-sub {
+      color: #c8e6c9;
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      line-height: 1.6;
+    }
+
+    /* ---- VIDEO CARDS ---- */
+    .videos-section {
+      background: #f0f7f0;
+    }
+    .video-wrapper {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(27,94,32,0.18);
+      border: 3px solid #2e7d32;
+      background: #000;
+      position: relative;
+      cursor: pointer;
+    }
+    .video-wrapper iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
       border: none;
-      padding: 16px 36px;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 700;
+    }
+    .video-thumb {
+      position: absolute;
+      inset: 0;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
-      box-shadow: 0 6px 20px rgba(22,163,74,0.35);
-      transition: transform 0.2s, box-shadow 0.2s;
-      letter-spacing: 0.5px;
+      transition: opacity 0.3s;
     }
-    .btn-main:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(22,163,74,0.45); }
-    .btn-main:active { transform: translateY(0); }
-
-    .btn-outline {
-      background: transparent;
-      color: #16a34a;
-      border: 2px solid #16a34a;
-      padding: 14px 32px;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
+    .video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.7;
     }
-    .btn-outline:hover { background: #16a34a; color: #fff; }
-
-    .stat-card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 24px 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-      text-align: center;
+    .play-btn {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      background: rgba(249,168,37,0.92);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      transition: transform 0.2s, background 0.2s;
     }
+    .play-btn:hover { transform: scale(1.12); background: #f9a825; }
+    .play-btn svg { margin-left: 5px; }
 
-    .symptom-card {
-      background: #fff;
+    /* ---- PRODUCT IMAGE ---- */
+    .product-section {
+      background: linear-gradient(180deg, #f0f7f0 0%, #e8f5e9 100%);
+    }
+    .product-img-wrap {
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      transition: transform 0.2s;
+      box-shadow: 0 12px 48px rgba(27,94,32,0.22);
+      border: 4px solid #2e7d32;
+      max-width: 340px;
+      margin: 0 auto;
     }
-    .symptom-card:hover { transform: translateY(-4px); }
+    .product-img-wrap img { width: 100%; display: block; }
 
-    .review-card {
+    /* ---- STATS ---- */
+    .stats-section {
+      background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+    }
+    .stat-num {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 900;
+      color: #ffeb3b;
+    }
+
+    /* ---- CTA BUTTON ---- */
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #f9a825, #e65100);
+      color: #fff;
+      font-weight: 800;
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+      padding: 16px 36px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(230,81,0,0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(230,81,0,0.5);
+    }
+    .cta-btn:active { transform: translateY(0); }
+
+    /* ---- MODAL ---- */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
       background: #fff;
       border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-      border-left: 4px solid #16a34a;
-    }
-
-    .modal-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.55);
-      display: flex; align-items: center; justify-content: center;
-      z-index: 1000; padding: 16px;
-      opacity: 0; pointer-events: none; transition: opacity 0.3s;
-    }
-    .modal-overlay.active { opacity: 1; pointer-events: all; }
-
-    .modal-box {
-      background: #fff; border-radius: 24px; padding: 36px 28px;
-      width: 100%; max-width: 440px;
-      transform: scale(0.92); transition: transform 0.3s;
-    }
-    .modal-overlay.active .modal-box { transform: scale(1); }
-
-    input, select {
-      width: 100%; border: 2px solid #d1fae5; border-radius: 12px;
-      padding: 13px 16px; font-size: 0.95rem; outline: none;
-      transition: border-color 0.2s; background: #f9fefb;
-    }
-    input:focus, select:focus { border-color: #16a34a; }
-
-    .phone-wrapper { display: flex; align-items: center; gap: 0; }
-    .phone-prefix {
-      background: #e6f7ee; border: 2px solid #d1fae5;
-      border-right: none; border-radius: 12px 0 0 12px;
-      padding: 13px 14px; font-size: 0.95rem; font-weight: 700;
-      color: #16a34a; white-space: nowrap;
-    }
-    .phone-wrapper input {
-      border-radius: 0 12px 12px 0; border-left: none;
-    }
-
-    .success-msg {
-      text-align: center; padding: 20px 0;
-    }
-
-    .section-badge {
-      display: inline-block;
-      background: #dcfce7; color: #15803d;
-      border-radius: 50px; padding: 6px 18px;
-      font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;
-      text-transform: uppercase; margin-bottom: 12px;
-    }
-
-    .ingredient-chip {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: #e6f7ee; color: #15803d;
-      border-radius: 50px; padding: 8px 18px;
-      font-size: 0.85rem; font-weight: 600;
-      margin: 4px;
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-    @media(min-width: 640px) {
-      .reviews-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media(min-width: 1024px) {
-      .reviews-grid { grid-template-columns: 1fr 1fr 1fr; }
-    }
-
-    .symptoms-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    @media(min-width: 768px) {
-      .symptoms-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    .floating-label { font-size: 0.82rem; font-weight: 600; color: #374151; margin-bottom: 6px; display: block; }
-
-    .stars { color: #f59e0b; font-size: 1rem; }
-
-    .hero-product-img {
+      padding: 32px 24px;
       width: 100%;
-      max-width: 340px;
-      border-radius: 24px;
-      box-shadow: 0 12px 40px rgba(22,163,74,0.2);
-      margin: 0 auto;
-      display: block;
+      max-width: 440px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      position: relative;
     }
+    .modal-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #1b5e20;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      color: #2e7d32;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #c8e6c9;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      transition: border 0.2s;
+      background: #f9fffe;
+    }
+    .form-group input:focus,
+    .form-group select:focus { border-color: #2e7d32; }
+    .phone-wrap {
+      display: flex;
+      align-items: center;
+      border: 2px solid #c8e6c9;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #f9fffe;
+      transition: border 0.2s;
+    }
+    .phone-wrap:focus-within { border-color: #2e7d32; }
+    .phone-prefix {
+      background: #e8f5e9;
+      color: #1b5e20;
+      font-weight: 700;
+      padding: 12px 14px;
+      font-size: 1rem;
+      border-right: 2px solid #c8e6c9;
+      white-space: nowrap;
+    }
+    .phone-input {
+      flex: 1;
+      border: none !important;
+      outline: none;
+      padding: 12px 12px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: transparent;
+    }
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #1b5e20, #2e7d32);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: opacity 0.2s, transform 0.2s;
+      font-family: inherit;
+      letter-spacing: 0.5px;
+    }
+    .submit-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 24px 0 8px;
+    }
+    .success-msg .check-icon {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, #2e7d32, #4caf50);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .success-msg p {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1b5e20;
+      line-height: 1.6;
+    }
+    .close-modal {
+      position: absolute;
+      top: 14px; right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      color: #999;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .close-modal:hover { color: #1b5e20; }
+
+    /* ---- SYMPTOMS ---- */
+    .symptoms-section { background: #f0f7f0; }
+    .symptom-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(27,94,32,0.1);
+      border: 2px solid #e8f5e9;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .symptom-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(27,94,32,0.18);
+    }
+    .symptom-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+    }
+    .symptom-icon {
+      width: 100%;
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+    .symptom-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #1b5e20;
+      margin-bottom: 6px;
+    }
+    .symptom-desc {
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* ---- ABOUT ---- */
+    .about-section {
+      background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+    }
+    .about-feature {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .about-feature-icon {
+      width: 40px; height: 40px;
+      background: rgba(255,235,59,0.25);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+    }
+
+    /* ---- REVIEWS ---- */
+    .reviews-section { background: #f0f7f0; }
+    .review-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(27,94,32,0.1);
+      border-left: 4px solid #2e7d32;
+      position: relative;
+    }
+    .review-card::before {
+      content: '❝';
+      position: absolute;
+      top: 10px; right: 16px;
+      font-size: 2.5rem;
+      color: #e8f5e9;
+      line-height: 1;
+    }
+    .review-name {
+      font-weight: 700;
+      color: #1b5e20;
+      font-size: 0.95rem;
+    }
+    .review-meta {
+      font-size: 0.8rem;
+      color: #888;
+      margin-bottom: 10px;
+    }
+    .review-text {
+      font-size: 0.9rem;
+      color: #333;
+      line-height: 1.6;
+      font-style: italic;
+    }
+    .stars { color: #f9a825; font-size: 1rem; margin-bottom: 4px; }
+
+    /* ---- FINAL CTA ---- */
+    .final-cta {
+      background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background: #0d3b13;
+      color: #81c784;
+    }
+
+    /* ---- SECTION TITLE ---- */
+    .section-title {
+      font-size: clamp(1.3rem, 4vw, 2rem);
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    .section-title.dark { color: #1b5e20; }
+    .section-title.light { color: #fff; }
 
     .divider {
       width: 60px; height: 4px;
-      background: linear-gradient(90deg, #16a34a, #4ade80);
-      border-radius: 4px; margin: 16px auto;
+      background: linear-gradient(90deg, #f9a825, #e65100);
+      border-radius: 2px;
+      margin: 0 auto 24px;
     }
 
-    .number-badge {
-      width: 48px; height: 48px; border-radius: 50%;
-      background: linear-gradient(135deg, #16a34a, #4ade80);
-      color: #fff; display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; font-weight: 900; flex-shrink: 0;
+    /* Scroll smooth */
+    html { scroll-behavior: smooth; }
+
+    /* Video grid scroll on mobile */
+    .videos-scroll {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
     }
+    @media (max-width: 640px) {
+      .videos-scroll {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+    }
+    @media (max-width: 400px) {
+      .videos-scroll {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .video-aspect {
+      aspect-ratio: 9/16;
+      position: relative;
+    }
+
+    /* Error highlight */
+    .input-error { border-color: #e53935 !important; }
+    .error-text { color: #e53935; font-size: 0.78rem; margin-top: 4px; }
   </style>
 </head>
 <body>
 
-<!-- ================================ MODAL ================================ -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
-  <div class="modal-box" id="modalBox">
-    <div id="formContent">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
-        <h2 style="font-size:1.25rem;font-weight:800;color:#15803d;margin:0;">Бепул Маслаҳат Олинг</h2>
-        <button onclick="closeModal()" style="background:none;border:none;font-size:1.6rem;cursor:pointer;color:#6b7280;line-height:1;">&times;</button>
-      </div>
-      <p style="color:#6b7280;font-size:0.88rem;margin-bottom:24px;">Маълумотларингизни қолдиринг, мутахассисимиз тез орада боғланади.</p>
+<!-- ============================
+  SECTION 1: HOOK
+============================= -->
+<section class="hook-section py-16 px-4 text-center relative z-10">
+  <div class="max-w-3xl mx-auto relative z-10">
+    <div class="inline-block bg-yellow-400 text-green-900 text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">Диабет ва Саломатлик</div>
+    <h1 class="hook-title mb-6">
+      ДИАБЕТ ҲЕЧ ҚАЧОН <span>ЙЎҚ БЎЛИБ КЕТМАЙДИ</span>, АГАР...
+    </h1>
+    <p class="hook-sub mb-8">
+      ...сиз тўғри ёндашув ва табиий ёрдамчини топмасангиз.<br>
+      Абиҳаят — Туркиянинг Бурса тоғларидан келган ноёб табиий даmlама.
+    </p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <button onclick="openModal('modal1')" class="cta-btn">Батафсил маълумот олиш →</button>
+    </div>
+    <div class="mt-10 flex justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12l7 7 7-7" stroke="#c8e6c9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
 
-      <div style="margin-bottom:16px;">
-        <label class="floating-label">Исмингиз *</label>
-        <input type="text" id="leadName" placeholder="Масалан: Муҳаммад" maxlength="60" />
-      </div>
+<!-- ============================
+  SECTION 2: VIDEOS
+============================= -->
+<section class="videos-section py-14 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10">
+      <h2 class="section-title dark mb-3">Даmlама ҳақида видеолар</h2>
+      <div class="divider"></div>
+      <p class="text-gray-600 text-sm max-w-xl mx-auto">Видео устига босинг ва кўринг — Абиҳаят одамларга қандай ёрдам бериши ҳақида</p>
+    </div>
+    <div class="videos-scroll">
 
-      <div style="margin-bottom:16px;">
-        <label class="floating-label">Телефон рақамингиз *</label>
-        <div class="phone-wrapper">
-          <span class="phone-prefix">+998</span>
-          <input type="tel" id="leadPhone" placeholder="XX XXX XX XX" maxlength="9" oninput="this.value=this.value.replace(/\D/g,'')" />
+      <!-- Video 1 -->
+      <div class="video-aspect video-wrapper" data-id="g1xYZcVHPwQ">
+        <div class="video-thumb" onclick="loadVideo(this, 'g1xYZcVHPwQ')">
+          <img src="https://i.ytimg.com/vi/g1xYZcVHPwQ/hqdefault.jpg" alt="Видео 1" loading="lazy" />
+          <div class="play-btn">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
         </div>
       </div>
 
-      <div style="margin-bottom:24px;">
-        <label class="floating-label">Вилоятингиз *</label>
-        <select id="leadRegion">
+      <!-- Video 2 -->
+      <div class="video-aspect video-wrapper" data-id="uLZWunqUmNY">
+        <div class="video-thumb" onclick="loadVideo(this, 'uLZWunqUmNY')">
+          <img src="https://i.ytimg.com/vi/uLZWunqUmNY/hqdefault.jpg" alt="Видео 2" loading="lazy" />
+          <div class="play-btn">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video 3 -->
+      <div class="video-aspect video-wrapper" data-id="M-KiXu5N0zY">
+        <div class="video-thumb" onclick="loadVideo(this, 'M-KiXu5N0zY')">
+          <img src="https://i.ytimg.com/vi/M-KiXu5N0zY/hqdefault.jpg" alt="Видео 3" loading="lazy" />
+          <div class="play-btn">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video 4 -->
+      <div class="video-aspect video-wrapper" data-id="Dqw_AbNLd00">
+        <div class="video-thumb" onclick="loadVideo(this, 'Dqw_AbNLd00')">
+          <img src="https://i.ytimg.com/vi/Dqw_AbNLd00/hqdefault.jpg" alt="Видео 4" loading="lazy" />
+          <div class="play-btn">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video 5 -->
+      <div class="video-aspect video-wrapper" data-id="16yz-sLMik0">
+        <div class="video-thumb" onclick="loadVideo(this, '16yz-sLMik0')">
+          <img src="https://i.ytimg.com/vi/16yz-sLMik0/hqdefault.jpg" alt="Видео 5" loading="lazy" />
+          <div class="play-btn">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+  SECTION 3: PRODUCT IMAGE
+============================= -->
+<section class="product-section py-14 px-4">
+  <div class="max-w-2xl mx-auto text-center">
+    <div class="inline-block bg-green-100 text-green-800 text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">Маҳсулот</div>
+    <h2 class="section-title dark mb-4">ABIHAYAT Даmlamasi</h2>
+    <p class="text-gray-600 mb-8 text-sm leading-relaxed max-w-md mx-auto">Туркиянинг Бурса тоғларида яратилган ноёб табиий даmlама. Ҳар бир қадамда соғлиқни тиклашга ёрдам беради.</p>
+    <div class="product-img-wrap">
+      <img src="https://i.postimg.cc/1zbsjBWN/IMG-20260504-130659-267.jpg" alt="ABIHAYAT Даmlamasi" />
+    </div>
+    <div class="mt-6 flex justify-center gap-4 flex-wrap">
+      <div class="flex items-center gap-2 bg-green-100 rounded-full px-4 py-2 text-sm font-semibold text-green-800">
+        🌿 100% Табиий
+      </div>
+      <div class="flex items-center gap-2 bg-yellow-100 rounded-full px-4 py-2 text-sm font-semibold text-yellow-800">
+        🇹🇷 Туркиядан
+      </div>
+      <div class="flex items-center gap-2 bg-green-100 rounded-full px-4 py-2 text-sm font-semibold text-green-800">
+        ✅ Синовдан ўтган
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+  SECTION 4: STATISTICS
+============================= -->
+<section class="stats-section py-16 px-4 text-center">
+  <div class="max-w-4xl mx-auto">
+    <div class="inline-block bg-yellow-400 text-green-900 text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">Жаҳон Статистикаси</div>
+    <h2 class="section-title light mb-4">Диабет — Жаҳон Муаммоси</h2>
+    <p class="text-green-200 mb-10 text-sm leading-relaxed max-w-xl mx-auto">Рақамлар ҳақиқатни кўрсатади. Ушбу касаллик сиздан ёки яқинларингиздан узоқ эмас.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
+      <div class="stat-card p-6">
+        <div class="stat-num">600 МЛН+</div>
+        <div class="text-green-200 text-sm mt-2 font-medium">Жаҳонда диабет билан касалланган инсонлар</div>
+      </div>
+      <div class="stat-card p-6">
+        <div class="stat-num">1-да 1</div>
+        <div class="text-green-200 text-sm mt-2 font-medium">Ҳар иккинчи диабетли кўзи кўрмай қолиши мумкин</div>
+      </div>
+      <div class="stat-card p-6">
+        <div class="stat-num">6 МЛН</div>
+        <div class="text-green-200 text-sm mt-2 font-medium">Ҳар йили диабетдан ўлим ҳолатлари</div>
+      </div>
+    </div>
+    <div class="bg-white/10 border border-white/20 rounded-2xl p-6 mb-8 text-left max-w-2xl mx-auto">
+      <p class="text-white font-semibold text-base leading-relaxed">
+        🌍 Дунёда <strong class="text-yellow-300">600 млн га яқин инсон</strong> диабет билан яшамоқда — улар орасида <strong class="text-yellow-300">сиз ҳам борсиз</strong>.<br><br>
+        <span class="text-green-200 text-sm">Абиҳаят буда қандай ёрдам беради? — Табиий ингредиентлар ёрдамида қон шакарини нормаллаштиришга, умумий соғлиқни яхшилашга ёрдам беради.</span>
+      </p>
+    </div>
+    <button onclick="openModal('modal1')" class="cta-btn">Батафсил маълумот олиш →</button>
+  </div>
+</section>
+
+<!-- ============================
+  SECTION 5: SYMPTOMS
+============================= -->
+<section class="symptoms-section py-16 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="inline-block bg-green-100 text-green-800 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest">Белгилар</div>
+      <h2 class="section-title dark mb-3">Диабет Белгиларини Танинг</h2>
+      <div class="divider"></div>
+      <p class="text-gray-500 text-sm max-w-xl mx-auto">Агар қуйидаги белгилардан бирортаси сизда мавжуд бўлса — эҳтиёт бўлинг!</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+
+      <!-- Symptom 1: Thirst -->
+      <div class="symptom-card">
+        <div class="symptom-icon bg-blue-50">💧</div>
+        <div class="p-4">
+          <div class="symptom-title">Доимий чанқаш</div>
+          <div class="symptom-desc">Кўп сув ичишга қарамай чанқоқлик пасаймайди. Оғиз доимо қуруқ.</div>
+        </div>
+      </div>
+
+      <!-- Symptom 2: Frequent urination -->
+      <div class="symptom-card">
+        <div class="symptom-icon bg-yellow-50">🚽</div>
+        <div class="p-4">
+          <div class="symptom-title">Тез-тез сийиш</div>
+          <div class="symptom-desc">Кечаси ҳам тез-тез туриш, кундузи ҳам кўп сийиш диабетнинг асосий аломати.</div>
+        </div>
+      </div>
+
+      <!-- Symptom 3: Fatigue -->
+      <div class="symptom-card">
+        <div class="symptom-icon bg-orange-50">😴</div>
+        <div class="p-4">
+          <div class="symptom-title">Чарчоқ ва ҳолсизлик</div>
+          <div class="symptom-desc">Организм қандни энергияга айлантира олмагач, доимий чарчоқ сезилади.</div>
+        </div>
+      </div>
+
+      <!-- Symptom 4: Blurry vision -->
+      <div class="symptom-card">
+        <div class="symptom-icon bg-purple-50">👁️</div>
+        <div class="p-4">
+          <div class="symptom-title">Кўришнинг пасайиши</div>
+          <div class="symptom-desc">Кўз олдида туман, нарсалар хира кўринади — диабетнинг хавфли белгиси.</div>
+        </div>
+      </div>
+
+      <!-- Symptom 5: Weight loss -->
+      <div class="symptom-card">
+        <div class="symptom-icon bg-red-50">⚖️</div>
+        <div class="p-4">
+          <div class="symptom-title">Вазн йўқотиш</div>
+          <div class="symptom-desc">Мўл-кўл овқатланишга қарамай вазн кескин тушиши диабет белгиси.</div>
+        </div>
+      </div>
+
+      <!-- Symptom 6: Slow healing -->
+      <div class="symptom-card">
+        <div class="symptom-icon bg-green-50">🩹</div>
+        <div class="p-4">
+          <div class="symptom-title">Яраларнинг секин битиши</div>
+          <div class="symptom-desc">Кичик кесик ёки жароҳат узоқ вақт битмаса — қон шакарини текшириш керак.</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center mt-12">
+      <p class="text-gray-600 mb-5 font-medium">Ушбу белгилар мавжуд бўлса — бугун ёрдам олинг!</p>
+      <button onclick="openModal('modal1')" class="cta-btn">Батафсил маълумот олиш →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+  SECTION 6: ABOUT ABIHAYAT
+============================= -->
+<section class="about-section py-16 px-4">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="inline-block bg-yellow-400 text-green-900 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest">Маҳсулот Ҳақида</div>
+      <h2 class="section-title light mb-3">ABIHAYAT Нима?</h2>
+      <div class="divider"></div>
+      <p class="text-green-200 text-sm max-w-xl mx-auto leading-relaxed">Туркиянинг Бурса тоғларида яратилган, асрлар давомида синовдан ўтган ноёб табиий даmlама.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+      <div class="about-feature">
+        <div class="about-feature-icon">🏔️</div>
+        <div>
+          <div class="text-white font-700 font-bold mb-1">Бурса тоғларида яратилган</div>
+          <div class="text-green-200 text-sm">Туркиянинг тоза ҳаволи тоғ минтақасида экиб-ўстирилган.</div>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon">🚫</div>
+        <div>
+          <div class="text-white font-bold mb-1">Дори ёки БАД эмас</div>
+          <div class="text-green-200 text-sm">100% табиий даmlама — кимёвий моддалар йўқ.</div>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon">🫒</div>
+        <div>
+          <div class="text-white font-bold mb-1">Заytun ва кекик</div>
+          <div class="text-green-200 text-sm">Тасдиқланган табиий ингредиентлар: заытун, кекик, долчин.</div>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon">💊</div>
+        <div>
+          <div class="text-white font-bold mb-1">A, B, C, D витаминлар</div>
+          <div class="text-green-200 text-sm">Иммунитетни мустаҳкамлайдиган тўлиқ витамин комплекси.</div>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon">🩸</div>
+        <div>
+          <div class="text-white font-bold mb-1">Қон шакарини нормаллаштиради</div>
+          <div class="text-green-200 text-sm">Долчин ва кекик қон шакарини балансда ушлайди.</div>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon">❤️</div>
+        <div>
+          <div class="text-white font-bold mb-1">Юрак-томирни ҳимоя қилади</div>
+          <div class="text-green-200 text-sm">Заytun ёғи томирларни тозалаб, юракни мустаҳкамлайди.</div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <button onclick="openModal('modal1')" class="cta-btn">Батафсил маълумот олиш →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+  SECTION 7: REVIEWS
+============================= -->
+<section class="reviews-section py-16 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="inline-block bg-green-100 text-green-800 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest">Фойдаланувчилар Фикри</div>
+      <h2 class="section-title dark mb-3">Мижозларимиз Нима Дейди?</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-name">М. Ҳожиев</div>
+        <div class="review-meta">47 ёшда • Самарқанд</div>
+        <div class="review-text">"Мен диабет бўйича бу чойдан зўр фойда кўрдим. 3 ойдан кейин шакарим нормага тушди!"</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-name">З. Рашидова</div>
+        <div class="review-meta">53 ёшда • Тошкент</div>
+        <div class="review-text">"Оёқлардаги оғриқ камайди, кечалари яхши ухлаётибман. Абиҳаят ҳақиқатан ёрдам берди!"</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-name">А. Юсупов</div>
+        <div class="review-meta">61 ёшда • Фарғона</div>
+        <div class="review-text">"10 йил диабет билан яшадим. Абиҳаятни ичиб бошлагач, доридан камроқ муҳтож бўлдим."</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-name">Г. Назарова</div>
+        <div class="review-meta">44 ёшда • Бухоро</div>
+        <div class="review-text">"Ажойиб таъм, ичиш осон. Иммунитетим кучайди, чарчоқ йўқолди. Таvsiya қиламан!"</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-name">Б. Матмусаев</div>
+        <div class="review-meta">58 ёшда • Наманган</div>
+        <div class="review-text">"Ҳакимдан ташқари Абиҳаятни ҳам қўллаяпман. Натижа аjoyib — шакар стабил турибди."</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-name">Н. Каримова</div>
+        <div class="review-meta">39 ёшда • Андижон</div>
+        <div class="review-text">"Ота-онам учун олдим. Иккаласи ҳам натижадан мамнун. Оилавий доимий маҳсулотимиз."</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-name">Т. Эргашев</div>
+        <div class="review-meta">66 ёшда • Қашқадарё</div>
+        <div class="review-text">"Биринчи ойдаёқ фарқни сездим. Кўзим яхшироқ кўра бошлади, вазним стабиллашди."</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+  SECTION 8: FINAL CTA
+============================= -->
+<section class="final-cta py-16 px-4 text-center">
+  <div class="max-w-2xl mx-auto">
+    <div class="inline-block bg-yellow-400 text-green-900 text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">Ҳозир Бошланг</div>
+    <h2 class="text-white font-black text-2xl sm:text-3xl mb-4 leading-tight">
+      Сиз Ҳам Ҳозироқ Бошланг!
+    </h2>
+    <p class="text-green-200 mb-8 text-sm leading-relaxed">
+      Маълумотингизни қолдиринг — мутахассисларимиз сиз билан боғланиб, тўлиқ маслаҳат беришади.
+    </p>
+
+    <!-- INLINE LEAD FORM -->
+    <div class="bg-white rounded-2xl p-6 sm:p-8 text-left shadow-2xl">
+      <h3 class="text-green-900 font-bold text-lg mb-5 text-center">📋 Маълумотингизни Қолдиринг</h3>
+      <div id="finalFormSuccess" class="success-msg" style="display:none;">
+        <div class="check-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p>Маълумотингиз юборилди!<br>Тез орада сиз билан боғланишади. 🎉</p>
+      </div>
+      <form id="finalLeadForm" onsubmit="submitForm(event, 'finalLeadForm', 'finalFormSuccess')">
+        <div class="form-group">
+          <label>Исмингиз *</label>
+          <input type="text" id="final_name" placeholder="Исм ва Фамилия" />
+          <div class="error-text" id="err_final_name"></div>
+        </div>
+        <div class="form-group">
+          <label>Телефон рақамингиз *</label>
+          <div class="phone-wrap">
+            <div class="phone-prefix">+998</div>
+            <input type="tel" id="final_phone" class="phone-input" placeholder="XX XXX XX XX" maxlength="9" inputmode="numeric" />
+          </div>
+          <div class="error-text" id="err_final_phone"></div>
+        </div>
+        <div class="form-group">
+          <label>Вилоятингиз *</label>
+          <select id="final_region">
+            <option value="">— Вилоятни танланг —</option>
+            <option>Тошкент шаҳри</option>
+            <option>Тошкент вилояти</option>
+            <option>Самарқанд</option>
+            <option>Бухоро</option>
+            <option>Фарғона</option>
+            <option>Андижон</option>
+            <option>Наманган</option>
+            <option>Қашқадарё</option>
+            <option>Сурхондарё</option>
+            <option>Жиззах</option>
+            <option>Сирдарё</option>
+            <option>Навоий</option>
+            <option>Хоразм</option>
+            <option>Қорақалпоғистон</option>
+          </select>
+          <div class="error-text" id="err_final_region"></div>
+        </div>
+        <button type="submit" class="submit-btn">📩 Юбориш</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+  FOOTER
+============================= -->
+<footer class="py-8 px-4 text-center">
+  <div class="max-w-xl mx-auto">
+    <div class="text-xl font-black text-white mb-2">ABIHAYAT</div>
+    <div class="text-green-500 text-xs mb-4">Табиий ёрдамчингиз — диабетга қарши!</div>
+    <div class="text-green-700 text-xs">© 2025 ABIHAYAT. Барча ҳуқуқлар ҳимояланган.<br>Бу сайт маълумот мақсадида тузилган. Дорихона эмас.</div>
+  </div>
+</footer>
+
+<!-- ============================
+  MODAL: LEAD FORM
+============================= -->
+<div class="modal-overlay" id="modal1" onclick="closeModalOutside(event)">
+  <div class="modal-box">
+    <button class="close-modal" onclick="closeModal('modal1')">✕</button>
+    <div class="modal-title">📋 Батафсил Маълумот Олинг</div>
+    <div id="modalFormSuccess" class="success-msg" style="display:none;">
+      <div class="check-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <p>Маълумотингиз юборилди!<br>Тез орада сиз билан боғланишади. 🎉</p>
+    </div>
+    <form id="modalLeadForm" onsubmit="submitForm(event, 'modalLeadForm', 'modalFormSuccess')">
+      <div class="form-group">
+        <label>Исмингиз *</label>
+        <input type="text" id="modal_name" placeholder="Исм ва Фамилия" />
+        <div class="error-text" id="err_modal_name"></div>
+      </div>
+      <div class="form-group">
+        <label>Телефон рақамингиз *</label>
+        <div class="phone-wrap">
+          <div class="phone-prefix">+998</div>
+          <input type="tel" id="modal_phone" class="phone-input" placeholder="XX XXX XX XX" maxlength="9" inputmode="numeric" />
+        </div>
+        <div class="error-text" id="err_modal_phone"></div>
+      </div>
+      <div class="form-group">
+        <label>Вилоятингиз *</label>
+        <select id="modal_region">
           <option value="">— Вилоятни танланг —</option>
           <option>Тошкент шаҳри</option>
           <option>Тошкент вилояти</option>
           <option>Самарқанд</option>
           <option>Бухоро</option>
-          <option>Наманган</option>
-          <option>Андижон</option>
           <option>Фарғона</option>
+          <option>Андижон</option>
+          <option>Наманган</option>
           <option>Қашқадарё</option>
           <option>Сурхондарё</option>
           <option>Жиззах</option>
@@ -215,526 +919,142 @@
           <option>Хоразм</option>
           <option>Қорақалпоғистон</option>
         </select>
+        <div class="error-text" id="err_modal_region"></div>
       </div>
-
-      <div id="formError" style="color:#ef4444;font-size:0.85rem;margin-bottom:12px;display:none;"></div>
-
-      <button class="btn-main" style="width:100%;font-size:1rem;" onclick="submitLead()">
-        ✅ Юбориш
-      </button>
-      <p style="text-align:center;font-size:0.78rem;color:#9ca3af;margin-top:12px;">Маълумотларингиз хавфсиз сақланади</p>
-    </div>
-
-    <div id="successContent" class="success-msg" style="display:none;">
-      <div style="font-size:3.5rem;margin-bottom:16px;">✅</div>
-      <h2 style="font-size:1.3rem;font-weight:800;color:#15803d;margin-bottom:10px;">Маълумотларингиз юборилди!</h2>
-      <p style="color:#6b7280;font-size:0.95rem;line-height:1.6;">Тез орада мутахассисимиз сиз билан боғланади. Раҳмат!</p>
-      <button class="btn-main" style="margin-top:24px;" onclick="closeModal()">Ёпиш</button>
-    </div>
+      <button type="submit" class="submit-btn">📩 Юбориш</button>
+    </form>
   </div>
 </div>
 
-<!-- ============================= SECTION 1: HOOK ============================= -->
-<section class="hero-gradient" style="padding: 60px 20px 50px;">
-  <div style="max-width:700px;margin:0 auto;text-align:center;">
-
-    <div class="section-badge">🌿 Табиий Дамлама</div>
-
-    <h1 style="font-size:clamp(1.8rem, 6vw, 3rem); font-weight:900; color:#14532d; line-height:1.2; margin:12px 0 8px; letter-spacing:-0.5px;">
-      ДИАБЕТ ҲЕЧ ҚАЧОН<br/>ЙЎҚ БЎЛИб КЕТМАЙДИ,
-    </h1>
-    <h1 style="font-size:clamp(1.6rem, 5.5vw, 2.5rem); font-weight:900; color:#16a34a; line-height:1.2; margin:0 0 32px; letter-spacing:-0.5px;">
-      АГАР...
-    </h1>
-
-    <img
-      src="https://i.postimg.cc/1zbsjBWN/IMG-20260504-130659-267.jpg"
-      alt="ABIHAYAT Дамламаси"
-      class="hero-product-img"
-      style="margin-bottom:40px;"
-    />
-
-    <!-- STATISTICS -->
-    <div style="background:#fff;border-radius:24px;padding:28px 24px;box-shadow:0 6px 30px rgba(0,0,0,0.08);margin-bottom:32px;">
-      <p style="font-size:0.85rem;font-weight:700;color:#16a34a;letter-spacing:1px;text-transform:uppercase;margin:0 0 8px;">📊 Жаҳон статистикаси</p>
-      <p style="font-size:clamp(2rem,8vw,3.5rem);font-weight:900;color:#14532d;margin:0 0 4px;line-height:1;">600 <span style="font-size:0.5em;">МЛН+</span></p>
-      <p style="font-size:1rem;font-weight:600;color:#374151;margin:0 0 16px;">дунёда диабет билан касалланган инсонлар</p>
-      <div style="width:100%;height:2px;background:#e6f7ee;margin:16px 0;"></div>
-      <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0;">
-        Дунё бўйича <strong style="color:#dc2626;">600 миллионга яқин инсон</strong> қандли диабет билан яшаяпти — улар орасида <strong style="color:#14532d;">сиз ҳам борсиз.</strong>
-      </p>
-      <div style="margin-top:16px;background:#fef2f2;border-radius:14px;padding:14px 16px;">
-        <p style="font-size:0.95rem;color:#7f1d1d;font-weight:600;margin:0;">
-          ⚠️ Диабет тўлиқ йўқолмайди — лекин <span style="color:#14532d;">назоратга олиш мумкин!</span>
-        </p>
-      </div>
-    </div>
-
-    <!-- ABI HAYAT YORDAM -->
-    <div style="background: linear-gradient(135deg,#14532d,#16a34a);border-radius:24px;padding:28px 24px;margin-bottom:32px;color:#fff;">
-      <p style="font-size:1.1rem;font-weight:800;margin:0 0 12px;">🌿 ABIHAYAT буни қандай ёрдам беради?</p>
-      <p style="font-size:0.95rem;line-height:1.7;opacity:0.92;margin:0;">
-        ABIHAYAT — Туркиянинг Бурса тоғларида ўстирилган <strong>табиий ўт-ўланлардан</strong> тайёрланган дамлама. У қон шакарини меъёрига туширишга, ҳужайраларни тиклашга ва иммунитетни кучайтиришга ёрдам беради.
-      </p>
-    </div>
-
-    <button class="btn-main" style="font-size:1.05rem;padding:18px 44px;" onclick="openModal()">
-      📋 Батафсил Маълумот Олиш
-    </button>
-  </div>
-</section>
-
-<!-- ============================= SECTION 2: BELGILAR ============================= -->
-<section style="padding:60px 20px;background:#fff;">
-  <div style="max-width:800px;margin:0 auto;text-align:center;">
-    <div class="section-badge">🔍 Диагностика</div>
-    <h2 style="font-size:clamp(1.5rem,5vw,2.2rem);font-weight:900;color:#14532d;margin:12px 0 8px;">
-      Диабет Белгилари
-    </h2>
-    <div class="divider"></div>
-    <p style="color:#6b7280;font-size:0.95rem;margin-bottom:36px;line-height:1.7;">
-      Қуйидаги белгилардан бири сизда борми? Эҳтиёт бўлинг!
-    </p>
-
-    <div class="symptoms-grid">
-
-      <!-- 1 -->
-      <div class="symptom-card">
-        <img src="https://images.pexels.com/photos/9631296/pexels-photo-9631296.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Ташналик" style="width:100%;height:180px;object-fit:cover;" />
-        <div style="padding:16px;">
-          <p style="font-size:1.4rem;margin:0 0 6px;">💧</p>
-          <h3 style="font-size:1rem;font-weight:800;color:#14532d;margin:0 0 6px;">Кучли Ташналик</h3>
-          <p style="font-size:0.82rem;color:#6b7280;margin:0;line-height:1.5;">Доимий сув ичишга иштиёқ, оғиз қуришдан норасо бўлиш</p>
-        </div>
-      </div>
-
-      <!-- 2 -->
-      <div class="symptom-card">
-        <img src="https://images.pexels.com/photos/7640743/pexels-photo-7640743.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Толиқиш" style="width:100%;height:180px;object-fit:cover;" />
-        <div style="padding:16px;">
-          <p style="font-size:1.4rem;margin:0 0 6px;">😮‍💨</p>
-          <h3 style="font-size:1rem;font-weight:800;color:#14532d;margin:0 0 6px;">Доимий Чарчаш</h3>
-          <p style="font-size:0.82rem;color:#6b7280;margin:0;line-height:1.5;">Ётоқда ҳам чарчашни ҳис қилиш, куч-қувватнинг йўқолиши</p>
-        </div>
-      </div>
-
-      <!-- 3 -->
-      <div class="symptom-card">
-        <img src="https://images.pexels.com/photos/33030215/pexels-photo-33030215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Кўп пешоб" style="width:100%;height:180px;object-fit:cover;" />
-        <div style="padding:16px;">
-          <p style="font-size:1.4rem;margin:0 0 6px;">🚽</p>
-          <h3 style="font-size:1rem;font-weight:800;color:#14532d;margin:0 0 6px;">Кўп Пешоб</h3>
-          <p style="font-size:0.82rem;color:#6b7280;margin:0;line-height:1.5;">Тез-тез ҳожатхонага бориш, айниқса тунда уйқудан уйғониш</p>
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="symptom-card">
-        <img src="https://images.pexels.com/photos/19213523/pexels-photo-19213523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Кўз" style="width:100%;height:180px;object-fit:cover;" />
-        <div style="padding:16px;">
-          <p style="font-size:1.4rem;margin:0 0 6px;">👁️</p>
-          <h3 style="font-size:1rem;font-weight:800;color:#14532d;margin:0 0 6px;">Кўришнинг Ёмонлашуви</h3>
-          <p style="font-size:0.82rem;color:#6b7280;margin:0;line-height:1.5;">Нарсалар хиралашиб кўриниши, кўзнинг тез чарчаши</p>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="symptom-card">
-        <img src="https://images.pexels.com/photos/20860595/pexels-photo-20860595.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Яра" style="width:100%;height:180px;object-fit:cover;" />
-        <div style="padding:16px;">
-          <p style="font-size:1.4rem;margin:0 0 6px;">🩹</p>
-          <h3 style="font-size:1rem;font-weight:800;color:#14532d;margin:0 0 6px;">Яралар Битмаслиги</h3>
-          <p style="font-size:0.82rem;color:#6b7280;margin:0;line-height:1.5;">Кичик кесиклар ва яралар узоқ муддат битмай қолиши</p>
-        </div>
-      </div>
-
-      <!-- 6 -->
-      <div class="symptom-card">
-        <img src="https://images.pexels.com/photos/31650441/pexels-photo-31650441.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Очлик" style="width:100%;height:180px;object-fit:cover;" />
-        <div style="padding:16px;">
-          <p style="font-size:1.4rem;margin:0 0 6px;">🍽️</p>
-          <h3 style="font-size:1rem;font-weight:800;color:#14532d;margin:0 0 6px;">Доимий Очлик</h3>
-          <p style="font-size:0.82rem;color:#6b7280;margin:0;line-height:1.5;">Овқатдан сўнг ҳам очлик ҳисси кетмаслиги</p>
-        </div>
-      </div>
-
-      <!-- 7 — weight loss spanning full on mobile, or just a card -->
-      <div class="symptom-card" style="grid-column: span 2;">
-        <div style="display:flex;gap:0;overflow:hidden;">
-          <img src="https://images.pexels.com/photos/9302046/pexels-photo-9302046.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Вазн" style="width:120px;min-width:120px;object-fit:cover;" />
-          <div style="padding:16px;display:flex;flex-direction:column;justify-content:center;">
-            <p style="font-size:1.4rem;margin:0 0 6px;">⚖️</p>
-            <h3 style="font-size:1rem;font-weight:800;color:#14532d;margin:0 0 6px;">Вазн Йўқотиш</h3>
-            <p style="font-size:0.82rem;color:#6b7280;margin:0;line-height:1.5;">Ейилаётган таомдан қатъи назар вазннинг кескин камайиши</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div style="margin-top:36px;">
-      <p style="font-size:1rem;font-weight:700;color:#dc2626;margin-bottom:20px;">
-        ⚠️ Бу белгилардан бири сизда борми? Кутманг!
-      </p>
-      <button class="btn-main" onclick="openModal()">
-        📋 Батафсил Маълумот Олиш
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- ============================= SECTION 3: ABIHAYAT HAQIDA ============================= -->
-<section style="padding:60px 20px;background:linear-gradient(135deg,#f0faf4,#e6f7ee);">
-  <div style="max-width:750px;margin:0 auto;text-align:center;">
-    <div class="section-badge">🌿 Маҳсулот Ҳақида</div>
-    <h2 style="font-size:clamp(1.5rem,5vw,2.2rem);font-weight:900;color:#14532d;margin:12px 0 8px;">
-      ABIHAYAT Нима?
-    </h2>
-    <div class="divider"></div>
-
-    <img
-      src="https://images.pexels.com/photos/10420382/pexels-photo-10420382.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
-      alt="Табиий ингредиентлар"
-      style="width:100%;border-radius:20px;margin-bottom:28px;box-shadow:0 8px 30px rgba(0,0,0,0.1);max-height:260px;object-fit:cover;"
-    />
-
-    <div style="background:#fff;border-radius:24px;padding:28px 24px;box-shadow:0 4px 20px rgba(0,0,0,0.07);margin-bottom:24px;text-align:left;">
-      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:18px;">
-        <div class="number-badge">1</div>
-        <div>
-          <h3 style="font-size:1rem;font-weight:800;color:#14532d;margin:0 0 4px;">Туркиянинг Бурса тоғларида яратилган</h3>
-          <p style="font-size:0.88rem;color:#6b7280;margin:0;line-height:1.6;">ABIHAYAT Туркиянинг мусаффо тоғ ҳавосида, экологик тоза шароитда ўстирилган ўт-ўланлардан тайёрланади.</p>
-        </div>
-      </div>
-      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:18px;">
-        <div class="number-badge">2</div>
-        <div>
-          <h3 style="font-size:1rem;font-weight:800;color:#14532d;margin:0 0 4px;">Дори ёки БАД эмас</h3>
-          <p style="font-size:0.88rem;color:#6b7280;margin:0;line-height:1.6;">Бу 100% табиий ўсимлик дамламаси. Ён таъсирларсиз, кимёвий моддасиз, фақат табиат инъомидан иборат.</p>
-        </div>
-      </div>
-      <div style="display:flex;align-items:flex-start;gap:14px;">
-        <div class="number-badge">3</div>
-        <div>
-          <h3 style="font-size:1rem;font-weight:800;color:#14532d;margin:0 0 4px;">Бой таркиб</h3>
-          <p style="font-size:0.88rem;color:#6b7280;margin:0;line-height:1.6;">Ҳар бир дамламада организмингизга зарур бўлган барча витаминлар мавжуд.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Ingredients -->
-    <div style="margin-bottom:28px;">
-      <p style="font-size:0.85rem;font-weight:700;color:#14532d;margin-bottom:12px;letter-spacing:0.5px;">🧪 ТАРКИБИ:</p>
-      <div>
-        <span class="ingredient-chip">🫒 Зайтун</span>
-        <span class="ingredient-chip">🌿 Кекик</span>
-        <span class="ingredient-chip">🪵 Долчин</span>
-        <span class="ingredient-chip">💊 A Витамин</span>
-        <span class="ingredient-chip">💊 B6 Витамин</span>
-        <span class="ingredient-chip">💊 C Витамин</span>
-        <span class="ingredient-chip">💊 D Витамин</span>
-      </div>
-    </div>
-
-    <!-- Benefits -->
-    <div style="background:linear-gradient(135deg,#14532d,#16a34a);border-radius:20px;padding:24px;color:#fff;margin-bottom:32px;">
-      <p style="font-size:1rem;font-weight:800;margin:0 0 16px;">✨ ABIHAYAT нималарга ёрдам беради:</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:left;">
-        <div style="display:flex;gap:8px;align-items:flex-start;"><span>✅</span><span style="font-size:0.85rem;opacity:0.95;">Қон шакарини меъёрлаштиради</span></div>
-        <div style="display:flex;gap:8px;align-items:flex-start;"><span>✅</span><span style="font-size:0.85rem;opacity:0.95;">Иммунитетни мустаҳкамлайди</span></div>
-        <div style="display:flex;gap:8px;align-items:flex-start;"><span>✅</span><span style="font-size:0.85rem;opacity:0.95;">Ҳужайраларни тиклайди</span></div>
-        <div style="display:flex;gap:8px;align-items:flex-start;"><span>✅</span><span style="font-size:0.85rem;opacity:0.95;">Чарчашни камайтиради</span></div>
-        <div style="display:flex;gap:8px;align-items:flex-start;"><span>✅</span><span style="font-size:0.85rem;opacity:0.95;">Метаболизмни яхшилайди</span></div>
-        <div style="display:flex;gap:8px;align-items:flex-start;"><span>✅</span><span style="font-size:0.85rem;opacity:0.95;">Табиий детокс қилади</span></div>
-      </div>
-    </div>
-
-    <button class="btn-main" onclick="openModal()">
-      📋 Батафсил Маълумот Олиш
-    </button>
-  </div>
-</section>
-
-<!-- ============================= SECTION 4: REVIEWS ============================= -->
-<section style="padding:60px 20px;background:#fff;">
-  <div style="max-width:900px;margin:0 auto;text-align:center;">
-    <div class="section-badge">⭐ Фойдаланувчилар Фикри</div>
-    <h2 style="font-size:clamp(1.5rem,5vw,2.2rem);font-weight:900;color:#14532d;margin:12px 0 8px;">
-      Мижозларимиз Ҳикоялари
-    </h2>
-    <div class="divider"></div>
-    <p style="color:#6b7280;font-size:0.95rem;margin-bottom:36px;">Улар ўзгариш ҳис қилди — сиз ҳам ҳис қила оласиз!</p>
-
-    <div class="reviews-grid">
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p style="font-size:0.92rem;color:#374151;line-height:1.7;margin:12px 0 16px;">
-          "Мен диабет бўйича бу чойдан зўр фойда кўрдим. Қон шакарим анча меъёрга тушди."
-        </p>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#16a34a,#4ade80);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.9rem;">М</div>
-          <div style="text-align:left;">
-            <p style="font-weight:700;color:#14532d;margin:0;font-size:0.9rem;">М. Ҳожиев</p>
-            <p style="color:#9ca3af;font-size:0.78rem;margin:0;">47 ёшда • Самарқанд</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p style="font-size:0.92rem;color:#374151;line-height:1.7;margin:12px 0 16px;">
-          "2 ойдан бери ичиб келяпман. Чарчоқ йўқолди, кўришим яхшиланди. Жуда миннатдорман!"
-        </p>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0d9488,#2dd4bf);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.9rem;">З</div>
-          <div style="text-align:left;">
-            <p style="font-weight:700;color:#14532d;margin:0;font-size:0.9rem;">З. Раҳимова</p>
-            <p style="color:#9ca3af;font-size:0.78rem;margin:0;">54 ёшда • Тошкент</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p style="font-size:0.92rem;color:#374151;line-height:1.7;margin:12px 0 16px;">
-          "Шифокор дориларини ичаётгандим, шунга қарамай шакарим тушмасди. ABIHAYAT билан натижа кўрдим."
-        </p>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a78bfa);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.9rem;">А</div>
-          <div style="text-align:left;">
-            <p style="font-weight:700;color:#14532d;margin:0;font-size:0.9rem;">А. Юсупов</p>
-            <p style="color:#9ca3af;font-size:0.78rem;margin:0;">61 ёшда • Фарғона</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p style="font-size:0.92rem;color:#374151;line-height:1.7;margin:12px 0 16px;">
-          "Онам учун буюртма қилдим. 3 ҳафтадан кейин ўзи ҳам яхши ҳис қилаётганини айтди. Раҳмат!"
-        </p>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#dc2626,#f87171);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.9rem;">Н</div>
-          <div style="text-align:left;">
-            <p style="font-weight:700;color:#14532d;margin:0;font-size:0.9rem;">Н. Каримова</p>
-            <p style="color:#9ca3af;font-size:0.78rem;margin:0;">38 ёшда • Бухоро</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p style="font-size:0.92rem;color:#374151;line-height:1.7;margin:12px 0 16px;">
-          "Тунда ҳожатхонага доим борардим, уйқум бузилаётганди. Энди тинч ухлайман. Маҳсулот ажойиб!"
-        </p>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#d97706,#fcd34d);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.9rem;">Б</div>
-          <div style="text-align:left;">
-            <p style="font-weight:700;color:#14532d;margin:0;font-size:0.9rem;">Б. Тошматов</p>
-            <p style="color:#9ca3af;font-size:0.78rem;margin:0;">58 ёшда • Андижон</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p style="font-size:0.92rem;color:#374151;line-height:1.7;margin:12px 0 16px;">
-          "Дўстим тавсия қилди. Ичиб бошладим, бир ойда вазним барқарорлашди ва энергиям ошди."
-        </p>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0284c7,#7dd3fc);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.9rem;">Х</div>
-          <div style="text-align:left;">
-            <p style="font-weight:700;color:#14532d;margin:0;font-size:0.9rem;">Х. Мўминов</p>
-            <p style="color:#9ca3af;font-size:0.78rem;margin:0;">49 ёшда • Қашқадарё</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card" style="grid-column:1/-1;">
-        <div class="stars">★★★★★</div>
-        <p style="font-size:0.92rem;color:#374151;line-height:1.7;margin:12px 0 16px;">
-          "Шакарим 11 дан 6 га тушди! Ҳаёт ўзгарди деб айтсам бўлади. ABIHAYAT хонадонимизда доимий ичимликка айланди."
-        </p>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#16a34a,#84cc16);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.9rem;">С</div>
-          <div style="text-align:left;">
-            <p style="font-weight:700;color:#14532d;margin:0;font-size:0.9rem;">С. Ғаниева</p>
-            <p style="color:#9ca3af;font-size:0.78rem;margin:0;">52 ёшда • Наманган</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================= SECTION 5: FINAL CTA ============================= -->
-<section style="padding:60px 20px;background:linear-gradient(135deg,#14532d,#16a34a);">
-  <div style="max-width:640px;margin:0 auto;text-align:center;color:#fff;">
-    <p style="font-size:2rem;margin:0 0 12px;">🌿</p>
-    <h2 style="font-size:clamp(1.6rem,5vw,2.4rem);font-weight:900;margin:0 0 16px;line-height:1.2;">
-      Сиз Ҳам Ҳозироқ Бошланг!
-    </h2>
-    <p style="font-size:1rem;opacity:0.9;line-height:1.7;margin-bottom:32px;">
-      Минглаб одамлар ABIHAYAT ёрдамида яхши ҳаёт кечирмоқда. Навбат — сизники! Маълумотларингизни қолдиринг ва бепул маслаҳат олинг.
-    </p>
-
-    <!-- Lead Form -->
-    <div style="background:#fff;border-radius:24px;padding:28px 24px;text-align:left;">
-      <h3 style="font-size:1.15rem;font-weight:800;color:#14532d;margin:0 0 20px;text-align:center;">📝 Маълумотларни Қолдиринг</h3>
-
-      <div style="margin-bottom:16px;">
-        <label class="floating-label">Исмингиз *</label>
-        <input type="text" id="leadName2" placeholder="Масалан: Муҳаммад" maxlength="60" />
-      </div>
-
-      <div style="margin-bottom:16px;">
-        <label class="floating-label">Телефон рақамингиз *</label>
-        <div class="phone-wrapper">
-          <span class="phone-prefix">+998</span>
-          <input type="tel" id="leadPhone2" placeholder="XX XXX XX XX" maxlength="9" oninput="this.value=this.value.replace(/\D/g,'')" />
-        </div>
-      </div>
-
-      <div style="margin-bottom:20px;">
-        <label class="floating-label">Вилоятингиз *</label>
-        <select id="leadRegion2">
-          <option value="">— Вилоятни танланг —</option>
-          <option>Тошкент шаҳри</option>
-          <option>Тошкент вилояти</option>
-          <option>Самарқанд</option>
-          <option>Бухоро</option>
-          <option>Наманган</option>
-          <option>Андижон</option>
-          <option>Фарғона</option>
-          <option>Қашқадарё</option>
-          <option>Сурхондарё</option>
-          <option>Жиззах</option>
-          <option>Сирдарё</option>
-          <option>Навоий</option>
-          <option>Хоразм</option>
-          <option>Қорақалпоғистон</option>
-        </select>
-      </div>
-
-      <div id="formError2" style="color:#ef4444;font-size:0.85rem;margin-bottom:12px;display:none;"></div>
-      <div id="formSuccess2" style="display:none;text-align:center;padding:16px 0;">
-        <p style="font-size:1.5rem;margin:0 0 8px;">✅</p>
-        <p style="font-weight:700;color:#15803d;font-size:1rem;margin:0 0 4px;">Маълумотларингиз юборилди!</p>
-        <p style="color:#6b7280;font-size:0.88rem;margin:0;">Тез орада сиз билан боғланишади.</p>
-      </div>
-
-      <button class="btn-main" id="submitBtn2" style="width:100%;font-size:1rem;" onclick="submitLead2()">
-        ✅ Бепул Маслаҳат Олиш
-      </button>
-      <p style="text-align:center;font-size:0.78rem;color:#9ca3af;margin-top:12px;margin-bottom:0;">Маълумотларингиз хавфсиз сақланади 🔒</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================= FOOTER ============================= -->
-<footer style="background:#0f2e1a;color:#86efac;padding:24px 20px;text-align:center;">
-  <p style="margin:0 0 6px;font-weight:700;font-size:1rem;color:#4ade80;">🌿 ABIHAYAT</p>
-  <p style="margin:0;font-size:0.8rem;opacity:0.7;">Туркиянинг Бурса тоғларидан — сизнинг соғлиғингиз учун</p>
-  <p style="margin:8px 0 0;font-size:0.75rem;opacity:0.5;">© 2026 ABIHAYAT. Барча ҳуқуқлар ҳимояланган.</p>
-</footer>
-
+<!-- ============================
+  JAVASCRIPT
+============================= -->
 <script>
+  // ---- VIDEO LAZY LOAD ----
+  function loadVideo(thumbEl, videoId) {
+    const wrapper = thumbEl.parentElement;
+    thumbEl.style.display = 'none';
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`;
+    iframe.allow = 'autoplay; encrypted-media; fullscreen';
+    iframe.allowFullscreen = true;
+    iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
+    wrapper.appendChild(iframe);
+  }
+
+  // ---- MODAL CONTROLS ----
+  function openModal(id) {
+    document.getElementById(id).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target.classList.contains('modal-overlay')) {
+      e.target.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  // ---- FORM VALIDATION & TELEGRAM SEND ----
   const BOT_TOKEN = '8782026826:AAGYwrdzI5M3-zR-F3-DHd_1LFGjEkjiG74';
   const MY_ID = '1691140865';
   const GROUP_ID = '-1003900043839';
 
-  function openModal() {
-    document.getElementById('modalOverlay').classList.add('active');
-    document.body.style.overflow = 'hidden';
-    document.getElementById('formContent').style.display = 'block';
-    document.getElementById('successContent').style.display = 'none';
-    document.getElementById('formError').style.display = 'none';
-    document.getElementById('leadName').value = '';
-    document.getElementById('leadPhone').value = '';
-    document.getElementById('leadRegion').value = '';
-  }
+  function validateForm(prefix) {
+    let valid = true;
+    const name = document.getElementById(`${prefix}_name`).value.trim();
+    const phone = document.getElementById(`${prefix}_phone`).value.trim();
+    const region = document.getElementById(`${prefix}_region`).value;
 
-  function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('active');
-    document.body.style.overflow = '';
-  }
+    // Reset errors
+    ['name','phone','region'].forEach(f => {
+      document.getElementById(`err_${prefix}_${f}`).textContent = '';
+      const el = document.getElementById(`${prefix}_${f}`);
+      if(el) el.classList.remove('input-error');
+    });
 
-  function closeModalOutside(e) {
-    if (e.target === document.getElementById('modalOverlay')) closeModal();
+    if (!name || name.length < 2) {
+      document.getElementById(`err_${prefix}_name`).textContent = 'Исмингизни киритинг (камида 2 та белги)';
+      document.getElementById(`${prefix}_name`).classList.add('input-error');
+      valid = false;
+    }
+    if (!/^\d{9}$/.test(phone)) {
+      document.getElementById(`err_${prefix}_phone`).textContent = 'Телефон рақами 9 та рақамдан иборат бўлиши керак';
+      document.getElementById(`${prefix}_phone`).classList.add('input-error');
+      valid = false;
+    }
+    if (!region) {
+      document.getElementById(`err_${prefix}_region`).textContent = 'Вилоятни танланг';
+      document.getElementById(`${prefix}_region`).classList.add('input-error');
+      valid = false;
+    }
+    return { valid, name, phone: '+998' + phone, region };
   }
 
   async function sendToTelegram(name, phone, region) {
-    const msg = `🌿 *Янги ABIHAYAT Lead!*\n\n👤 *Исм:* ${name}\n📞 *Телефон:* +998${phone}\n📍 *Вилоят:* ${region}\n\n⏰ ${new Date().toLocaleString('uz-UZ')}`;
+    const text = `🌿 *ABIHAYAT — Янги Лид!*\n\n👤 Исм: ${name}\n📞 Телефон: ${phone}\n📍 Вилоят: ${region}\n\n⏰ Вақт: ${new Date().toLocaleString('uz-UZ')}`;
+    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+    const payload = { chat_id: MY_ID, text, parse_mode: 'Markdown' };
+    const payload2 = { chat_id: GROUP_ID, text, parse_mode: 'Markdown' };
 
-    const targets = [MY_ID, GROUP_ID];
-    const promises = targets.map(chatId =>
-      fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    try {
+      await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: chatId, text: msg, parse_mode: 'Markdown' })
-      })
-    );
-    await Promise.allSettled(promises);
+        body: JSON.stringify(payload)
+      });
+      await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload2)
+      });
+    } catch(e) {
+      console.log('Telegram error:', e);
+    }
   }
 
-  function validateForm(name, phone, region, errId) {
-    const errEl = document.getElementById(errId);
-    if (!name.trim()) {
-      errEl.textContent = '⚠️ Исмингизни киритинг!';
-      errEl.style.display = 'block';
-      return false;
-    }
-    if (phone.length !== 9) {
-      errEl.textContent = '⚠️ Телефон рақами 9 та рақамдан иборат бўлиши керак!';
-      errEl.style.display = 'block';
-      return false;
-    }
-    if (!region) {
-      errEl.textContent = '⚠️ Вилоятингизни танланг!';
-      errEl.style.display = 'block';
-      return false;
-    }
-    errEl.style.display = 'none';
-    return true;
-  }
+  async function submitForm(e, formId, successId) {
+    e.preventDefault();
+    const prefix = formId === 'modalLeadForm' ? 'modal' : 'final';
+    const { valid, name, phone, region } = validateForm(prefix);
+    if (!valid) return;
 
-  async function submitLead() {
-    const name = document.getElementById('leadName').value;
-    const phone = document.getElementById('leadPhone').value;
-    const region = document.getElementById('leadRegion').value;
-
-    if (!validateForm(name, phone, region, 'formError')) return;
-
-    await sendToTelegram(name, phone, region);
-
-    document.getElementById('formContent').style.display = 'none';
-    document.getElementById('successContent').style.display = 'block';
-  }
-
-  async function submitLead2() {
-    const name = document.getElementById('leadName2').value;
-    const phone = document.getElementById('leadPhone2').value;
-    const region = document.getElementById('leadRegion2').value;
-
-    if (!validateForm(name, phone, region, 'formError2')) return;
-
-    const btn = document.getElementById('submitBtn2');
-    btn.disabled = true;
+    const btn = document.querySelector(`#${formId} .submit-btn`);
     btn.textContent = 'Юборилmoqda...';
+    btn.disabled = true;
 
     await sendToTelegram(name, phone, region);
 
-    btn.style.display = 'none';
-    document.getElementById('formSuccess2').style.display = 'block';
-    document.getElementById('leadName2').value = '';
-    document.getElementById('leadPhone2').value = '';
-    document.getElementById('leadRegion2').value = '';
+    document.getElementById(formId).style.display = 'none';
+    document.getElementById(successId).style.display = 'block';
   }
 
-  // Close modal on ESC
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  // ---- PHONE: only digits ----
+  document.querySelectorAll('.phone-input').forEach(input => {
+    input.addEventListener('input', function() {
+      this.value = this.value.replace(/\D/g, '').slice(0, 9);
+    });
+  });
+
+  // ---- SCROLL REVEAL (lightweight) ----
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.stat-card, .symptom-card, .review-card, .about-feature, .video-wrapper').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(28px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
 </script>
 
 </body>
