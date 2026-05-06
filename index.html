@@ -3,1059 +3,1070 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ABIHAYAT — Диабетга Қарши Табиий Даmlама</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>ABIHAYAT – Диабетни назорат қилиш</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #E8F5E9;
+      --green: #006400;
+      --orange: #FF9800;
+      --black: #000000;
+      --white: #ffffff;
+      --card: #ffffff;
+      --radius: 14px;
+      --shadow: 0 4px 24px rgba(0,100,0,0.10);
+    }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #f0f7f0;
-      color: #1a2e1a;
-    }
-
-    /* ---- COLORS ---- */
-    :root {
-      --green-dark: #1b5e20;
-      --green-mid: #2e7d32;
-      --green-light: #4caf50;
-      --green-pale: #e8f5e9;
-      --gold: #f9a825;
-      --gold-dark: #e65100;
-      --white: #ffffff;
-    }
-
-    /* ---- HEADER / HOOK ---- */
-    .hook-section {
-      background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #1b5e20 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .hook-section::before {
-      content: '';
-      position: absolute;
-      top: -80px; right: -80px;
-      width: 320px; height: 320px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.05);
-    }
-    .hook-section::after {
-      content: '';
-      position: absolute;
-      bottom: -60px; left: -60px;
-      width: 250px; height: 250px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-    }
-
-    .hook-title {
-      font-size: clamp(1.6rem, 5vw, 3.2rem);
-      font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -0.5px;
-      color: #ffffff;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-    .hook-title span {
-      color: #ffeb3b;
-    }
-    .hook-sub {
-      color: #c8e6c9;
-      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      background: var(--bg);
+      color: var(--black);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 16px;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* ---- VIDEO CARDS ---- */
-    .videos-section {
-      background: #f0f7f0;
-    }
-    .video-wrapper {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(27,94,32,0.18);
-      border: 3px solid #2e7d32;
-      background: #000;
-      position: relative;
-      cursor: pointer;
-    }
-    .video-wrapper iframe {
-      display: block;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    .video-thumb {
-      position: absolute;
-      inset: 0;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: opacity 0.3s;
-    }
-    .video-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.7;
-    }
-    .play-btn {
-      position: absolute;
-      width: 64px;
-      height: 64px;
-      background: rgba(249,168,37,0.92);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-      transition: transform 0.2s, background 0.2s;
-    }
-    .play-btn:hover { transform: scale(1.12); background: #f9a825; }
-    .play-btn svg { margin-left: 5px; }
-
-    /* ---- PRODUCT IMAGE ---- */
-    .product-section {
-      background: linear-gradient(180deg, #f0f7f0 0%, #e8f5e9 100%);
-    }
-    .product-img-wrap {
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 12px 48px rgba(27,94,32,0.22);
-      border: 4px solid #2e7d32;
-      max-width: 340px;
-      margin: 0 auto;
-    }
-    .product-img-wrap img { width: 100%; display: block; }
-
-    /* ---- STATS ---- */
-    .stats-section {
-      background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
-    }
-    .stat-card {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 16px;
-      backdrop-filter: blur(8px);
-    }
-    .stat-num {
-      font-size: clamp(2rem, 6vw, 3.5rem);
-      font-weight: 900;
-      color: #ffeb3b;
+    /* ─── UTILITY ─── */
+    .container { width: 100%; max-width: 760px; margin: 0 auto; padding: 0 18px; }
+    .green { color: var(--green); font-weight: 700; }
+    .orange { color: var(--orange); font-weight: 700; }
+    .section { padding: 52px 0 40px; }
+    .section-title {
+      font-size: clamp(1.25rem, 4vw, 1.75rem);
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 22px;
+      text-align: center;
     }
 
-    /* ---- CTA BUTTON ---- */
+    /* ─── CTA BUTTON ─── */
     .cta-btn {
       display: inline-block;
-      background: linear-gradient(135deg, #f9a825, #e65100);
-      color: #fff;
-      font-weight: 800;
-      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
-      padding: 16px 36px;
+      background: linear-gradient(135deg, var(--orange) 0%, #e65100 100%);
+      color: var(--white);
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 15px 34px;
       border-radius: 50px;
       border: none;
       cursor: pointer;
-      box-shadow: 0 6px 24px rgba(230,81,0,0.4);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: transform 0.2s, box-shadow 0.2s;
       text-decoration: none;
+      text-align: center;
+      letter-spacing: 0.3px;
+      box-shadow: 0 4px 18px rgba(255,152,0,0.35);
+      transition: transform .15s, box-shadow .15s;
+      width: 100%;
+      max-width: 400px;
     }
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 32px rgba(230,81,0,0.5);
-    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 7px 24px rgba(255,152,0,0.45); }
     .cta-btn:active { transform: translateY(0); }
+    .cta-wrap { text-align: center; margin-top: 28px; }
 
-    /* ---- MODAL ---- */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.65);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-    .modal-overlay.active { display: flex; }
-    .modal-box {
-      background: #fff;
-      border-radius: 20px;
-      padding: 32px 24px;
-      width: 100%;
-      max-width: 440px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      position: relative;
-    }
-    .modal-title {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #1b5e20;
-      margin-bottom: 20px;
+    /* ═══════════════════════════════════════════
+       HOOK SECTION
+    ═══════════════════════════════════════════ */
+    #hook {
+      background: linear-gradient(160deg, #1b5e20 0%, #2e7d32 60%, #388e3c 100%);
+      color: var(--white);
+      padding: 52px 18px 44px;
       text-align: center;
     }
-    .form-group { margin-bottom: 16px; }
-    .form-group label {
-      display: block;
-      font-weight: 600;
-      color: #2e7d32;
-      margin-bottom: 6px;
-      font-size: 0.9rem;
-    }
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      padding: 12px 16px;
-      border: 2px solid #c8e6c9;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-family: inherit;
-      outline: none;
-      transition: border 0.2s;
-      background: #f9fffe;
-    }
-    .form-group input:focus,
-    .form-group select:focus { border-color: #2e7d32; }
-    .phone-wrap {
-      display: flex;
-      align-items: center;
-      border: 2px solid #c8e6c9;
-      border-radius: 10px;
-      overflow: hidden;
-      background: #f9fffe;
-      transition: border 0.2s;
-    }
-    .phone-wrap:focus-within { border-color: #2e7d32; }
-    .phone-prefix {
-      background: #e8f5e9;
-      color: #1b5e20;
-      font-weight: 700;
-      padding: 12px 14px;
-      font-size: 1rem;
-      border-right: 2px solid #c8e6c9;
-      white-space: nowrap;
-    }
-    .phone-input {
-      flex: 1;
-      border: none !important;
-      outline: none;
-      padding: 12px 12px;
-      font-size: 1rem;
-      font-family: inherit;
-      background: transparent;
-    }
-    .submit-btn {
-      width: 100%;
-      background: linear-gradient(135deg, #1b5e20, #2e7d32);
-      color: #fff;
-      font-weight: 800;
-      font-size: 1rem;
-      padding: 14px;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      margin-top: 8px;
-      transition: opacity 0.2s, transform 0.2s;
-      font-family: inherit;
+    #hook h1 {
+      font-size: clamp(1.35rem, 5vw, 2.1rem);
+      font-weight: 900;
+      text-transform: uppercase;
       letter-spacing: 0.5px;
+      line-height: 1.25;
+      margin-bottom: 32px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
-    .submit-btn:hover { opacity: 0.92; transform: translateY(-1px); }
-    .success-msg {
-      display: none;
-      text-align: center;
-      padding: 24px 0 8px;
+    #hook h1 span { color: #FFD54F; }
+    .hook-img-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
     }
-    .success-msg .check-icon {
-      width: 72px; height: 72px;
-      background: linear-gradient(135deg, #2e7d32, #4caf50);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 16px;
-    }
-    .success-msg p {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #1b5e20;
-      line-height: 1.6;
-    }
-    .close-modal {
-      position: absolute;
-      top: 14px; right: 16px;
-      background: none;
-      border: none;
-      font-size: 1.6rem;
-      color: #999;
-      cursor: pointer;
-      line-height: 1;
-    }
-    .close-modal:hover { color: #1b5e20; }
-
-    /* ---- SYMPTOMS ---- */
-    .symptoms-section { background: #f0f7f0; }
-    .symptom-card {
-      background: #fff;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(27,94,32,0.1);
-      border: 2px solid #e8f5e9;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .symptom-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 32px rgba(27,94,32,0.18);
-    }
-    .symptom-card img {
+    .hook-img-wrap img {
       width: 100%;
-      height: 170px;
+      max-width: 420px;
+      border-radius: 18px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
       object-fit: cover;
     }
-    .symptom-icon {
-      width: 100%;
-      height: 170px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 5rem;
-    }
-    .symptom-title {
-      font-weight: 700;
-      font-size: 1rem;
-      color: #1b5e20;
-      margin-bottom: 6px;
-    }
-    .symptom-desc {
-      font-size: 0.85rem;
-      color: #555;
-      line-height: 1.5;
-    }
 
-    /* ---- ABOUT ---- */
-    .about-section {
-      background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+    /* ═══════════════════════════════════════════
+       STATISTICS SECTION
+    ═══════════════════════════════════════════ */
+    #stats {
+      background: var(--white);
+      padding: 44px 18px 36px;
+      text-align: center;
     }
-    .about-feature {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 14px;
-      padding: 16px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
+    #stats .stat-box {
+      background: var(--bg);
+      border-left: 5px solid var(--green);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      margin-bottom: 22px;
+      text-align: left;
     }
-    .about-feature-icon {
-      width: 40px; height: 40px;
-      background: rgba(255,235,59,0.25);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      font-size: 1.3rem;
-    }
+    #stats .stat-box p { font-size: 1.05rem; line-height: 1.75; }
+    .stat-number { font-size: clamp(2rem, 7vw, 3rem); font-weight: 900; color: var(--orange); }
 
-    /* ---- REVIEWS ---- */
-    .reviews-section { background: #f0f7f0; }
-    .review-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 4px 20px rgba(27,94,32,0.1);
-      border-left: 4px solid #2e7d32;
-      position: relative;
-    }
-    .review-card::before {
-      content: '❝';
-      position: absolute;
-      top: 10px; right: 16px;
-      font-size: 2.5rem;
-      color: #e8f5e9;
-      line-height: 1;
-    }
-    .review-name {
-      font-weight: 700;
-      color: #1b5e20;
-      font-size: 0.95rem;
-    }
-    .review-meta {
-      font-size: 0.8rem;
-      color: #888;
+    /* ═══════════════════════════════════════════
+       SYMPTOMS SECTION
+    ═══════════════════════════════════════════ */
+    #symptoms { background: var(--bg); padding: 44px 18px 36px; }
+    .symptom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
       margin-bottom: 10px;
     }
-    .review-text {
-      font-size: 0.9rem;
-      color: #333;
-      line-height: 1.6;
-      font-style: italic;
+    @media (min-width: 480px) { .symptom-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .symptom-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 14px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
-    .stars { color: #f9a825; font-size: 1rem; margin-bottom: 4px; }
+    .symptom-card .icon-wrap {
+      width: 54px; height: 54px;
+      background: #E8F5E9;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .symptom-card .icon-wrap i { font-size: 1.5rem; color: var(--green); }
+    .symptom-card span { font-size: .93rem; font-weight: 600; color: var(--black); }
 
-    /* ---- FINAL CTA ---- */
-    .final-cta {
-      background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+    /* ═══════════════════════════════════════════
+       PRODUCT INFO SECTION
+    ═══════════════════════════════════════════ */
+    #product { background: var(--white); padding: 44px 18px 36px; text-align: center; }
+    .product-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 26px 22px;
+      box-shadow: var(--shadow);
+      text-align: left;
+      margin-bottom: 24px;
     }
-
-    /* ---- FOOTER ---- */
-    footer {
-      background: #0d3b13;
-      color: #81c784;
+    .product-card p { font-size: 1.02rem; line-height: 1.8; }
+    .ingredients {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
     }
-
-    /* ---- SECTION TITLE ---- */
-    .section-title {
-      font-size: clamp(1.3rem, 4vw, 2rem);
-      font-weight: 800;
-      line-height: 1.25;
-    }
-    .section-title.dark { color: #1b5e20; }
-    .section-title.light { color: #fff; }
-
-    .divider {
-      width: 60px; height: 4px;
-      background: linear-gradient(90deg, #f9a825, #e65100);
-      border-radius: 2px;
-      margin: 0 auto 24px;
-    }
-
-    /* Scroll smooth */
-    html { scroll-behavior: smooth; }
-
-    /* Video grid scroll on mobile */
-    .videos-scroll {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-    @media (max-width: 640px) {
-      .videos-scroll {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-    }
-    @media (max-width: 400px) {
-      .videos-scroll {
-        grid-template-columns: 1fr;
-      }
+    .ingredient-tag {
+      background: var(--white);
+      border: 2px solid var(--green);
+      color: var(--green);
+      font-weight: 700;
+      font-size: .88rem;
+      padding: 6px 14px;
+      border-radius: 50px;
     }
 
-    .video-aspect {
-      aspect-ratio: 9/16;
+    /* ═══════════════════════════════════════════
+       VIDEO GALLERY
+    ═══════════════════════════════════════════ */
+    #videos { background: var(--bg); padding: 44px 18px 36px; }
+    .video-scroll {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .video-scroll::-webkit-scrollbar { height: 5px; }
+    .video-scroll::-webkit-scrollbar-thumb { background: var(--green); border-radius: 10px; }
+    .video-item {
+      flex: 0 0 240px;
+      scroll-snap-align: start;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #000;
       position: relative;
     }
+    .video-item iframe {
+      width: 240px;
+      height: 427px;
+      border: none;
+      display: block;
+    }
 
-    /* Error highlight */
-    .input-error { border-color: #e53935 !important; }
-    .error-text { color: #e53935; font-size: 0.78rem; margin-top: 4px; }
+    /* ═══════════════════════════════════════════
+       REVIEWS SECTION
+    ═══════════════════════════════════════════ */
+    #reviews { background: var(--white); padding: 44px 18px 36px; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 560px) { .reviews-grid { grid-template-columns: 1fr 1fr; } }
+    .review-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 18px 16px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--orange);
+    }
+    .review-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+    }
+    .review-avatar {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--green), #4caf50);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-size: 1.1rem; font-weight: 700; flex-shrink: 0;
+    }
+    .review-name { font-weight: 700; color: var(--green); font-size: .95rem; }
+    .review-meta { font-size: .82rem; color: #666; }
+    .review-stars { color: var(--orange); font-size: .9rem; margin-bottom: 6px; }
+    .review-text { font-size: .93rem; line-height: 1.6; color: #222; }
+
+    /* ═══════════════════════════════════════════
+       LEAD FORM SECTION
+    ═══════════════════════════════════════════ */
+    #form-section { background: var(--bg); padding: 44px 18px 80px; }
+    .form-wrap {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 6px 32px rgba(0,100,0,0.13);
+      padding: 32px 24px 28px;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+    .form-title {
+      font-size: clamp(1.2rem, 4.5vw, 1.6rem);
+      font-weight: 800;
+      color: var(--green);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .form-subtitle { text-align: center; color: #555; font-size: .94rem; margin-bottom: 24px; }
+
+    /* Timer */
+    #countdown-wrap {
+      display: none;
+      background: linear-gradient(135deg, #b71c1c, #e53935);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 12px 18px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    #countdown-wrap .timer-label { font-size: .88rem; opacity: .9; }
+    #countdown-display { font-size: 1.8rem; font-weight: 900; letter-spacing: 2px; }
+
+    /* Discount badge */
+    #discount-badge {
+      display: none;
+      background: linear-gradient(135deg, var(--orange), #e65100);
+      color: var(--white);
+      border-radius: 10px;
+      padding: 10px 16px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block; font-weight: 600; margin-bottom: 6px;
+      font-size: .93rem; color: #333;
+    }
+    .form-group label span.req { color: var(--orange); }
+    .form-control {
+      width: 100%; padding: 13px 15px;
+      border: 2px solid #c8e6c9;
+      border-radius: 10px;
+      font-size: 1rem;
+      color: var(--black);
+      background: #fafffe;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-control:focus { border-color: var(--green); }
+    .phone-row { display: flex; gap: 0; }
+    .phone-prefix {
+      background: var(--green); color: var(--white);
+      font-weight: 700; font-size: 1rem;
+      padding: 13px 16px;
+      border-radius: 10px 0 0 10px;
+      display: flex; align-items: center; justify-content: center;
+      white-space: nowrap; flex-shrink: 0;
+      border: 2px solid var(--green);
+      letter-spacing: 0.5px;
+      user-select: none;
+    }
+    #phone-input {
+      border-radius: 0 10px 10px 0;
+      border-left: none;
+      flex: 1;
+      min-width: 0;
+      font-size: 1.05rem;
+      letter-spacing: 1px;
+    }
+    #phone-input:focus { border-color: var(--green); outline: none; }
+
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--green), #1b5e20);
+      color: var(--white);
+      font-size: 1.08rem;
+      font-weight: 700;
+      padding: 16px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(0,100,0,0.3);
+      transition: transform .15s, box-shadow .15s;
+      letter-spacing: 0.3px;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 7px 24px rgba(0,100,0,0.4); }
+    .submit-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    #success-msg {
+      display: none;
+      background: linear-gradient(135deg, var(--green), #1b5e20);
+      color: var(--white);
+      border-radius: 14px;
+      padding: 28px 22px;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.7;
+    }
+    #success-msg i { font-size: 2.5rem; display: block; margin-bottom: 12px; }
+
+    /* ═══════════════════════════════════════════
+       WHEEL / BARABAN
+    ═══════════════════════════════════════════ */
+    #wheel-fab {
+      position: fixed;
+      bottom: 22px; right: 18px;
+      z-index: 999;
+      background: linear-gradient(135deg, var(--orange), #e65100);
+      color: var(--white);
+      border-radius: 50px;
+      padding: 12px 18px;
+      font-size: .88rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255,152,0,0.5);
+      display: flex; align-items: center; gap: 8px;
+      border: none;
+      transition: transform .15s;
+      white-space: nowrap;
+    }
+    #wheel-fab:hover { transform: scale(1.04); }
+    #wheel-fab i { font-size: 1.1rem; }
+
+    /* Modal overlay */
+    #wheel-modal {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 1000;
+      align-items: center; justify-content: center;
+    }
+    #wheel-modal.active { display: flex; }
+    .wheel-modal-inner {
+      background: var(--white);
+      border-radius: 22px;
+      padding: 30px 24px 26px;
+      text-align: center;
+      max-width: 360px;
+      width: 92%;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.25);
+      position: relative;
+    }
+    .wheel-modal-inner h3 {
+      font-size: 1.25rem; font-weight: 800;
+      color: var(--green); margin-bottom: 6px;
+    }
+    .wheel-modal-inner p { font-size: .9rem; color: #555; margin-bottom: 22px; }
+
+    /* Canvas wheel */
+    #wheelCanvas {
+      display: block;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    }
+
+    /* Pointer */
+    .wheel-pointer-wrap {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      margin: 0 auto 18px;
+    }
+    .wheel-pointer-wrap canvas { position: absolute; top: 0; left: 0; }
+    .wheel-pointer {
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%);
+      width: 0; height: 0;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-top: 26px solid #e53935;
+      z-index: 10;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+
+    #spin-btn {
+      background: linear-gradient(135deg, var(--orange), #e65100);
+      color: var(--white);
+      border: none; border-radius: 50px;
+      padding: 13px 36px;
+      font-size: 1rem; font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(255,152,0,0.4);
+      transition: transform .15s;
+    }
+    #spin-btn:hover { transform: scale(1.03); }
+    #spin-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+    .wheel-close {
+      position: absolute; top: 12px; right: 14px;
+      background: none; border: none;
+      font-size: 1.4rem; cursor: pointer; color: #888;
+      line-height: 1;
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    footer {
+      background: #1b5e20;
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 22px 18px;
+      font-size: .85rem;
+    }
+    footer strong { color: var(--white); }
+
+    /* Scrollbar global */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-thumb { background: #a5d6a7; border-radius: 10px; }
   </style>
 </head>
 <body>
 
-<!-- ============================
-  SECTION 1: HOOK
-============================= -->
-<section class="hook-section py-16 px-4 text-center relative z-10">
-  <div class="max-w-3xl mx-auto relative z-10">
-    <div class="inline-block bg-yellow-400 text-green-900 text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">Диабет ва Саломатлик</div>
-    <h1 class="hook-title mb-6">
-      ДИАБЕТ ҲЕЧ ҚАЧОН <span>ЙЎҚ БЎЛИБ КЕТМАЙДИ</span>, АГАР...
-    </h1>
-    <p class="hook-sub mb-8">
-      ...сиз тўғри ёндашув ва табиий ёрдамчини топмасангиз.<br>
-      Абиҳаят — Туркиянинг Бурса тоғларидан келган ноёб табиий даmlама.
-    </p>
-    <div class="flex flex-wrap justify-center gap-3">
-      <button onclick="openModal('modal1')" class="cta-btn">Батафсил маълумот олиш →</button>
-    </div>
-    <div class="mt-10 flex justify-center">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24">
-        <path d="M12 5v14M5 12l7 7 7-7" stroke="#c8e6c9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+<!-- ═══════════════════════════ HOOK ═══════════════════════════ -->
+<section id="hook">
+  <div class="container">
+    <h1>ДИАБЕТНИ ОСОН НАЗОРАТ ҚИЛИШ МУМКИН, <span>БУНИНГ УЧУН...</span></h1>
+    <div class="hook-img-wrap">
+      <img src="https://i.postimg.cc/1zbsjBWN/IMG-20260504-130659-267.jpg"
+           alt="ABIHAYAT маҳсулоти"
+           loading="eager" />
     </div>
   </div>
 </section>
 
-<!-- ============================
-  SECTION 2: VIDEOS
-============================= -->
-<section class="videos-section py-14 px-4">
-  <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-10">
-      <h2 class="section-title dark mb-3">Даmlама ҳақида видеолар</h2>
-      <div class="divider"></div>
-      <p class="text-gray-600 text-sm max-w-xl mx-auto">Видео устига босинг ва кўринг — Абиҳаят одамларга қандай ёрдам бериши ҳақида</p>
-    </div>
-    <div class="videos-scroll">
-
-      <!-- Video 1 -->
-      <div class="video-aspect video-wrapper" data-id="g1xYZcVHPwQ">
-        <div class="video-thumb" onclick="loadVideo(this, 'g1xYZcVHPwQ')">
-          <img src="https://i.ytimg.com/vi/g1xYZcVHPwQ/hqdefault.jpg" alt="Видео 1" loading="lazy" />
-          <div class="play-btn">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Video 2 -->
-      <div class="video-aspect video-wrapper" data-id="uLZWunqUmNY">
-        <div class="video-thumb" onclick="loadVideo(this, 'uLZWunqUmNY')">
-          <img src="https://i.ytimg.com/vi/uLZWunqUmNY/hqdefault.jpg" alt="Видео 2" loading="lazy" />
-          <div class="play-btn">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Video 3 -->
-      <div class="video-aspect video-wrapper" data-id="M-KiXu5N0zY">
-        <div class="video-thumb" onclick="loadVideo(this, 'M-KiXu5N0zY')">
-          <img src="https://i.ytimg.com/vi/M-KiXu5N0zY/hqdefault.jpg" alt="Видео 3" loading="lazy" />
-          <div class="play-btn">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Video 4 -->
-      <div class="video-aspect video-wrapper" data-id="Dqw_AbNLd00">
-        <div class="video-thumb" onclick="loadVideo(this, 'Dqw_AbNLd00')">
-          <img src="https://i.ytimg.com/vi/Dqw_AbNLd00/hqdefault.jpg" alt="Видео 4" loading="lazy" />
-          <div class="play-btn">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Video 5 -->
-      <div class="video-aspect video-wrapper" data-id="16yz-sLMik0">
-        <div class="video-thumb" onclick="loadVideo(this, '16yz-sLMik0')">
-          <img src="https://i.ytimg.com/vi/16yz-sLMik0/hqdefault.jpg" alt="Видео 5" loading="lazy" />
-          <div class="play-btn">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================
-  SECTION 3: PRODUCT IMAGE
-============================= -->
-<section class="product-section py-14 px-4">
-  <div class="max-w-2xl mx-auto text-center">
-    <div class="inline-block bg-green-100 text-green-800 text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">Маҳсулот</div>
-    <h2 class="section-title dark mb-4">ABIHAYAT Даmlamasi</h2>
-    <p class="text-gray-600 mb-8 text-sm leading-relaxed max-w-md mx-auto">Туркиянинг Бурса тоғларида яратилган ноёб табиий даmlама. Ҳар бир қадамда соғлиқни тиклашга ёрдам беради.</p>
-    <div class="product-img-wrap">
-      <img src="https://i.postimg.cc/1zbsjBWN/IMG-20260504-130659-267.jpg" alt="ABIHAYAT Даmlamasi" />
-    </div>
-    <div class="mt-6 flex justify-center gap-4 flex-wrap">
-      <div class="flex items-center gap-2 bg-green-100 rounded-full px-4 py-2 text-sm font-semibold text-green-800">
-        🌿 100% Табиий
-      </div>
-      <div class="flex items-center gap-2 bg-yellow-100 rounded-full px-4 py-2 text-sm font-semibold text-yellow-800">
-        🇹🇷 Туркиядан
-      </div>
-      <div class="flex items-center gap-2 bg-green-100 rounded-full px-4 py-2 text-sm font-semibold text-green-800">
-        ✅ Синовдан ўтган
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================
-  SECTION 4: STATISTICS
-============================= -->
-<section class="stats-section py-16 px-4 text-center">
-  <div class="max-w-4xl mx-auto">
-    <div class="inline-block bg-yellow-400 text-green-900 text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">Жаҳон Статистикаси</div>
-    <h2 class="section-title light mb-4">Диабет — Жаҳон Муаммоси</h2>
-    <p class="text-green-200 mb-10 text-sm leading-relaxed max-w-xl mx-auto">Рақамлар ҳақиқатни кўрсатади. Ушбу касаллик сиздан ёки яқинларингиздан узоқ эмас.</p>
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
-      <div class="stat-card p-6">
-        <div class="stat-num">600 МЛН+</div>
-        <div class="text-green-200 text-sm mt-2 font-medium">Жаҳонда диабет билан касалланган инсонлар</div>
-      </div>
-      <div class="stat-card p-6">
-        <div class="stat-num">1-да 1</div>
-        <div class="text-green-200 text-sm mt-2 font-medium">Ҳар иккинчи диабетли кўзи кўрмай қолиши мумкин</div>
-      </div>
-      <div class="stat-card p-6">
-        <div class="stat-num">6 МЛН</div>
-        <div class="text-green-200 text-sm mt-2 font-medium">Ҳар йили диабетдан ўлим ҳолатлари</div>
-      </div>
-    </div>
-    <div class="bg-white/10 border border-white/20 rounded-2xl p-6 mb-8 text-left max-w-2xl mx-auto">
-      <p class="text-white font-semibold text-base leading-relaxed">
-        🌍 Дунёда <strong class="text-yellow-300">600 млн га яқин инсон</strong> диабет билан яшамоқда — улар орасида <strong class="text-yellow-300">сиз ҳам борсиз</strong>.<br><br>
-        <span class="text-green-200 text-sm">Абиҳаят буда қандай ёрдам беради? — Табиий ингредиентлар ёрдамида қон шакарини нормаллаштиришга, умумий соғлиқни яхшилашга ёрдам беради.</span>
+<!-- ═══════════════════════════ STATS ═══════════════════════════ -->
+<section id="stats">
+  <div class="container">
+    <div class="stat-box">
+      <div class="stat-number">600МЛН+</div>
+      <p>
+        Дунё бўйича <strong class="orange">600МЛН га яқин инсон</strong> диабет билан касалланган,
+        улар орасида <strong class="green">сиз ҳам борсиз</strong>.
+        <br /><br />
+        <strong>Abihayat</strong> бунда қандай ёрдам беради?
       </p>
     </div>
-    <button onclick="openModal('modal1')" class="cta-btn">Батафсил маълумот олиш →</button>
-  </div>
-</section>
-
-<!-- ============================
-  SECTION 5: SYMPTOMS
-============================= -->
-<section class="symptoms-section py-16 px-4">
-  <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-10">
-      <div class="inline-block bg-green-100 text-green-800 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest">Белгилар</div>
-      <h2 class="section-title dark mb-3">Диабет Белгиларини Танинг</h2>
-      <div class="divider"></div>
-      <p class="text-gray-500 text-sm max-w-xl mx-auto">Агар қуйидаги белгилардан бирортаси сизда мавжуд бўлса — эҳтиёт бўлинг!</p>
-    </div>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-
-      <!-- Symptom 1: Thirst -->
-      <div class="symptom-card">
-        <div class="symptom-icon bg-blue-50">💧</div>
-        <div class="p-4">
-          <div class="symptom-title">Доимий чанқаш</div>
-          <div class="symptom-desc">Кўп сув ичишга қарамай чанқоқлик пасаймайди. Оғиз доимо қуруқ.</div>
-        </div>
-      </div>
-
-      <!-- Symptom 2: Frequent urination -->
-      <div class="symptom-card">
-        <div class="symptom-icon bg-yellow-50">🚽</div>
-        <div class="p-4">
-          <div class="symptom-title">Тез-тез сийиш</div>
-          <div class="symptom-desc">Кечаси ҳам тез-тез туриш, кундузи ҳам кўп сийиш диабетнинг асосий аломати.</div>
-        </div>
-      </div>
-
-      <!-- Symptom 3: Fatigue -->
-      <div class="symptom-card">
-        <div class="symptom-icon bg-orange-50">😴</div>
-        <div class="p-4">
-          <div class="symptom-title">Чарчоқ ва ҳолсизлик</div>
-          <div class="symptom-desc">Организм қандни энергияга айлантира олмагач, доимий чарчоқ сезилади.</div>
-        </div>
-      </div>
-
-      <!-- Symptom 4: Blurry vision -->
-      <div class="symptom-card">
-        <div class="symptom-icon bg-purple-50">👁️</div>
-        <div class="p-4">
-          <div class="symptom-title">Кўришнинг пасайиши</div>
-          <div class="symptom-desc">Кўз олдида туман, нарсалар хира кўринади — диабетнинг хавфли белгиси.</div>
-        </div>
-      </div>
-
-      <!-- Symptom 5: Weight loss -->
-      <div class="symptom-card">
-        <div class="symptom-icon bg-red-50">⚖️</div>
-        <div class="p-4">
-          <div class="symptom-title">Вазн йўқотиш</div>
-          <div class="symptom-desc">Мўл-кўл овқатланишга қарамай вазн кескин тушиши диабет белгиси.</div>
-        </div>
-      </div>
-
-      <!-- Symptom 6: Slow healing -->
-      <div class="symptom-card">
-        <div class="symptom-icon bg-green-50">🩹</div>
-        <div class="p-4">
-          <div class="symptom-title">Яраларнинг секин битиши</div>
-          <div class="symptom-desc">Кичик кесик ёки жароҳат узоқ вақт битмаса — қон шакарини текшириш керак.</div>
-        </div>
-      </div>
-
-    </div>
-    <div class="text-center mt-12">
-      <p class="text-gray-600 mb-5 font-medium">Ушбу белгилар мавжуд бўлса — бугун ёрдам олинг!</p>
-      <button onclick="openModal('modal1')" class="cta-btn">Батафсил маълумот олиш →</button>
+    <div class="cta-wrap">
+      <button class="cta-btn" onclick="scrollToForm()">
+        <i class="fa-solid fa-circle-info" style="margin-right:8px;"></i>
+        Батафсил маълумот олиш
+      </button>
     </div>
   </div>
 </section>
 
-<!-- ============================
-  SECTION 6: ABOUT ABIHAYAT
-============================= -->
-<section class="about-section py-16 px-4">
-  <div class="max-w-4xl mx-auto">
-    <div class="text-center mb-10">
-      <div class="inline-block bg-yellow-400 text-green-900 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest">Маҳсулот Ҳақида</div>
-      <h2 class="section-title light mb-3">ABIHAYAT Нима?</h2>
-      <div class="divider"></div>
-      <p class="text-green-200 text-sm max-w-xl mx-auto leading-relaxed">Туркиянинг Бурса тоғларида яратилган, асрлар давомида синовдан ўтган ноёб табиий даmlама.</p>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-      <div class="about-feature">
-        <div class="about-feature-icon">🏔️</div>
-        <div>
-          <div class="text-white font-700 font-bold mb-1">Бурса тоғларида яратилган</div>
-          <div class="text-green-200 text-sm">Туркиянинг тоза ҳаволи тоғ минтақасида экиб-ўстирилган.</div>
-        </div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-icon">🚫</div>
-        <div>
-          <div class="text-white font-bold mb-1">Дори ёки БАД эмас</div>
-          <div class="text-green-200 text-sm">100% табиий даmlама — кимёвий моддалар йўқ.</div>
-        </div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-icon">🫒</div>
-        <div>
-          <div class="text-white font-bold mb-1">Заytun ва кекик</div>
-          <div class="text-green-200 text-sm">Тасдиқланган табиий ингредиентлар: заытун, кекик, долчин.</div>
-        </div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-icon">💊</div>
-        <div>
-          <div class="text-white font-bold mb-1">A, B, C, D витаминлар</div>
-          <div class="text-green-200 text-sm">Иммунитетни мустаҳкамлайдиган тўлиқ витамин комплекси.</div>
-        </div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-icon">🩸</div>
-        <div>
-          <div class="text-white font-bold mb-1">Қон шакарини нормаллаштиради</div>
-          <div class="text-green-200 text-sm">Долчин ва кекик қон шакарини балансда ушлайди.</div>
-        </div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-icon">❤️</div>
-        <div>
-          <div class="text-white font-bold mb-1">Юрак-томирни ҳимоя қилади</div>
-          <div class="text-green-200 text-sm">Заytun ёғи томирларни тозалаб, юракни мустаҳкамлайди.</div>
-        </div>
-      </div>
-    </div>
-    <div class="text-center">
-      <button onclick="openModal('modal1')" class="cta-btn">Батафсил маълумот олиш →</button>
-    </div>
-  </div>
-</section>
-
-<!-- ============================
-  SECTION 7: REVIEWS
-============================= -->
-<section class="reviews-section py-16 px-4">
-  <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-10">
-      <div class="inline-block bg-green-100 text-green-800 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest">Фойдаланувчилар Фикри</div>
-      <h2 class="section-title dark mb-3">Мижозларимиз Нима Дейди?</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="review-name">М. Ҳожиев</div>
-        <div class="review-meta">47 ёшда • Самарқанд</div>
-        <div class="review-text">"Мен диабет бўйича бу чойдан зўр фойда кўрдим. 3 ойдан кейин шакарим нормага тушди!"</div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="review-name">З. Рашидова</div>
-        <div class="review-meta">53 ёшда • Тошкент</div>
-        <div class="review-text">"Оёқлардаги оғриқ камайди, кечалари яхши ухлаётибман. Абиҳаят ҳақиқатан ёрдам берди!"</div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="review-name">А. Юсупов</div>
-        <div class="review-meta">61 ёшда • Фарғона</div>
-        <div class="review-text">"10 йил диабет билан яшадим. Абиҳаятни ичиб бошлагач, доридан камроқ муҳтож бўлдим."</div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="review-name">Г. Назарова</div>
-        <div class="review-meta">44 ёшда • Бухоро</div>
-        <div class="review-text">"Ажойиб таъм, ичиш осон. Иммунитетим кучайди, чарчоқ йўқолди. Таvsiya қиламан!"</div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="review-name">Б. Матмусаев</div>
-        <div class="review-meta">58 ёшда • Наманган</div>
-        <div class="review-text">"Ҳакимдан ташқари Абиҳаятни ҳам қўллаяпман. Натижа аjoyib — шакар стабил турибди."</div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="review-name">Н. Каримова</div>
-        <div class="review-meta">39 ёшда • Андижон</div>
-        <div class="review-text">"Ота-онам учун олдим. Иккаласи ҳам натижадан мамнун. Оилавий доимий маҳсулотимиз."</div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="review-name">Т. Эргашев</div>
-        <div class="review-meta">66 ёшда • Қашқадарё</div>
-        <div class="review-text">"Биринчи ойдаёқ фарқни сездим. Кўзим яхшироқ кўра бошлади, вазним стабиллашди."</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================
-  SECTION 8: FINAL CTA
-============================= -->
-<section class="final-cta py-16 px-4 text-center">
-  <div class="max-w-2xl mx-auto">
-    <div class="inline-block bg-yellow-400 text-green-900 text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">Ҳозир Бошланг</div>
-    <h2 class="text-white font-black text-2xl sm:text-3xl mb-4 leading-tight">
-      Сиз Ҳам Ҳозироқ Бошланг!
+<!-- ═══════════════════════════ SYMPTOMS ═══════════════════════════ -->
+<section id="symptoms" class="section">
+  <div class="container">
+    <h2 class="section-title">
+      <i class="fa-solid fa-triangle-exclamation" style="color:var(--orange);margin-right:8px;"></i>
+      Диабет белгилари
     </h2>
-    <p class="text-green-200 mb-8 text-sm leading-relaxed">
-      Маълумотингизни қолдиринг — мутахассисларимиз сиз билан боғланиб, тўлиқ маслаҳат беришади.
-    </p>
-
-    <!-- INLINE LEAD FORM -->
-    <div class="bg-white rounded-2xl p-6 sm:p-8 text-left shadow-2xl">
-      <h3 class="text-green-900 font-bold text-lg mb-5 text-center">📋 Маълумотингизни Қолдиринг</h3>
-      <div id="finalFormSuccess" class="success-msg" style="display:none;">
-        <div class="check-icon">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <p>Маълумотингиз юборилди!<br>Тез орада сиз билан боғланишади. 🎉</p>
+    <div class="symptom-grid">
+      <div class="symptom-card">
+        <div class="icon-wrap"><i class="fa-solid fa-droplet"></i></div>
+        <span>Кўп ташналик</span>
       </div>
-      <form id="finalLeadForm" onsubmit="submitForm(event, 'finalLeadForm', 'finalFormSuccess')">
-        <div class="form-group">
-          <label>Исмингиз *</label>
-          <input type="text" id="final_name" placeholder="Исм ва Фамилия" />
-          <div class="error-text" id="err_final_name"></div>
-        </div>
-        <div class="form-group">
-          <label>Телефон рақамингиз *</label>
-          <div class="phone-wrap">
-            <div class="phone-prefix">+998</div>
-            <input type="tel" id="final_phone" class="phone-input" placeholder="XX XXX XX XX" maxlength="9" inputmode="numeric" />
-          </div>
-          <div class="error-text" id="err_final_phone"></div>
-        </div>
-        <div class="form-group">
-          <label>Вилоятингиз *</label>
-          <select id="final_region">
-            <option value="">— Вилоятни танланг —</option>
-            <option>Тошкент шаҳри</option>
-            <option>Тошкент вилояти</option>
-            <option>Самарқанд</option>
-            <option>Бухоро</option>
-            <option>Фарғона</option>
-            <option>Андижон</option>
-            <option>Наманган</option>
-            <option>Қашқадарё</option>
-            <option>Сурхондарё</option>
-            <option>Жиззах</option>
-            <option>Сирдарё</option>
-            <option>Навоий</option>
-            <option>Хоразм</option>
-            <option>Қорақалпоғистон</option>
-          </select>
-          <div class="error-text" id="err_final_region"></div>
-        </div>
-        <button type="submit" class="submit-btn">📩 Юбориш</button>
-      </form>
+      <div class="symptom-card">
+        <div class="icon-wrap"><i class="fa-solid fa-restroom"></i></div>
+        <span>Тез-тез пешоб чиқариш</span>
+      </div>
+      <div class="symptom-card">
+        <div class="icon-wrap"><i class="fa-solid fa-weight-scale"></i></div>
+        <span>Озиб кетиш</span>
+      </div>
+      <div class="symptom-card">
+        <div class="icon-wrap"><i class="fa-solid fa-battery-quarter"></i></div>
+        <span>Чарчоқ</span>
+      </div>
+      <div class="symptom-card">
+        <div class="icon-wrap"><i class="fa-solid fa-eye-slash"></i></div>
+        <span>Кўришнинг хиралашиши</span>
+      </div>
+    </div>
+    <div class="cta-wrap">
+      <button class="cta-btn" onclick="scrollToForm()">
+        <i class="fa-solid fa-circle-info" style="margin-right:8px;"></i>
+        Батафсил маълумот олиш
+      </button>
     </div>
   </div>
 </section>
 
-<!-- ============================
-  FOOTER
-============================= -->
-<footer class="py-8 px-4 text-center">
-  <div class="max-w-xl mx-auto">
-    <div class="text-xl font-black text-white mb-2">ABIHAYAT</div>
-    <div class="text-green-500 text-xs mb-4">Табиий ёрдамчингиз — диабетга қарши!</div>
-    <div class="text-green-700 text-xs">© 2025 ABIHAYAT. Барча ҳуқуқлар ҳимояланган.<br>Бу сайт маълумот мақсадида тузилган. Дорихона эмас.</div>
+<!-- ═══════════════════════════ PRODUCT ═══════════════════════════ -->
+<section id="product" class="section">
+  <div class="container">
+    <h2 class="section-title">
+      <i class="fa-solid fa-leaf" style="margin-right:8px;"></i>
+      Маҳсулот ҳақида
+    </h2>
+    <div class="product-card">
+      <p>
+        <strong class="green">Abihayat</strong> –
+        Туркиянинг <strong class="orange">Бурса тоғларида</strong> етиштирилади.
+        <br /><br />
+        Бу маҳсулот <strong>дори ёки БФҚ</strong> (биологик фаол қўшимча) <strong>эмас</strong> –
+        бу <em>100% табиий ўт-ўланлардан</em> тайёрланган <strong class="green">ҳолис чой</strong>.
+        <br /><br />
+        Таркибида:
+      </p>
+      <div class="ingredients">
+        <span class="ingredient-tag"><i class="fa-solid fa-seedling"></i> Зайтун</span>
+        <span class="ingredient-tag"><i class="fa-solid fa-spa"></i> Кеккик</span>
+        <span class="ingredient-tag"><i class="fa-solid fa-mortar-pestle"></i> Долчин</span>
+        <span class="ingredient-tag">Витамин A</span>
+        <span class="ingredient-tag">Витамин B</span>
+        <span class="ingredient-tag">Витамин C</span>
+        <span class="ingredient-tag">Витамин D</span>
+      </div>
+    </div>
+    <div class="cta-wrap">
+      <button class="cta-btn" onclick="scrollToForm()">
+        <i class="fa-solid fa-cart-shopping" style="margin-right:8px;"></i>
+        Ҳозироқ буюртма бериш
+      </button>
+    </div>
   </div>
+</section>
+
+<!-- ═══════════════════════════ VIDEOS ═══════════════════════════ -->
+<section id="videos" class="section">
+  <div class="container">
+    <h2 class="section-title">
+      <i class="fa-brands fa-youtube" style="color:#e53935;margin-right:8px;"></i>
+      Видео шарҳлар
+    </h2>
+    <div class="video-scroll" id="videoScroll">
+      <!-- Videos injected by JS -->
+    </div>
+    <p style="text-align:center;color:#888;font-size:.82rem;margin-top:10px;">
+      <i class="fa-solid fa-arrow-left-right"></i> Ёнга суринг
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ REVIEWS ═══════════════════════════ -->
+<section id="reviews" class="section">
+  <div class="container">
+    <h2 class="section-title">
+      <i class="fa-solid fa-star" style="color:var(--orange);margin-right:8px;"></i>
+      Мижозлар фикрлари
+    </h2>
+    <div class="reviews-grid" id="reviewsGrid">
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FORM SECTION ═══════════════════════════ -->
+<section id="form-section" class="section">
+  <div class="container">
+    <div class="form-wrap">
+      <div class="form-title">Сиз ҳам ҳозироқ бошланг</div>
+      <div class="form-subtitle">Маълумотларингизни қолдиринг, биз сиз билан боғланамиз</div>
+
+      <div id="countdown-wrap">
+        <div class="timer-label">⏳ Имтиёзли таклиф тугайди:</div>
+        <div id="countdown-display">10:00</div>
+      </div>
+
+      <div id="discount-badge"></div>
+
+      <div id="lead-form-wrap">
+        <form id="lead-form" novalidate>
+          <input type="hidden" id="discount-val" value="" />
+
+          <div class="form-group">
+            <label for="name-input">Мижоз исми <span class="req">*</span></label>
+            <input type="text" id="name-input" class="form-control"
+                   placeholder="Исм ва фамилиянгиз" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone-input">Телефон рақами <span class="req">*</span></label>
+            <div class="phone-row">
+              <span class="phone-prefix">+998</span>
+              <input type="tel" id="phone-input" class="form-control"
+                     placeholder="99 654 74 48"
+                     maxlength="12"
+                     inputmode="numeric"
+                     autocomplete="tel" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="region-select">Вилоят</label>
+            <select id="region-select" class="form-control">
+              <option value="">— Вилоятни танланг —</option>
+              <option value="Тошкент шаҳри">Тошкент шаҳри</option>
+              <option value="Тошкент вилояти">Тошкент вилояти</option>
+              <option value="Самарқанд вилояти">Самарқанд вилояти</option>
+              <option value="Фарғона вилояти">Фарғона вилояти</option>
+              <option value="Андижон вилояти">Андижон вилояти</option>
+              <option value="Наманган вилояти">Наманган вилояти</option>
+              <option value="Бухоро вилояти">Бухоро вилояти</option>
+              <option value="Хоразм вилояти">Хоразм вилояти</option>
+              <option value="Қашқадарё вилояти">Қашқадарё вилояти</option>
+              <option value="Сурхондарё вилояти">Сурхондарё вилояти</option>
+              <option value="Жиззах вилояти">Жиззах вилояти</option>
+              <option value="Сирдарё вилояти">Сирдарё вилояти</option>
+              <option value="Навоий вилояти">Навоий вилояти</option>
+              <option value="Қорақалпоғистон Республикаси">Қорақалпоғистон Республикаси</option>
+            </select>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submit-btn">
+            <i class="fa-solid fa-paper-plane" style="margin-right:8px;"></i>
+            Юбориш
+          </button>
+        </form>
+
+        <div id="success-msg">
+          <i class="fa-solid fa-circle-check"></i>
+          Маълумотларингиз юборилди,<br />тез орада сиз билан боғланишади!
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer>
+  <strong>ABIHAYAT</strong> &copy; 2025 – Барча ҳуқуқлар ҳимояланган.
+  <br />
+  <small>Мазкур маҳсулот дори воситаси эмас. Истеъмол қилишдан олдин мутахассис билан маслаҳатлашинг.</small>
 </footer>
 
-<!-- ============================
-  MODAL: LEAD FORM
-============================= -->
-<div class="modal-overlay" id="modal1" onclick="closeModalOutside(event)">
-  <div class="modal-box">
-    <button class="close-modal" onclick="closeModal('modal1')">✕</button>
-    <div class="modal-title">📋 Батафсил Маълумот Олинг</div>
-    <div id="modalFormSuccess" class="success-msg" style="display:none;">
-      <div class="check-icon">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <p>Маълумотингиз юборилди!<br>Тез орада сиз билан боғланишади. 🎉</p>
+<!-- ═══════════════════════════ WHEEL FAB ═══════════════════════════ -->
+<button id="wheel-fab" onclick="openWheelModal()">
+  <i class="fa-solid fa-rotate"></i>
+  Омадни синанг
+</button>
+
+<!-- ═══════════════════════════ WHEEL MODAL ═══════════════════════════ -->
+<div id="wheel-modal">
+  <div class="wheel-modal-inner">
+    <button class="wheel-close" onclick="closeWheelModal()" aria-label="Ёпиш">&#10005;</button>
+    <h3>🎯 Omad G'ildiragi</h3>
+    <p>Чархни айлантиринг ва чегирма ютиб олинг!</p>
+
+    <div class="wheel-pointer-wrap" style="width:260px;height:260px;position:relative;margin:0 auto 18px;">
+      <canvas id="wheelCanvas" width="260" height="260"></canvas>
+      <div class="wheel-pointer"></div>
     </div>
-    <form id="modalLeadForm" onsubmit="submitForm(event, 'modalLeadForm', 'modalFormSuccess')">
-      <div class="form-group">
-        <label>Исмингиз *</label>
-        <input type="text" id="modal_name" placeholder="Исм ва Фамилия" />
-        <div class="error-text" id="err_modal_name"></div>
-      </div>
-      <div class="form-group">
-        <label>Телефон рақамингиз *</label>
-        <div class="phone-wrap">
-          <div class="phone-prefix">+998</div>
-          <input type="tel" id="modal_phone" class="phone-input" placeholder="XX XXX XX XX" maxlength="9" inputmode="numeric" />
-        </div>
-        <div class="error-text" id="err_modal_phone"></div>
-      </div>
-      <div class="form-group">
-        <label>Вилоятингиз *</label>
-        <select id="modal_region">
-          <option value="">— Вилоятни танланг —</option>
-          <option>Тошкент шаҳри</option>
-          <option>Тошкент вилояти</option>
-          <option>Самарқанд</option>
-          <option>Бухоро</option>
-          <option>Фарғона</option>
-          <option>Андижон</option>
-          <option>Наманган</option>
-          <option>Қашқадарё</option>
-          <option>Сурхондарё</option>
-          <option>Жиззах</option>
-          <option>Сирдарё</option>
-          <option>Навоий</option>
-          <option>Хоразм</option>
-          <option>Қорақалпоғистон</option>
-        </select>
-        <div class="error-text" id="err_modal_region"></div>
-      </div>
-      <button type="submit" class="submit-btn">📩 Юбориш</button>
-    </form>
+
+    <button id="spin-btn" onclick="spinWheel()">
+      <i class="fa-solid fa-rotate" style="margin-right:8px;"></i>
+      Айлантириш
+    </button>
   </div>
 </div>
 
-<!-- ============================
-  JAVASCRIPT
-============================= -->
+<!-- ═══════════════════════════ JAVASCRIPT ═══════════════════════════ -->
 <script>
-  // ---- VIDEO LAZY LOAD ----
-  function loadVideo(thumbEl, videoId) {
-    const wrapper = thumbEl.parentElement;
-    thumbEl.style.display = 'none';
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`;
-    iframe.allow = 'autoplay; encrypted-media; fullscreen';
-    iframe.allowFullscreen = true;
-    iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
-    wrapper.appendChild(iframe);
-  }
+/* ─── REVIEWS DATA ─── */
+const reviews = [
+  { init: "М", name: "М. Ҳожиев", age: "47 ёшда", city: "Самарқанд", text: "Мен диабет бўйича бу чойдан зўр фойда кўрдим. Қон шакари анча нормаллашди, умуман яхши ҳис қиляпман." },
+  { init: "Ф", name: "Ф. Рашидова", age: "55 ёшда", city: "Тошкент", text: "Бир ойлик истеъмолдан сўнг анализларим яхшиланди. Мутахассис ҳам ажабланди." },
+  { init: "Б", name: "Б. Каримов", age: "62 ёшда", city: "Фарғона", text: "Ташналик камайди, ўзимни бақувват ҳис қиляпман. Ҳаммага тавсия қиламан!" },
+  { init: "З", name: "З. Юсупова", age: "50 ёшда", city: "Андижон", text: "Кўришим яхшиланди, пешоб чиқариш ҳам нормаллашди. Шифобахш маҳсулот!" },
+  { init: "Х", name: "Х. Тошматов", age: "58 ёшда", city: "Бухоро", text: "Абиҳаёт чойини ичгандан кейин чарчоқ кескин камайди. Таҳсин!" },
+  { init: "Н", name: "Н. Мирзаева", age: "45 ёшда", city: "Наманган", text: "Шакар касаллигидан азиятда эдим, энди анча енгил. Раҳмат Abihayat!" },
+  { init: "А", name: "А. Сайдалиев", age: "53 ёшда", city: "Қашқадарё", text: "Инсулинга муҳтожлик камайди дейишди шифокор. Ажойиб натижа!" },
+];
 
-  // ---- MODAL CONTROLS ----
-  function openModal(id) {
-    document.getElementById(id).classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal(id) {
-    document.getElementById(id).classList.remove('active');
-    document.body.style.overflow = '';
-  }
-  function closeModalOutside(e) {
-    if (e.target.classList.contains('modal-overlay')) {
-      e.target.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  }
-
-  // ---- FORM VALIDATION & TELEGRAM SEND ----
-  const BOT_TOKEN = '8782026826:AAGYwrdzI5M3-zR-F3-DHd_1LFGjEkjiG74';
-  const MY_ID = '1691140865';
-  const GROUP_ID = '-1003900043839';
-
-  function validateForm(prefix) {
-    let valid = true;
-    const name = document.getElementById(`${prefix}_name`).value.trim();
-    const phone = document.getElementById(`${prefix}_phone`).value.trim();
-    const region = document.getElementById(`${prefix}_region`).value;
-
-    // Reset errors
-    ['name','phone','region'].forEach(f => {
-      document.getElementById(`err_${prefix}_${f}`).textContent = '';
-      const el = document.getElementById(`${prefix}_${f}`);
-      if(el) el.classList.remove('input-error');
-    });
-
-    if (!name || name.length < 2) {
-      document.getElementById(`err_${prefix}_name`).textContent = 'Исмингизни киритинг (камида 2 та белги)';
-      document.getElementById(`${prefix}_name`).classList.add('input-error');
-      valid = false;
-    }
-    if (!/^\d{9}$/.test(phone)) {
-      document.getElementById(`err_${prefix}_phone`).textContent = 'Телефон рақами 9 та рақамдан иборат бўлиши керак';
-      document.getElementById(`${prefix}_phone`).classList.add('input-error');
-      valid = false;
-    }
-    if (!region) {
-      document.getElementById(`err_${prefix}_region`).textContent = 'Вилоятни танланг';
-      document.getElementById(`${prefix}_region`).classList.add('input-error');
-      valid = false;
-    }
-    return { valid, name, phone: '+998' + phone, region };
-  }
-
-  async function sendToTelegram(name, phone, region) {
-    const text = `🌿 *ABIHAYAT — Янги Лид!*\n\n👤 Исм: ${name}\n📞 Телефон: ${phone}\n📍 Вилоят: ${region}\n\n⏰ Вақт: ${new Date().toLocaleString('uz-UZ')}`;
-    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-    const payload = { chat_id: MY_ID, text, parse_mode: 'Markdown' };
-    const payload2 = { chat_id: GROUP_ID, text, parse_mode: 'Markdown' };
-
-    try {
-      await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload2)
-      });
-    } catch(e) {
-      console.log('Telegram error:', e);
-    }
-  }
-
-  async function submitForm(e, formId, successId) {
-    e.preventDefault();
-    const prefix = formId === 'modalLeadForm' ? 'modal' : 'final';
-    const { valid, name, phone, region } = validateForm(prefix);
-    if (!valid) return;
-
-    const btn = document.querySelector(`#${formId} .submit-btn`);
-    btn.textContent = 'Юборилmoqda...';
-    btn.disabled = true;
-
-    await sendToTelegram(name, phone, region);
-
-    document.getElementById(formId).style.display = 'none';
-    document.getElementById(successId).style.display = 'block';
-  }
-
-  // ---- PHONE: only digits ----
-  document.querySelectorAll('.phone-input').forEach(input => {
-    input.addEventListener('input', function() {
-      this.value = this.value.replace(/\D/g, '').slice(0, 9);
-    });
+function buildReviews() {
+  const grid = document.getElementById('reviewsGrid');
+  reviews.forEach(r => {
+    const stars = '<i class="fa-solid fa-star"></i>'.repeat(5);
+    grid.insertAdjacentHTML('beforeend', `
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar">${r.init}</div>
+          <div>
+            <div class="review-name">${r.name}</div>
+            <div class="review-meta">${r.age} · ${r.city}</div>
+          </div>
+        </div>
+        <div class="review-stars">${stars}</div>
+        <div class="review-text">${r.text}</div>
+      </div>
+    `);
   });
+}
+buildReviews();
 
-  // ---- SCROLL REVEAL (lightweight) ----
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+/* ─── YOUTUBE VIDEOS ─── */
+const videoIds = [
+  'g1xYZcVHPwQ',
+  'uLZWunqUmNY',
+  'M-KiXu5N0zY',
+  'Dqw_AbNLd00',
+  '16yz-sLMik0'
+];
+
+let ytPlayers = {};
+let ytAPIReady = false;
+
+function onYouTubeIframeAPIReady() {
+  ytAPIReady = true;
+  const scroll = document.getElementById('videoScroll');
+  videoIds.forEach((id, index) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'video-item';
+    const playerDiv = document.createElement('div');
+    playerDiv.id = 'yt-player-' + index;
+    playerDiv.style.width = '240px';
+    playerDiv.style.height = '427px';
+    wrap.appendChild(playerDiv);
+    scroll.appendChild(wrap);
+
+    ytPlayers[index] = new YT.Player('yt-player-' + index, {
+      height: '427',
+      width: '240',
+      videoId: id,
+      playerVars: {
+        autoplay: 0,
+        rel: 0,
+        modestbranding: 1,
+        playsinline: 1,
+        loop: 0,
+      },
+      events: {
+        onStateChange: (event) => onPlayerStateChange(event, index)
       }
     });
-  }, { threshold: 0.08 });
-
-  document.querySelectorAll('.stat-card, .symptom-card, .review-card, .about-feature, .video-wrapper').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(28px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
   });
-</script>
+}
 
+function onPlayerStateChange(event, currentIndex) {
+  if (event.data === YT.PlayerState.PLAYING) {
+    Object.keys(ytPlayers).forEach(i => {
+      if (parseInt(i) !== currentIndex) {
+        try { ytPlayers[i].pauseVideo(); } catch(e) {}
+      }
+    });
+  }
+}
+
+(function loadYTScript() {
+  const tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+})();
+
+/* ─── SCROLL TO FORM ─── */
+function scrollToForm() {
+  document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ─── PHONE MASK ─── */
+const phoneInput = document.getElementById('phone-input');
+
+phoneInput.addEventListener('input', function () {
+  // Faqat raqamlarni ajratib olamiz
+  let raw = this.value.replace(/\D/g, '');
+
+  // Max 9 ta raqam
+  if (raw.length > 9) raw = raw.substring(0, 9);
+
+  // Kursor pozitsiyasini saqlash
+  let formatted = '';
+
+  // Format: XX XXX XX XX
+  if (raw.length === 0) {
+    formatted = '';
+  } else if (raw.length <= 2) {
+    // "99"
+    formatted = raw;
+  } else if (raw.length <= 5) {
+    // "99 123"
+    formatted = raw.substring(0, 2) + ' ' + raw.substring(2);
+  } else if (raw.length <= 7) {
+    // "99 123 45"
+    formatted = raw.substring(0, 2) + ' ' + raw.substring(2, 5) + ' ' + raw.substring(5);
+  } else {
+    // "99 123 45 67"
+    formatted = raw.substring(0, 2) + ' ' + raw.substring(2, 5) + ' ' + raw.substring(5, 7) + ' ' + raw.substring(7, 9);
+  }
+
+  this.value = formatted;
+  this._rawDigits = raw;
+});
+
+phoneInput.addEventListener('keydown', function(e) {
+  // Backspace bosilganda raw raqamni ham yangilash
+  if (e.key === 'Backspace') {
+    // Joriy raw raqamlardan oxirgisini o'chirish
+    const raw = (this._rawDigits || this.value.replace(/\D/g, '')).slice(0, -1);
+    this._rawDigits = raw;
+  }
+});
+
+/* ─── FORM SUBMIT ─── */
+const BOT_TOKEN = '8782026826:AAGYwrdzI5M3-zR-F3-DHd_1LFGjEkjiG74';
+const GROUP_ID  = '-1003900043839';
+
+document.getElementById('lead-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const name    = document.getElementById('name-input').value.trim();
+  // _rawDigits dan olamiz, aks holda inputdagi barcha raqamlarni ajratamiz
+  const rawDigs = (phoneInput._rawDigits !== undefined && phoneInput._rawDigits !== null)
+                    ? phoneInput._rawDigits
+                    : phoneInput.value.replace(/\D/g, '');
+  const region  = document.getElementById('region-select').value;
+  const discount= document.getElementById('discount-val').value || 'Йўқ';
+  // To'liq raqam: +998 + 9 ta raqam = +998XXXXXXXXX
+  const fullPhone = '+998' + rawDigs;
+
+  if (!name) { alert('Исмингизни киритинг!'); return; }
+  if (rawDigs.length !== 9) {
+    alert('Телефон рақами нотўғри! +998 дан кейин аниқ 9 та рақам киритинг.\nМасалан: 99 654 74 48');
+    phoneInput.focus();
+    return;
+  }
+
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="margin-right:8px;"></i>Юборилмоқда...';
+
+  const text = `Yangi Lead!\nIsm: ${name}\nTel: ${fullPhone}\nViloyat: ${region || 'Кўрсатилмаган'}\nChegirma: ${discount}`;
+
+  try {
+    const resp = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: GROUP_ID, text })
+    });
+    const data = await resp.json();
+    if (data.ok) {
+      document.getElementById('lead-form').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+      stopTimer();
+    } else {
+      throw new Error('Telegram API error');
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fa-solid fa-paper-plane" style="margin-right:8px;"></i>Юбориш';
+    alert('Хатолик юз берди. Интернет алоқасини текшириб, қайта уриниб кўринг.');
+  }
+});
+
+/* ─── COUNTDOWN TIMER ─── */
+let timerInterval = null;
+let timerSeconds = 600;
+
+function startTimer() {
+  const wrap = document.getElementById('countdown-wrap');
+  const display = document.getElementById('countdown-display');
+  wrap.style.display = 'block';
+  timerSeconds = 600;
+
+  if (timerInterval) clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    timerSeconds--;
+    const m = Math.floor(timerSeconds / 60).toString().padStart(2, '0');
+    const s = (timerSeconds % 60).toString().padStart(2, '0');
+    display.textContent = m + ':' + s;
+    if (timerSeconds <= 0) {
+      clearInterval(timerInterval);
+      display.textContent = '00:00';
+    }
+  }, 1000);
+}
+
+function stopTimer() {
+  if (timerInterval) clearInterval(timerInterval);
+  document.getElementById('countdown-wrap').style.display = 'none';
+}
+
+/* ─── WHEEL (BARABAN) ─── */
+let wheelSpun = false;
+let currentAngle = 0;
+const segments = [
+  { label: '20%', color: '#FF9800', prize: '20% chegirma' },
+  { label: '50%', color: '#006400', prize: '50% chegirma' },
+  { label: '70%', color: '#e53935', prize: '70% chegirma' },
+  { label: '20%', color: '#FF9800', prize: '20% chegirma' },
+  { label: '50%', color: '#006400', prize: '50% chegirma' },
+  { label: '70%', color: '#e53935', prize: '70% chegirma' },
+];
+const NUM_SEGS = segments.length;
+const ARC = (2 * Math.PI) / NUM_SEGS;
+
+function drawWheel(angle) {
+  const canvas = document.getElementById('wheelCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width;
+  const H = canvas.height;
+  const cx = W / 2, cy = H / 2;
+  const R = Math.min(W, H) / 2 - 4;
+
+  ctx.clearRect(0, 0, W, H);
+
+  for (let i = 0; i < NUM_SEGS; i++) {
+    const start = angle + i * ARC;
+    const end = start + ARC;
+
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, R, start, end);
+    ctx.closePath();
+    ctx.fillStyle = segments[i].color;
+    ctx.fill();
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(start + ARC / 2);
+    ctx.textAlign = 'right';
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 18px Segoe UI, Arial, sans-serif';
+    ctx.shadowColor = 'rgba(0,0,0,0.3)';
+    ctx.shadowBlur = 3;
+    ctx.fillText(segments[i].label, R - 14, 6);
+    ctx.restore();
+  }
+
+  // Center circle
+  ctx.beginPath();
+  ctx.arc(cx, cy, 22, 0, 2 * Math.PI);
+  ctx.fillStyle = '#fff';
+  ctx.fill();
+  ctx.strokeStyle = '#ddd';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+}
+
+function openWheelModal() {
+  document.getElementById('wheel-modal').classList.add('active');
+  drawWheel(currentAngle);
+}
+
+function closeWheelModal() {
+  document.getElementById('wheel-modal').classList.remove('active');
+}
+
+// Close modal on backdrop click
+document.getElementById('wheel-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeWheelModal();
+});
+
+function spinWheel() {
+  if (wheelSpun) {
+    alert('Сиз аллақачон айлантирдингиз!');
+    return;
+  }
+  wheelSpun = true;
+  document.getElementById('spin-btn').disabled = true;
+
+  const prizes = [0, 1, 2]; // indices into unique prizes
+  // Randomly pick a winning segment
+  const winIndex = Math.floor(Math.random() * NUM_SEGS);
+  const winSegment = segments[winIndex];
+
+  // Calculate final angle so pointer (top = -PI/2) points at winIndex segment center
+  const targetCenter = winIndex * ARC + ARC / 2;
+  // We want angle + targetCenter = -PI/2 (top) + multiple full rotations
+  const fullSpins = 2 * Math.PI * (6 + Math.floor(Math.random() * 3)); // 6-8 full spins
+  const pointerAngle = -Math.PI / 2;
+  const finalAngle = pointerAngle - targetCenter + fullSpins;
+
+  const start = currentAngle;
+  const duration = 4000;
+  const startTime = performance.now();
+
+  function easeOut(t) { return 1 - Math.pow(1 - t, 4); }
+
+  function animate(now) {
+    const elapsed = now - startTime;
+    const t = Math.min(elapsed / duration, 1);
+    currentAngle = start + (finalAngle - start) * easeOut(t);
+    drawWheel(currentAngle);
+    if (t < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      currentAngle = finalAngle % (2 * Math.PI);
+      drawWheel(currentAngle);
+      onSpinEnd(winSegment.prize);
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+function onSpinEnd(prize) {
+  setTimeout(() => {
+    const discountNum = prize.replace(' chegirma', '');
+    const msgUz = `🎉 Табриклаймиз!\n\nСиз ${discountNum} chegirma ютдингиз!\n\nҲозироқ имтиёз асосида маълумотларингизни қолдиринг!`;
+    alert(msgUz);
+
+    document.getElementById('discount-val').value = prize;
+
+    const badge = document.getElementById('discount-badge');
+    badge.style.display = 'block';
+    badge.innerHTML = `<i class="fa-solid fa-tag" style="margin-right:6px;"></i>Сизнинг чегирмангиз: <strong>${discountNum}</strong>`;
+
+    closeWheelModal();
+    scrollToForm();
+    startTimer();
+  }, 300);
+}
+
+// Initial wheel draw on load
+window.addEventListener('load', () => { drawWheel(currentAngle); });
+</script>
 </body>
 </html>
