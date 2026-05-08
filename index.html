@@ -787,6 +787,44 @@
     </div>
   </section>
 
+
+  <div class="divider"></div>
+
+  <!-- ===================== SECTION 5: SERTIFIKATLAR ===================== -->
+  <section class="section">
+    <div class="sec-title fade-in">📜 СЕРТИФИКАТ ВА РУХСАТНОМАЛАР</div>
+    <p class="sec-subtitle fade-in">Маҳсулот сифат ва хавфсизлик стандартларига жавоб беради</p>
+
+    <div class="video-card fade-in">
+      <img
+        src="https://i.postimg.cc/mDkRbbb8/photo-2026-05-04-15-51-26.jpg"
+        alt="ABIHAYAT Сертификат"
+        loading="lazy"
+        style="width:100%; display:block;"
+      />
+    </div>
+
+    <div class="video-card fade-in">
+      <img
+        src="https://i.postimg.cc/SKQSwCj9/GMP-I-YI-U-RETI-M-UYGULAMALARI-ISO-22716-2013-pdf-20260508-073515-0000.png"
+        alt="GMP Сертификати"
+        loading="lazy"
+        style="width:100%; display:block;"
+      />
+      <div class="video-label">GMP Сертификати</div>
+    </div>
+
+    <div class="video-card fade-in">
+      <img
+        src="https://i.postimg.cc/HkddyXwP/ISO-22000-2018-GIDA-GU-VENLI-G-I-YO-NETI-M-SI-STEMI-06-10-2025-pdf-20260508-073334-0000.png"
+        alt="ISO Сертификати"
+        loading="lazy"
+        style="width:100%; display:block;"
+      />
+      <div class="video-label">ISO Сертификати</div>
+    </div>
+  </section>
+
   <div class="divider"></div>
 
   <!-- ===================== SECTION 5: LUCKY WHEEL ===================== -->
@@ -928,12 +966,12 @@
 
     // Wheel segments: label, color, value
     var segments = [
-      { label: '20%', color: '#2E8B57', textColor: '#fff', value: 20 },
-      { label: '50%', color: '#ffffff', textColor: '#2E8B57', value: 50 },
-      { label: '70%', color: '#1a5c38', textColor: '#fff', value: 70 },
-      { label: '20%', color: '#3CB371', textColor: '#fff', value: 20 },
-      { label: '50%', color: '#e8f8ee', textColor: '#2E8B57', value: 50 },
-      { label: '70%', color: '#2E8B57', textColor: '#fff', value: 70 },
+      { label: '20%', color: '#22c55e', textColor: '#ffffff', value: 20 },
+      { label: '50%', color: '#facc15', textColor: '#1a1a1a', value: 50 },
+      { label: '70%', color: '#ef4444', textColor: '#ffffff', value: 70 },
+      { label: '20%', color: '#3b82f6', textColor: '#ffffff', value: 20 },
+      { label: '50%', color: '#a855f7', textColor: '#ffffff', value: 50 },
+      { label: '70%', color: '#f97316', textColor: '#ffffff', value: 70 },
     ];
 
     var numSegments = segments.length;
@@ -948,9 +986,16 @@
 
       // Outer ring
       ctx.beginPath();
-      ctx.arc(cx, cy, r + 4, 0, 2 * Math.PI);
-      ctx.fillStyle = '#2E8B57';
+      ctx.arc(cx, cy, r + 8, 0, 2 * Math.PI);
+      ctx.fillStyle = '#14532d';
       ctx.fill();
+
+      // Decorative border
+      ctx.beginPath();
+      ctx.arc(cx, cy, r + 2, 0, 2 * Math.PI);
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 5;
+      ctx.stroke();
 
       segments.forEach(function(seg, i) {
         var startAngle = angle + i * arcSize;
@@ -963,7 +1008,15 @@
         ctx.closePath();
         ctx.fillStyle = seg.color;
         ctx.fill();
-        ctx.strokeStyle = '#2E8B57';
+        // Segment separator lines
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 4;
+        ctx.stroke();
+
+        // Inner highlight border
+        ctx.beginPath();
+        ctx.arc(cx, cy, r - 10, startAngle, endAngle);
+        ctx.strokeStyle = 'rgba(255,255,255,0.25)';
         ctx.lineWidth = 2;
         ctx.stroke();
 
