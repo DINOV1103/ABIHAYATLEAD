@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABIHAYAT Дамламаси</title>
+    <title>ABIHAYAT Дамламаси - Қандли Диабет Учун</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,84 +15,87 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #ffffff;
-            color: #333;
+            color: #1a1a1a;
             line-height: 1.6;
         }
         
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-        }
-        
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-        
-        .section:nth-child(1) { animation-delay: 0.2s; }
-        .section:nth-child(2) { animation-delay: 0.4s; }
-        .section:nth-child(3) { animation-delay: 0.6s; }
-        .section:nth-child(4) { animation-delay: 0.8s; }
-        .section:nth-child(5) { animation-delay: 1s; }
-        .section:nth-child(6) { animation-delay: 1.2s; }
-        
-        h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        
-        h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
-            text-align: center;
-        }
-        
         .highlight {
-            color: #2ecc71;
-            font-weight: bold;
+            color: #22c55e;
+            font-weight: 900;
         }
         
-        .image-container {
-            background: linear-gradient(135deg, #a8e6cf, #56ab2f);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
+        .bold-text {
+            font-weight: 700;
+        }
+        
+        .extra-bold {
+            font-weight: 900;
+        }
+        
+        .green-bg {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #86efac 0%, #22c55e 50%, #16a34a 100%);
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 1.25rem;
+            padding: 20px 40px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 15px 35px rgba(34, 197, 94, 0.4);
+            transition: all 0.3s ease;
+            display: inline-block;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        .image-container img {
-            max-width: 100%;
-            border-radius: 10px;
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 45px rgba(34, 197, 94, 0.5);
+        }
+        
+        .cta-button:active {
+            transform: translateY(-2px) scale(1.02);
         }
         
         .video-container {
-            background: linear-gradient(135deg, #a8e6cf, #56ab2f);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-        }
-        
-        .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+            aspect-ratio: 9/16;
+            border-radius: 16px;
             overflow: hidden;
-            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
         
-        .video-wrapper iframe {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -98,37 +104,52 @@
             border: none;
         }
         
-        .description {
-            margin: 15px 0;
-            font-size: 16px;
-            text-align: center;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 10px;
+        .image-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            margin: 20px 0;
         }
         
-        .cta-button {
-            display: block;
+        .image-container img {
             width: 100%;
-            max-width: 400px;
-            margin: 30px auto;
-            padding: 18px 30px;
-            background: linear-gradient(135deg, #f39c12, #e74c3c);
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            height: auto;
+            display: block;
         }
         
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+        .caption {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            padding: 16px;
+            font-weight: 700;
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .hero-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
         }
         
         .modal {
@@ -140,245 +161,350 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0,0,0,0.7);
-            animation: fadeIn 0.3s;
+            animation: fadeIn 0.3s ease;
         }
         
-        .modal-content {
-            background: linear-gradient(135deg, #a8e6cf, #56ab2f);
-            margin: 50px auto;
-            padding: 30px;
-            border-radius: 20px;
-            max-width: 500px;
-            position: relative;
-            animation: slideIn 0.4s;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         @keyframes slideIn {
-            from {
+            from { 
                 transform: translateY(-50px);
                 opacity: 0;
             }
-            to {
+            to { 
                 transform: translateY(0);
                 opacity: 1;
             }
         }
         
+        .modal-content {
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+            margin: 5% auto;
+            padding: 40px;
+            border: 3px solid #22c55e;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideIn 0.4s ease;
+        }
+        
         .close {
-            color: #fff;
+            color: #16a34a;
             float: right;
-            font-size: 35px;
+            font-size: 40px;
             font-weight: bold;
+            line-height: 1;
             cursor: pointer;
-            line-height: 20px;
+            transition: all 0.3s;
         }
         
         .close:hover {
-            color: #f39c12;
+            color: #22c55e;
+            transform: rotate(90deg);
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
         
         .form-group label {
             display: block;
+            font-weight: 700;
             margin-bottom: 8px;
-            color: #fff;
-            font-weight: bold;
-            font-size: 16px;
+            color: #16a34a;
+            font-size: 1.1rem;
         }
         
         .form-group input,
         .form-group select {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #fff;
+            padding: 15px;
+            border: 2px solid #22c55e;
             border-radius: 10px;
-            font-size: 16px;
-            background: rgba(255,255,255,0.9);
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #16a34a;
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
         }
         
         .submit-btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #f39c12, #e74c3c);
+            background: linear-gradient(135deg, #86efac 0%, #22c55e 50%, #16a34a 100%);
             color: white;
+            padding: 18px 40px;
             border: none;
             border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 1.2rem;
+            font-weight: 900;
             cursor: pointer;
-            transition: transform 0.3s;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s;
+            text-transform: uppercase;
         }
         
         .submit-btn:hover {
-            transform: scale(1.05);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(34, 197, 94, 0.4);
         }
         
-        .video-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            margin: 20px 0;
+        h1 {
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 30px;
         }
         
-        @media (min-width: 768px) {
-            .video-grid {
-                grid-template-columns: repeat(2, 1fr);
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
             }
-        }
-        
-        .info-box {
-            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 20px 0;
-            border-left: 5px solid #2ecc71;
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            .cta-button {
+                font-size: 1.1rem;
+                padding: 16px 32px;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+                margin: 10% auto;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="section">
-            <h1>Кандли диабет <span class="highlight">17</span> дан <span class="highlight">4.3</span> гача тушгани сабаб <span class="highlight">"ABIHAYAT Дамламаси"</span> шифокорлар эътиборига тушмоқда.</h1>
-            <div class="image-container">
-                <img src="https://i.postimg.cc/rs31jnTQ/IMG-0385.png" alt="ABIHAYAT">
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="description">
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1 class="bold-text">
+            Кандли диабет <span class="highlight">17 дан 4.3 гача</span> тушгани сабаб 
+            "<span class="highlight">ABIHAYAT Дамламаси</span>" шифокорлар эътиборига тушмоқда.
+        </h1>
+        
+        <div class="image-container">
+            <img src="https://i.postimg.cc/rs31jnTQ/IMG-0385.png" alt="ABIHAYAT Дамламаси">
+            <div class="caption">
                 ҚАНДЛИ ДИAБЕТИ БОР ИНСОНДА УМУМИЙ ҲОЛСИЗЛИК, ЮҚОРИ ҚОН БОСИМИ ВА ТЕЗ ПЕШОБ МУАММОСИ БЕЗОВТА ҚИЛАДИ, БУ ҲОЛАТДА МАШХУР САБ'АТКОРЛАР ҚАНДАЙ ЙЎЛ ТУТАДИ?
-            </div>
-            <div class="image-container">
-                <img src="https://i.postimg.cc/15B31g2L/IMG-0371.png" alt="ABIHAYAT Натижалари">
-            </div>
-            <div class="description">
-                <span class="highlight">ABIHAYAT ДАМЛАМАСИ</span> БУ ҲОЛАТДА ТОЛИҚ ЁРДАМ БЕРАДИ.
-            </div>
-            <button class="cta-button" onclick="openModal()">БАТАФСИЛ МАЪЛУМОТ ОЛИНГ</button>
-        </div>
-
-        <div class="section">
-            <h2><span class="highlight">ABIHAYAT ДАМЛАМАСИНИ</span> ТАНЛАГАН МАШХУР ИНСОНЛАР</h2>
-            <div class="video-grid">
-                <div>
-                    <div class="video-container">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/3du4Ktbz7-8" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="description">
-                        <span class="highlight">ABIHAYAT ДАМЛАМАСИ</span> ҚАНД МИҚДОРИНИ НОРМАЛЛАШТИРАДИ
-                    </div>
-                </div>
-                <div>
-                    <div class="video-container">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/Dqw_AbNLd00?enablejsapi=1&rel=0&playsinline=1" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="description">
-                        ДАМЛАМА ОРГАНИЗМНИ ТОЗАЛАБ, <span class="highlight">ҚУВВАТ</span> БЕРАДИ.
-                    </div>
-                </div>
-                <div>
-                    <div class="video-container">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/g1xYZcVHPwQ?enablejsapi=1&rel=0&playsinline=1" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="description">
-                        ЮҚОРИ ҚАНД БОСИМИДА <span class="highlight">САМАРАЛИ</span> ЁРДАМ БЕРАДИ
-                    </div>
-                </div>
-                <div>
-                    <div class="video-container">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/M-KiXu5N0zY?enablejsapi=1&rel=0&playsinline=1" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="description">
-                        ҚОН ТОМИРЛАРДА ҚОН АЙЛАНИШИНИ <span class="highlight">НОРМАЛЛАШТИРАДИ</span>.
-                    </div>
-                </div>
-            </div>
-            <button class="cta-button" onclick="openModal()">БУЙУРТМА БЕРИШ</button>
-        </div>
-
-        <div class="section">
-            <h2>МАШХУРЛАР ИШОНЧИНИ ОҚЛАГАН <span class="highlight">ABIHAYAT ТУРК ДАМЛАМАСИ</span> ХАЛҚИМИЗ УЧУН ҲАМ БИРДЕК ФОЙДА ОЛИБ КЕЛМОҚДА. УЛАРНИНГ ТААСУРОТЛАРИ БИЛАН ТАНИШИНГ:</h2>
-            <div class="video-grid">
-                <div>
-                    <div class="video-container">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/NtKVI-DevHs" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="video-container">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/prqj8YLhzoo?enablejsapi=1&rel=0&playsinline=1" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="video-container">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/lWRTBvtwRxs?enablejsapi=1&rel=0&playsinline=1" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="video-container">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/P05l05Kx90U" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="video-container" style="max-width: 600px; margin: 20px auto;">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/Oajld7O8Px0?enablejsapi=1&rel=0&playsinline=1" allowfullscreen></iframe>
-                </div>
-            </div>
-            <button class="cta-button" onclick="openModal()">БАТАФСИЛ МАЪЛУМОТ ОЛИШ</button>
-        </div>
-
-        <div class="section">
-            <div class="description" style="font-size: 18px;">
-                УШБУ ИНСОНЛАР АЙНАН <span class="highlight">ABIHAYAT ДАМЛАМАСИДАН</span> ИСТЕЪМОЛ ҚИЛИБ, ЎЗИНИНГ БЕБАҲО САЛОМАТЛИКЛАРИГА ЭЪТИБОР БЕРАМОҚДА ВА <span class="highlight">РЕАЛ НАТИЖАЛАР</span> ОЛИШМОҚДА. СИЗ ҲАМ ҲОЗИРОҚ МАЪЛУМОТЛАРИНГИЗНИ ҚОЛДИРИНГ ВА НАТИЖАГА ЕРИШИНГ.
-            </div>
-            <div class="info-box">
-                <span class="highlight">ABIHAYAT</span> – 100% ТАБИЙ МАҲСУЛОТ. У ҚАНДЛИ ДИАБЕТНИНГ ФАҚАТГИНА БЕЛГИЛАРИНИ ЁҚОТИБГИНА ҚОЛМАЙ, КАСАЛЛИКНИНГ ИЛДИЗИГА ЧУҚУР СИНГИБ БОРАДИ ВА КАСАЛЛИКДА САМАРАЛИ ЁРДАМ БЕРА ОЛАДИ. МАҲСУЛОТ БФҚ ЁКИ ДОРИ МАҲСУЛОТИ ЭМАС.
-            </div>
-            <button class="cta-button" onclick="openModal()">АНКЕТА ТОЛДИРИШ</button>
-            <div class="description" style="margin-top: 30px; font-size: 18px;">
-                МАЪЛУМОТЛАРИНГИЗНИ ҚОЛДИРИНГ ВА МАҲСУЛОТ ҲАҚИДА <span class="highlight">БАТАФСИЛ МАЪЛУМОТГА</span> ЭГА БОЛИНГ.
             </div>
         </div>
     </div>
 
-    <div id="modal" class="modal">
+    <!-- Solution Section -->
+    <div class="section">
+        <div class="image-container">
+            <img src="https://i.postimg.cc/XvgKPrPH/IMG-8373.jpg" alt="ABIHAYAT ечими">
+            <div class="caption">
+                ABIHAYAT ДАМЛАМАСИ БУ ҲОЛАТДА ТОЛИҚ ЁРДАМ БЕРАДИ.
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 40px 0;">
+            <button class="cta-button" onclick="openModal('details')">
+                📋 Батафсил маълумот олинг
+            </button>
+        </div>
+    </div>
+
+    <!-- Famous People Section -->
+    <div class="section">
+        <h2 class="bold-text">
+            <span class="highlight">ABIHAYAT ДАМЛАМАСИНИ</span> ТАНЛАГАН МАШХУР ИНСОНЛАР
+        </h2>
+        
+        <div class="video-grid">
+            <div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/3du4Ktbz7-8" allowfullscreen></iframe>
+                </div>
+                <div class="green-bg">
+                    <p class="bold-text" style="color: white; text-align: center; margin: 0;">
+                        ABIHAYAT ДАМЛАМАСИ ҚАНД МИҚДОРИНИ НОРМАЛЛАШТИРАДИ
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Dqw_AbNLd00?enablejsapi=1&rel=0&playsinline=1" allowfullscreen></iframe>
+                </div>
+                <div class="green-bg">
+                    <p class="bold-text" style="color: white; text-align: center; margin: 0;">
+                        ДАМЛАМА ОРГАНИЗМНИ ТОЗАЛАБ, ҚУВВАТ БЕРАДИ.
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/g1xYZcVHPwQ?enablejsapi=1&rel=0&playsinline=1" allowfullscreen></iframe>
+                </div>
+                <div class="green-bg">
+                    <p class="bold-text" style="color: white; text-align: center; margin: 0;">
+                        ЮҚОРИ ҚАНД БОСИМИДА САМАРАЛИ ЁРДАМ БЕРАДИ
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/M-KiXu5N0zY?enablejsapi=1&rel=0&playsinline=1" allowfullscreen></iframe>
+                </div>
+                <div class="green-bg">
+                    <p class="bold-text" style="color: white; text-align: center; margin: 0;">
+                        ҚОН ТОМИРЛАРДА ҚОН АЙЛАНИШИНИ НОРМАЛЛАШТИРАДИ.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 40px 0;">
+            <button class="cta-button" onclick="openModal('order')">
+                🛒 Буйуртма бериш
+            </button>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="section">
+        <h2 class="bold-text">
+            МАШХУРЛАР ИШОНЧИНИ ОҚЛАГАН <span class="highlight">ABIHAYAT ТУРК ДАМЛАМАСИ</span> 
+            ХАЛҚИМИЗ УЧУН ҲАМ БИРДЕК ФОЙДА ОЛИБ КЕЛМОҚДА. УЛАРНИНГ ТААСУРОТЛАРИ БИЛАН ТАНИШИНГ:
+        </h2>
+        
+        <div class="video-grid">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/NtKVI-DevHs" allowfullscreen></iframe>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/prqj8YLhzoo?enablejsapi=1&rel=0&playsinline=1" allowfullscreen></iframe>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/lWRTBvtwRxs?enablejsapi=1&rel=0&playsinline=1" allowfullscreen></iframe>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/P05l05Kx90U" allowfullscreen></iframe>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Oajld7O8Px0?enablejsapi=1&rel=0&playsinline=1" allowfullscreen></iframe>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 40px 0;">
+            <button class="cta-button" onclick="openModal('info')">
+                📞 Батафсил маълумот олиш
+            </button>
+        </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="section">
+        <div class="green-bg">
+            <h2 class="extra-bold" style="color: white;">
+                УШБУ ИНСОНЛАР АЙНАН ABIHAYAT ДАМЛАМАСИДАН ИСТЕЪМОЛ ҚИЛИБ, ЎЗИНИНГ БЕБАҲО САЛОМАТЛИКЛАРИГА ЭЪТИБОР БЕРАМОҚДА ВА РЕАЛ НАТИЖАЛАР ОЛИШМОҚДА.
+            </h2>
+            <p class="bold-text" style="color: white; text-align: center; font-size: 1.3rem;">
+                СИЗ ҲАМ ҲОЗИРОҚ МАЪЛУМОТЛАРИНГИЗНИ ҚОЛДИРИНГ ВА НАТИЖАГА ЕРИШИНГ.
+            </p>
+        </div>
+        
+        <div class="green-bg">
+            <p class="bold-text" style="color: white; text-align: center;">
+                ABIHAYAT – <span class="extra-bold">100% ТАБИЙ МАҲСУЛОТ.</span> У ҚАНДЛИ ДИАБЕТНИНГ ФАҚАТГИНА БЕЛГИЛАРИНИ ЁҚОТИБГИНА ҚОЛМАЙ, КАСАЛЛИКНИНГ ИЛДИЗИГА ЧУҚУР СИНГИБ БОРАДИ ВА КАСАЛЛИКДА САМАРАЛИ ЁРДАМ БЕРА ОЛАДИ. 
+                <span class="extra-bold">МАҲСУЛОТ БФҚ ЁКИ ДОРИ МАҲСУЛОТИ ЭМАС.</span>
+            </p>
+        </div>
+        
+        <div style="text-align: center; margin: 40px 0;">
+            <button class="cta-button" onclick="openModal('form')">
+                📝 Анкета тўлдириш
+            </button>
+        </div>
+    </div>
+
+    <!-- Certificates Section -->
+    <div class="section">
+        <h2 class="bold-text">
+            <span class="highlight">СЕРТИФИКАТЛАР</span>
+        </h2>
+        
+        <div class="cert-grid">
+            <div class="image-container">
+                <img src="https://i.postimg.cc/KvbPmvDK/IMG-20260513-184343-911.jpg" alt="Сертификат 1">
+            </div>
+            
+            <div class="image-container">
+                <img src="https://i.postimg.cc/BQ3TJQBQ/GMP-I-YI-U-RETI-M-UYGULAMALARI-ISO-22716-2013-pdf-20260508-073515.png" alt="Сертификат 2">
+            </div>
+            
+            <div class="image-container">
+                <img src="https://i.postimg.cc/J48NR45H/ISO-22000-2018-GIDA-GU-VENLI-G-I-YO-NETI-M-SI-STEMI-06-10-2025.png" alt="Сертификат 3">
+            </div>
+        </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="section" style="text-align: center; padding-bottom: 60px;">
+        <h2 class="bold-text">
+            МАЪЛУМОТЛАРИНГИЗНИ ҚОЛДИРИНГ ВА МАҲСУЛОТ ҲАҚИДА <span class="highlight">БАТАФСИЛ МАЪЛУМОТГА ЭГА БЎЛИНГ</span>
+        </h2>
+        
+        <div style="margin-top: 30px;">
+            <button class="cta-button" onclick="openModal('application')">
+                ✉️ Ариза юбориш
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="leadModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h2 style="color: #fff; margin-bottom: 25px;">МАЪЛУМОТЛАРИНГИЗНИ ҚОЛДИРИНГ</h2>
-            <form id="orderForm">
+            <h2 id="modalTitle" class="highlight">Ариза қолдириш</h2>
+            <form id="leadForm" onsubmit="submitForm(event)">
                 <div class="form-group">
-                    <label>Исм:</label>
-                    <input type="text" id="name" required>
+                    <label for="name">Исмингиз *</label>
+                    <input type="text" id="name" name="name" required placeholder="Исмингизни киритинг">
                 </div>
+                
                 <div class="form-group">
-                    <label>Телефон рақам:</label>
-                    <input type="tel" id="phone" placeholder="+998 (__) ___-__-__" required>
+                    <label for="phone">Телефон рақамингиз *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+998 90 123 45 67" pattern="\+998[0-9]{9}" title="+998 билан бошланиб, 9 та рақам">
                 </div>
+                
                 <div class="form-group">
-                    <label>Вилоят:</label>
-                    <select id="region" required>
+                    <label for="region">Вилоятингиз *</label>
+                    <select id="region" name="region" required>
                         <option value="">Танланг</option>
-                        <option value="Тошкент шаҳар">Тошкент шаҳар</option>
+                        <option value="Тошкент шаҳри">Тошкент шаҳри</option>
                         <option value="Тошкент вилояти">Тошкент вилояти</option>
                         <option value="Андижон">Андижон</option>
                         <option value="Бухоро">Бухоро</option>
@@ -394,7 +520,10 @@
                         <option value="Қорақалпоғистон">Қорақалпоғистон</option>
                     </select>
                 </div>
-                <button type="submit" class="submit-btn">ЮБОРИШ</button>
+                
+                <input type="hidden" id="buttonType" name="buttonType">
+                
+                <button type="submit" class="submit-btn">Юбориш</button>
             </form>
         </div>
     </div>
@@ -402,66 +531,59 @@
     <script>
         const BOT_TOKEN = '8719998569:AAFlIx2_UJFpa8Inq1jEJIPvNavAv0kI0QU';
         const CHAT_ID = '-5111791933';
+        let currentButtonType = '';
 
-        function openModal() {
-            document.getElementById('modal').style.display = 'block';
+        const buttonTitles = {
+            'details': 'Батафсил маълумот олинг',
+            'order': 'Буйуртма бериш',
+            'info': 'Батафсил маълумот олиш',
+            'form': 'Анкета тўлдириш',
+            'application': 'Ариза юбориш'
+        };
+
+        function openModal(buttonType) {
+            currentButtonType = buttonType;
+            document.getElementById('modalTitle').textContent = buttonTitles[buttonType] || 'Ариза қолдириш';
+            document.getElementById('buttonType').value = buttonType;
+            document.getElementById('leadModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
-            document.getElementById('modal').style.display = 'none';
+            document.getElementById('leadModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            document.getElementById('leadForm').reset();
         }
 
         window.onclick = function(event) {
-            const modal = document.getElementById('modal');
+            const modal = document.getElementById('leadModal');
             if (event.target == modal) {
                 closeModal();
             }
         }
 
-        const phoneInput = document.getElementById('phone');
-        phoneInput.addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            
-            if (!value.startsWith('998')) {
-                value = '998' + value;
-            }
-            
-            value = value.substring(0, 12);
-            
-            let formatted = '+998';
-            if (value.length > 3) {
-                formatted += ' (' + value.substring(3, 5);
-            }
-            if (value.length >= 5) {
-                formatted += ') ' + value.substring(5, 8);
-            }
-            if (value.length >= 8) {
-                formatted += '-' + value.substring(8, 10);
-            }
-            if (value.length >= 10) {
-                formatted += '-' + value.substring(10, 12);
-            }
-            
-            e.target.value = formatted;
-        });
-
-        document.getElementById('orderForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
+        async function submitForm(event) {
+            event.preventDefault();
             
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const region = document.getElementById('region').value;
+            const buttonType = document.getElementById('buttonType').value;
             
-            const phoneDigits = phone.replace(/\D/g, '');
-            if (phoneDigits.length !== 12 || !phoneDigits.startsWith('998')) {
-                alert('Илтимос, тўғри телефон рақам киритинг!');
-                return;
-            }
+            const message = `
+🆕 ЯНГИ АРИЗА - ABIHAYAT
+
+👤 Исм: ${name}
+📱 Телефон: ${phone}
+📍 Вилоят: ${region}
+🔘 Тугма: ${buttonTitles[buttonType]}
+⏰ Вақт: ${new Date().toLocaleString('uz-UZ')}
+            `.trim();
             
-            const message = `🆕 ЯНГИ БУЙУРТМА - ABIHAYAT\n\n👤 Исм: ${name}\n📱 Телефон: ${phone}\n📍 Вилоят: ${region}\n\n⏰ Вақт: ${new Date().toLocaleString('uz-UZ')}`;
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
             
             try {
-                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                const response = await fetch(url, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -474,14 +596,43 @@
                 });
                 
                 if (response.ok) {
-                    alert('✅ Маълумотларингиз қабул қилинди! Тез орада сиз билан боғланамиз.');
+                    alert('✅ Аризангиз қабул қилинди! Тез орада мутахассисларимиз сиз билан боғланади.');
                     closeModal();
-                    document.getElementById('orderForm').reset();
                 } else {
-                    alert('❌ Хатолик юз берди. Илтимос, қайта уриниб кўринг.');
+                    throw new Error('Хатолик юз берди');
                 }
             } catch (error) {
-                alert('❌ Хатолик юз берди. Илтимос, қайта уриниб кўринг.');
+                alert('❌ Хатолик юз берди. Илтимос, қайта уриниб кўринг ёки +998 рақамига қўнғироқ қилинг.');
+                console.error('Error:', error);
+            }
+        }
+
+        // Phone input formatting
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (!value.startsWith('998')) {
+                if (value.startsWith('998')) {
+                    value = value;
+                } else if (value.length > 0) {
+                    value = '998' + value;
+                }
+            }
+            
+            if (value.length > 12) {
+                value = value.slice(0, 12);
+            }
+            
+            if (value.length > 0) {
+                e.target.value = '+' + value;
+            } else {
+                e.target.value = '';
+            }
+        });
+        
+        document.getElementById('phone').addEventListener('focus', function(e) {
+            if (e.target.value === '') {
+                e.target.value = '+998';
             }
         });
     </script>
