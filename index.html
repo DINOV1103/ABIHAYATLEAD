@@ -3,1235 +3,724 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ABIHAYAT Дамламаси - Қандли диабет учун табий ечим. Машхур инсонлар ишончи.">
-<meta name="keywords" content="ABIHAYAT, дамлама, қандли диабет, табий маҳсулот">
-<meta property="og:title" content="ABIHAYAT Дамламаси - Қандли Диабет Учун Табий Ечим">
-<meta property="og:description" content="Кандли диабет 17 дан 4.3 гача тушгани сабаб ABIHAYAT Дамламаси шифокорлар эътиборига тушмоқда">
-<meta property="og:image" content="https://i.postimg.cc/rs31jnTQ/IMG-0385.png">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#10b981">
-<title>ABIHAYAT Дамламаси - Қандли Диабет Учун Табий Ечим</title>
+<title>ABIHAYAT Дамламаси – Қандли Диабетга Самарали Ёрдам</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <style>
-:root {
---primary-green: #10b981;
---dark-green: #059669;
---light-green: #34d399;
---glow-green: rgba(16, 185, 129, 0.4);
---white: #ffffff;
---gray-50: #f9fafb;
---gray-100: #f3f4f6;
---gray-200: #e5e7eb;
---gray-300: #d1d5db;
---gray-700: #374151;
---gray-900: #111827;
---shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
---shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
---shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
---shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
---shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
---shadow-green: 0 10px 40px rgba(16, 185, 129, 0.3);
-}
-
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
-
-body {
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-background: var(--white);
-color: var(--gray-900);
-overflow-x: hidden;
-line-height: 1.6;
-}
-
-::-webkit-scrollbar {
-width: 10px;
-}
-
-::-webkit-scrollbar-track {
-background: var(--gray-100);
-}
-
-::-webkit-scrollbar-thumb {
-background: linear-gradient(180deg, var(--primary-green), var(--dark-green));
-border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-background: var(--dark-green);
-}
-
-.container {
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 20px;
-}
-
-.hero-section {
-position: relative;
-padding: 60px 20px 40px;
-background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
-overflow: hidden;
-}
-
-.hero-section::before {
-content: '';
-position: absolute;
-top: -50%;
-left: -50%;
-width: 200%;
-height: 200%;
-background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, transparent 70%);
-animation: rotate 30s linear infinite;
-pointer-events: none;
-}
-
-@keyframes rotate {
-0% { transform: rotate(0deg); }
-100% { transform: rotate(360deg); }
-}
-
-.floating-particles {
-position: absolute;
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
-pointer-events: none;
-overflow: hidden;
-}
-
-.particle {
-position: absolute;
-background: var(--primary-green);
-border-radius: 50%;
-opacity: 0.1;
-animation: float 20s infinite ease-in-out;
-}
-
-.particle:nth-child(1) {
-width: 80px;
-height: 80px;
-top: 10%;
-left: 10%;
-animation-delay: 0s;
-}
-
-.particle:nth-child(2) {
-width: 60px;
-height: 60px;
-top: 60%;
-left: 80%;
-animation-delay: 5s;
-}
-
-.particle:nth-child(3) {
-width: 100px;
-height: 100px;
-top: 80%;
-left: 20%;
-animation-delay: 10s;
-}
-
-@keyframes float {
-0%, 100% { transform: translate(0, 0) scale(1); }
-33% { transform: translate(30px, -30px) scale(1.1); }
-66% { transform: translate(-20px, 20px) scale(0.9); }
-}
-
-.hook-text {
-font-size: 28px;
-font-weight: 900;
-line-height: 1.3;
-text-align: center;
-margin-bottom: 40px;
-position: relative;
-z-index: 1;
-}
-
-.highlight {
-color: var(--primary-green);
-text-shadow: 0 0 20px var(--glow-green);
-}
-
-.hero-image {
-width: 100%;
-max-width: 600px;
-height: auto;
-margin: 0 auto 40px;
-display: block;
-border-radius: 24px;
-box-shadow: var(--shadow-xl), 0 0 60px rgba(16, 185, 129, 0.2);
-transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-position: relative;
-z-index: 1;
-}
-
-.hero-image:hover {
-transform: scale(1.02) translateY(-5px);
-}
-
-.section {
-padding: 80px 20px;
-position: relative;
-}
-
-.section.green-bg {
-background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-position: relative;
-overflow: hidden;
-}
-
-.section.green-bg::after {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-height: 1px;
-background: linear-gradient(90deg, transparent, var(--primary-green), transparent);
-}
-
-.section-title {
-font-size: 32px;
-font-weight: 900;
-text-align: center;
-margin-bottom: 50px;
-line-height: 1.2;
-}
-
-.text-content {
-font-size: 18px;
-font-weight: 600;
-text-align: center;
-margin-bottom: 40px;
-max-width: 900px;
-margin-left: auto;
-margin-right: auto;
-line-height: 1.8;
-}
-
-.important-block {
-background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
-border: 2px solid var(--primary-green);
-border-radius: 24px;
-padding: 40px;
-margin: 60px auto;
-max-width: 900px;
-box-shadow: var(--shadow-green), var(--shadow-lg);
-position: relative;
-overflow: hidden;
-}
-
-.important-block::before {
-content: '';
-position: absolute;
-top: -2px;
-left: -2px;
-right: -2px;
-bottom: -2px;
-background: linear-gradient(45deg, var(--primary-green), var(--light-green), var(--primary-green));
-border-radius: 24px;
-z-index: -1;
-animation: borderGlow 3s linear infinite;
-background-size: 200% 200%;
-}
-
-@keyframes borderGlow {
-0% { background-position: 0% 50%; }
-50% { background-position: 100% 50%; }
-100% { background-position: 0% 50%; }
-}
-
-.cta-button {
-display: inline-block;
-background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
-color: var(--white);
-font-size: 20px;
-font-weight: 900;
-padding: 20px 50px;
-border-radius: 50px;
-border: none;
-cursor: pointer;
-text-align: center;
-text-decoration: none;
-box-shadow: var(--shadow-green), var(--shadow-lg);
-transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-position: relative;
-overflow: hidden;
-margin: 20px auto;
-display: block;
-max-width: max-content;
-}
-
-.cta-button::before {
-content: '';
-position: absolute;
-top: 50%;
-left: 50%;
-width: 0;
-height: 0;
-border-radius: 50%;
-background: rgba(255, 255, 255, 0.3);
-transform: translate(-50%, -50%);
-transition: width 0.6s, height 0.6s;
-}
-
-.cta-button:hover::before {
-width: 300px;
-height: 300px;
-}
-
-.cta-button:hover {
-transform: translateY(-5px) scale(1.05);
-box-shadow: 0 15px 50px rgba(16, 185, 129, 0.5), var(--shadow-xl);
-}
-
-.cta-button:active {
-transform: translateY(-2px) scale(1.02);
-}
-
-@keyframes pulse {
-0%, 100% {
-box-shadow: 0 0 0 0 var(--glow-green), var(--shadow-green), var(--shadow-lg);
-}
-50% {
-box-shadow: 0 0 0 20px rgba(16, 185, 129, 0), var(--shadow-green), var(--shadow-lg);
-}
-}
-
-.cta-button {
-animation: pulse 2s infinite;
-}
-
-.video-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 40px;
-margin: 50px 0;
-}
-
-.video-card {
-background: var(--white);
-border-radius: 20px;
-padding: 20px;
-box-shadow: var(--shadow-md);
-transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-opacity: 0;
-transform: translateY(50px);
-}
-
-.video-card.reveal {
-opacity: 1;
-transform: translateY(0);
-}
-
-.video-card:hover {
-transform: translateY(-10px) scale(1.02);
-box-shadow: var(--shadow-xl), 0 0 30px rgba(16, 185, 129, 0.15);
-}
-
-.video-wrapper {
-position: relative;
-width: 100%;
-padding-bottom: 177.78%;
-border-radius: 16px;
-overflow: hidden;
-box-shadow: var(--shadow);
-background: var(--gray-100);
-}
-
-.video-wrapper iframe {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-border: none;
-}
-
-.video-description {
-margin-top: 20px;
-font-size: 16px;
-font-weight: 700;
-text-align: center;
-color: var(--gray-900);
-line-height: 1.5;
-}
-
-.image-card {
-background: var(--white);
-border-radius: 20px;
-padding: 20px;
-margin: 40px auto;
-max-width: 600px;
-box-shadow: var(--shadow-md);
-transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-opacity: 0;
-transform: translateY(50px);
-}
-
-.image-card.reveal {
-opacity: 1;
-transform: translateY(0);
-}
-
-.image-card:hover {
-transform: translateY(-10px) scale(1.02);
-box-shadow: var(--shadow-xl), 0 0 30px rgba(16, 185, 129, 0.15);
-}
-
-.image-card img {
-width: 100%;
-height: auto;
-border-radius: 16px;
-display: block;
-transition: transform 0.4s ease;
-}
-
-.image-card:hover img {
-transform: scale(1.05);
-}
-
-.image-description {
-margin-top: 20px;
-font-size: 16px;
-font-weight: 700;
-text-align: center;
-color: var(--gray-900);
-line-height: 1.5;
-}
-
-.certificates-section {
-padding: 80px 20px;
-background: var(--gray-50);
-}
-
-.certificates-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 30px;
-margin: 50px 0;
-}
-
-.certificate-card {
-background: var(--white);
-border-radius: 20px;
-padding: 15px;
-box-shadow: var(--shadow-md);
-transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-opacity: 0;
-transform: translateY(50px);
-}
-
-.certificate-card.reveal {
-opacity: 1;
-transform: translateY(0);
-}
-
-.certificate-card:hover {
-transform: translateY(-10px) scale(1.02);
-box-shadow: var(--shadow-xl), 0 0 30px rgba(16, 185, 129, 0.15);
-}
-
-.certificate-card img {
-width: 100%;
-height: auto;
-border-radius: 12px;
-display: block;
-transition: transform 0.4s ease;
-}
-
-.certificate-card:hover img {
-transform: scale(1.05);
-}
-
-.modal {
-display: none;
-position: fixed;
-z-index: 9999;
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-overflow: auto;
-background-color: rgba(0, 0, 0, 0.7);
-backdrop-filter: blur(10px);
-animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-from { opacity: 0; }
-to { opacity: 1; }
-}
-
-.modal.show {
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-.modal-content {
-background: var(--white);
-margin: 20px;
-padding: 0;
-border-radius: 24px;
-width: 100%;
-max-width: 500px;
-box-shadow: var(--shadow-xl);
-position: relative;
-animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-overflow: hidden;
-}
-
-@keyframes slideUp {
-from {
-opacity: 0;
-transform: translateY(100px) scale(0.8);
-}
-to {
-opacity: 1;
-transform: translateY(0) scale(1);
-}
-}
-
-.modal-header {
-background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
-color: var(--white);
-padding: 30px;
-text-align: center;
-position: relative;
-}
-
-.modal-header h2 {
-font-size: 24px;
-font-weight: 900;
-margin: 0;
-}
-
-.close {
-position: absolute;
-top: 15px;
-right: 20px;
-color: var(--white);
-font-size: 32px;
-font-weight: bold;
-cursor: pointer;
-transition: transform 0.2s;
-line-height: 1;
-}
-
-.close:hover {
-transform: scale(1.2) rotate(90deg);
-}
-
-.modal-body {
-padding: 40px 30px;
-}
-
-.form-group {
-margin-bottom: 25px;
-}
-
-.form-group label {
-display: block;
-font-size: 14px;
-font-weight: 700;
-margin-bottom: 8px;
-color: var(--gray-700);
-text-transform: uppercase;
-letter-spacing: 0.5px;
-}
-
-.form-group input,
-.form-group select {
-width: 100%;
-padding: 16px 20px;
-border: 2px solid var(--gray-200);
-border-radius: 12px;
-font-size: 16px;
-transition: all 0.3s;
-background: var(--white);
-}
-
-.form-group input:focus,
-.form-group select:focus {
-outline: none;
-border-color: var(--primary-green);
-box-shadow: 0 0 0 4px var(--glow-green);
-}
-
-.form-group input.error,
-.form-group select.error {
-border-color: #ef4444;
-animation: shake 0.5s;
-}
-
-@keyframes shake {
-0%, 100% { transform: translateX(0); }
-25% { transform: translateX(-10px); }
-75% { transform: translateX(10px); }
-}
-
-.error-message {
-color: #ef4444;
-font-size: 12px;
-margin-top: 5px;
-font-weight: 600;
-}
-
-.submit-button {
-width: 100%;
-background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
-color: var(--white);
-font-size: 18px;
-font-weight: 900;
-padding: 18px;
-border-radius: 12px;
-border: none;
-cursor: pointer;
-transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-box-shadow: var(--shadow-green);
-position: relative;
-overflow: hidden;
-}
-
-.submit-button:hover {
-transform: translateY(-2px);
-box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
-}
-
-.submit-button:active {
-transform: translateY(0);
-}
-
-.submit-button:disabled {
-background: var(--gray-300);
-cursor: not-allowed;
-box-shadow: none;
-}
-
-.submit-button .loader {
-display: none;
-width: 20px;
-height: 20px;
-border: 3px solid rgba(255, 255, 255, 0.3);
-border-top-color: var(--white);
-border-radius: 50%;
-animation: spin 0.8s linear infinite;
-margin: 0 auto;
-}
-
-@keyframes spin {
-to { transform: rotate(360deg); }
-}
-
-.submit-button.loading .button-text {
-display: none;
-}
-
-.submit-button.loading .loader {
-display: block;
-}
-
-.success-animation {
-display: none;
-text-align: center;
-padding: 40px;
-}
-
-.success-animation.show {
-display: block;
-animation: fadeIn 0.5s ease;
-}
-
-.success-checkmark {
-width: 80px;
-height: 80px;
-margin: 0 auto 20px;
-border-radius: 50%;
-background: var(--primary-green);
-display: flex;
-align-items: center;
-justify-content: center;
-animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-@keyframes scaleIn {
-from { transform: scale(0); }
-to { transform: scale(1); }
-}
-
-.success-checkmark::after {
-content: '✓';
-font-size: 50px;
-color: var(--white);
-font-weight: bold;
-}
-
-.success-text {
-font-size: 24px;
-font-weight: 900;
-color: var(--primary-green);
-margin-bottom: 10px;
-}
-
-.success-subtext {
-font-size: 16px;
-color: var(--gray-700);
-}
-
-.floating-whatsapp {
-position: fixed;
-bottom: 100px;
-right: 20px;
-width: 60px;
-height: 60px;
-background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-box-shadow: var(--shadow-green), var(--shadow-lg);
-cursor: pointer;
-z-index: 1000;
-transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-animation: pulse 2s infinite;
-}
-
-.floating-whatsapp:hover {
-transform: scale(1.1) translateY(-5px);
-}
-
-.floating-whatsapp svg {
-width: 32px;
-height: 32px;
-fill: var(--white);
-}
-
-.sticky-mobile-cta {
-position: fixed;
-bottom: 0;
-left: 0;
-right: 0;
-background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.98));
-backdrop-filter: blur(10px);
-padding: 15px 20px;
-box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-z-index: 999;
-transform: translateY(100%);
-transition: transform 0.3s ease;
-}
-
-.sticky-mobile-cta.show {
-transform: translateY(0);
-}
-
-.sticky-mobile-cta .cta-button {
-margin: 0;
-width: 100%;
-max-width: 100%;
-padding: 16px;
-font-size: 18px;
-}
-
-@media (min-width: 768px) {
-.hook-text {
-font-size: 38px;
-}
-
-.section-title {
-font-size: 42px;
-}
-
-.text-content {
-font-size: 20px;
-}
-
-.video-grid {
-grid-template-columns: repeat(2, 1fr);
-}
-
-.sticky-mobile-cta {
-display: none;
-}
-}
-
-@media (min-width: 1024px) {
-.hook-text {
-font-size: 42px;
-}
-
-.section-title {
-font-size: 48px;
-}
-
-.video-grid {
-grid-template-columns: repeat(4, 1fr);
-}
-}
-
-.fade-in {
-opacity: 0;
-transform: translateY(30px);
-transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.fade-in.reveal {
-opacity: 1;
-transform: translateY(0);
-}
-
-@media (max-width: 767px) {
-.video-grid {
-grid-template-columns: 1fr;
-gap: 30px;
-}
-}
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #111827;
+    font-weight: 700;
+    overflow-x: hidden;
+  }
+
+  /* ── Highlight green ── */
+  .hl { color: #16a34a; }
+
+  /* ── CTA Button ── */
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+    padding: 18px 38px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #c2410c, 0 12px 24px rgba(249,115,22,0.45);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    animation: pulse-cta 2.6s infinite;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .cta-btn:hover {
+    transform: scale(1.055) translateY(-3px);
+    box-shadow: 0 12px 0 #c2410c, 0 18px 32px rgba(249,115,22,0.5);
+    animation: none;
+  }
+  .cta-btn:active {
+    transform: scale(0.97) translateY(4px);
+    box-shadow: 0 2px 0 #c2410c, 0 4px 10px rgba(249,115,22,0.35);
+  }
+
+  @keyframes pulse-cta {
+    0%, 100% { box-shadow: 0 8px 0 #c2410c, 0 12px 24px rgba(249,115,22,0.45); transform: scale(1); }
+    50%       { box-shadow: 0 8px 0 #c2410c, 0 14px 36px rgba(249,115,22,0.65); transform: scale(1.025); }
+  }
+
+  /* ── Green Media Card ── */
+  .media-card {
+    background: linear-gradient(160deg, #166534 0%, #15803d 60%, #16a34a 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 30px rgba(22,101,52,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .media-card img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .media-card .caption {
+    width: 100%;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.82rem;
+    line-height: 1.65;
+    padding: 16px 20px;
+    letter-spacing: 0.02em;
+    text-align: center;
+    border-top: 2px solid rgba(255,255,255,0.18);
+    background: rgba(0,0,0,0.18);
+  }
+
+  /* ── Portrait Video wrapper ── */
+  .portrait-video-wrapper {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .portrait-video-wrapper iframe {
+    width: 100%;
+    height: 700px;
+    display: block;
+    border: none;
+  }
+
+  @media (max-width: 480px) {
+    .portrait-video-wrapper iframe { height: 540px; }
+  }
+
+  /* ── Section divider ── */
+  .section-divider {
+    width: 72px;
+    height: 5px;
+    background: linear-gradient(90deg, #16a34a, #86efac);
+    border-radius: 999px;
+    margin: 12px auto 0;
+  }
+
+  /* ── Header gradient ── */
+  .site-header {
+    background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+    border-bottom: 3px solid #bbf7d0;
+  }
+
+  /* ── Modal overlay ── */
+  #modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  #modal-overlay.active { display: flex; }
+
+  #modal-box {
+    background: #ffffff;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.3);
+    overflow: hidden;
+    animation: modal-in 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes modal-in {
+    from { opacity: 0; transform: scale(0.82) translateY(40px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .modal-header {
+    background: linear-gradient(135deg, #166534 0%, #16a34a 100%);
+    padding: 28px 30px 22px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .modal-body { padding: 28px 30px 32px; }
+
+  .form-label {
+    display: block;
+    font-weight: 800;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: #166534;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .form-input, .form-select {
+    width: 100%;
+    padding: 13px 16px;
+    border: 2.5px solid #d1fae5;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #111827;
+    background: #f0fdf4;
+    outline: none;
+    transition: border-color 0.2s;
+    margin-bottom: 18px;
+  }
+  .form-input:focus, .form-select:focus { border-color: #16a34a; }
+
+  .phone-row { position: relative; }
+  .phone-prefix {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 900;
+    color: #16a34a;
+    font-size: 0.95rem;
+    pointer-events: none;
+    margin-bottom: 18px;
+  }
+  .phone-input-field {
+    padding-left: 62px !important;
+    margin-bottom: 18px;
+  }
+
+  /* ── Toast ── */
+  #toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(120px);
+    background: linear-gradient(135deg, #166534, #16a34a);
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 1rem;
+    box-shadow: 0 8px 32px rgba(22,101,52,0.4);
+    z-index: 99999;
+    transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), opacity 0.45s;
+    opacity: 0;
+    white-space: nowrap;
+  }
+  #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+  /* ── Certificate grid ── */
+  .cert-img {
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(22,101,52,0.18);
+    border: 3px solid #bbf7d0;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  .cert-img:hover { transform: scale(1.03); }
+
+  /* ── Subheading style ── */
+  .sub-heading {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 900;
+    line-height: 1.55;
+    text-align: center;
+    color: #111827;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  /* ── Hero hook ── */
+  .hero-hook {
+    font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+    font-weight: 900;
+    line-height: 1.5;
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  /* ── Badge pill ── */
+  .badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f0fdf4;
+    border: 2px solid #bbf7d0;
+    border-radius: 999px;
+    padding: 8px 20px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #166534;
+    letter-spacing: 0.04em;
+  }
+
+  .icon-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #16a34a;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  /* Footer */
+  footer {
+    background: #f0fdf4;
+    border-top: 3px solid #bbf7d0;
+    padding: 28px 20px;
+    text-align: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #6b7280;
+  }
 </style>
 </head>
 <body>
 
-<div class="floating-particles">
-<div class="particle"></div>
-<div class="particle"></div>
-<div class="particle"></div>
-</div>
+<!-- ════════════════════════════════════════════════ HEADER -->
+<header class="site-header px-4 py-5">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <div class="badge-pill" style="margin-bottom:18px;">
+      <span class="icon-dot"></span>
+      РАСМИЙ МАҲСУЛОТ САҲИФАСИ
+      <span class="icon-dot"></span>
+    </div>
+    <div style="font-size:clamp(2rem,5vw,2.8rem);font-weight:900;letter-spacing:-0.01em;color:#16a34a;margin-bottom:10px;">
+      ABIHAYAT
+    </div>
+    <div style="font-size:0.85rem;font-weight:800;color:#6b7280;letter-spacing:0.08em;text-transform:uppercase;">
+      Табиий Дамлама · Турк Формуласи · 100% Натурал
+    </div>
+  </div>
+</header>
 
-<section class="hero-section">
-<div class="container">
-<h1 class="hook-text fade-in">
-Кандли диабет <span class="highlight">17 дан 4.3 гача</span> тушгани сабаб <span class="highlight">"ABIHAYAT Дамламаси"</span> шифокорлар эътиборига тушмоқда.
-</h1>
-
-<img src="https://i.postimg.cc/rs31jnTQ/IMG-0385.png" alt="ABIHAYAT Дамламаси" class="hero-image fade-in" loading="eager">
-
-<p class="text-content fade-in">
-ҚАНДЛИ ДИАБЕТИ БОР ИНСОНДА УМУМИЙ ҲОЛСИЗЛИК, ЮҚОРИ ҚОН БОСИМИ ВА ТЕЗ ПЕШОБ МУАММОСИ БЕЗОВТА ҚИЛАДИ, БУ ҲОЛАТДА МАШХУР САБ'АТКОРЛАР ҚАНДАЙ ЙЎЛ ТУТАДИ?
-</p>
-
-<div class="image-card fade-in">
-<img src="https://i.postimg.cc/XvgKPrPH/IMG-8373.jpg" alt="ABIHAYAT натижалари" loading="lazy">
-<p class="image-description">ABIHAYAT ДАМЛАМАСИ БУ ҲОЛАТДА ТОЛИҚ ЁРДАМ БЕРАДИ.</p>
-</div>
-
-<button class="cta-button" onclick="openModal('БАТАФСИЛ МАЪЛУМОТ ОЛИНГ')">БАТАФСИЛ МАЪЛУМОТ ОЛИНГ</button>
-</div>
+<!-- ════════════════════════════════════════════════ HERO HOOK -->
+<section style="background:#ffffff;padding:60px 20px 48px;">
+  <div style="max-width:860px;margin:0 auto;text-align:center;">
+    <p class="hero-hook">
+      <span class="hl">Қандли диабет</span> 17 дан 4.3 гача тушгани сабаб
+      "<span class="hl">ABIHAYAT Дамламаси</span>"
+      <span class="hl">шифокорлар</span> эътиборига тушмоқда.
+    </p>
+    <div class="section-divider" style="margin-top:24px;"></div>
+  </div>
 </section>
 
-<section class="section green-bg">
-<div class="container">
-<h2 class="section-title fade-in">
-<span class="highlight">ABIHAYAT ДАМЛАМАСИНИ</span> ТАНЛАГАН МАШХУР ИНСОНЛАР
-</h2>
-
-<div class="video-grid">
-<div class="video-card">
-<div class="video-wrapper">
-<iframe src="https://www.youtube.com/embed/3du4Ktbz7-8?enablejsapi=1&rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-</div>
-<p class="video-description">ABIHAYAT ДАМЛАМАСИ ҚАНД МИҚДОРИНИ НОРМАЛЛАШТИРАДИ</p>
-</div>
-
-<div class="video-card">
-<div class="video-wrapper">
-<iframe src="https://www.youtube.com/embed/Dqw_AbNLd00?enablejsapi=1&rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-</div>
-<p class="video-description">ДАМЛАМА ОРГАНИЗМНИ ТОЗАЛАБ, ҚУВВАТ БЕРАДИ.</p>
-</div>
-
-<div class="video-card">
-<div class="video-wrapper">
-<iframe src="https://www.youtube.com/embed/g1xYZcVHPwQ?enablejsapi=1&rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-</div>
-<p class="video-description">ЮҚОРИ ҚАНД БОСИМИДА САМАРАЛИ ЁРДАМ БЕРАДИ</p>
-</div>
-
-<div class="video-card">
-<div class="video-wrapper">
-<iframe src="https://www.youtube.com/embed/M-KiXu5N0zY?enablejsapi=1&rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-</div>
-<p class="video-description">ҚОН ТОМИРЛАРДА ҚОН АЙЛАНИШИНИ НОРМАЛЛАШТИРАДИ.</p>
-</div>
-</div>
-
-<button class="cta-button" onclick="openModal('БУЙУРТМА БЕРИШ')">БУЙУРТМА БЕРИШ</button>
-</div>
+<!-- ════════════════════════════════════════════════ IMAGE 1 -->
+<section style="padding:0 20px 48px;">
+  <div style="max-width:520px;margin:0 auto;">
+    <div class="media-card">
+      <img src="https://i.postimg.cc/rs31jnTQ/IMG-0385.png" alt="ABIHAYAT rasm 1" loading="lazy">
+      <div class="caption">
+        ИЗОҲ: <span style="color:#86efac;">ҚАНДЛИ ДИАБЕТИ</span> БОР ИНСОНДА УМУМИЙ ҲОЛСИЗЛИК, ЮҚОРИ ҚОН БОСИМИ ВА ТЕЗ ПЕШОБ МУАММОСИ БЕЗОВТА ҚИЛАДИ, БУ ҲОЛАТДА МАШХУР <span style="color:#86efac;">САБ'АТКОРЛАР</span> ҚАНДАЙ ЙЎЛ ТУТАДИ?
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<p class="text-content fade-in">
-МАШХУРЛАР ИШОНЧИНИ ОҚЛАГАН <span class="highlight">ABIHAYAT ТУРК ДАМЛАМАСИ</span> ХАЛҚИМИЗ УЧУН ҲАМ БИРДЕК ФОЙДА ОЛИБ КЕЛМОҚДА. УЛАРНИНГ ТААСУРОТЛАРИ БИЛАН ТАНИШИНГ:
-</p>
-
-<div class="video-grid">
-<div class="video-card">
-<div class="video-wrapper">
-<iframe src="https://www.youtube.com/embed/NtKVI-DevHs?enablejsapi=1&rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-</div>
-<p class="video-description">Реал натижалар билан танишинг</p>
-</div>
-
-<div class="video-card">
-<div class="video-wrapper">
-<iframe src="https://www.youtube.com/embed/prqj8YLhzoo?enablejsapi=1&rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-</div>
-<p class="video-description">Миждозларнинг самарали натижалари</p>
-</div>
-
-<div class="video-card">
-<div class="video-wrapper">
-<iframe src="https://www.youtube.com/embed/lWRTBvtwRxs?enablejsapi=1&rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-</div>
-<p class="video-description">ABIHAYAT билан соғлом ҳаёт</p>
-</div>
-
-<div class="video-card">
-<div class="video-wrapper">
-<iframe src="https://www.youtube.com/embed/P05l05Kx90U?enablejsapi=1&rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-</div>
-<p class="video-description">Табий маҳсулот, реал самара</p>
-</div>
-
-<div class="video-card">
-<div class="video-wrapper">
-<iframe src="https://www.youtube.com/embed/Oajld7O8Px0?enablejsapi=1&rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-</div>
-<p class="video-description">Қанд миқдорини назорат қилинг</p>
-</div>
-</div>
-
-<button class="cta-button" onclick="openModal('БАТАФСИЛ МАЪЛУМОТ ОЛИШ')">БАТАФСИЛ МАЪЛУМОТ ОЛИШ</button>
-
-<p class="text-content fade-in" style="margin-top: 60px;">
-УШБУ ИНСОНЛАР АЙНАН <span class="highlight">ABIHAYAT ДАМЛАМАСИДАН</span> ИСТЕЪМОЛ ҚИЛИБ, ЎЗИНИНГ БЕБАҲО САЛОМАТЛИКЛАРИГА ЭЪТИБОР БЕРАМОҚДА ВА РЕАЛ НАТИЖАЛАР ОЛИШМОҚДА. СИЗ ҲАМ ҲОЗИРОҚ МАЪЛУМОТЛАРИНГИЗНИ ҚОЛДИРИНГ ВА НАТИЖАГА ЕРИШИНГ.
-</p>
-</div>
+<!-- ════════════════════════════════════════════════ IMAGE 2 -->
+<section style="padding:0 20px 56px;">
+  <div style="max-width:520px;margin:0 auto;">
+    <div class="media-card">
+      <img src="https://i.postimg.cc/XvgKPrPH/IMG-8373.jpg" alt="ABIHAYAT rasm 2" loading="lazy">
+      <div class="caption">
+        ИЗОҲ: <span style="color:#86efac;">ABIHAYAT ДАМЛАМАСИ</span> БУ ҲОЛАТДА ТЎЛИҚ ЁРДАМ БЕРАДИ.
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section green-bg">
-<div class="container">
-<div class="important-block fade-in">
-<p class="text-content" style="margin-bottom: 0;">
-<span class="highlight">ABIHAYAT</span> – 100% ТАБИЙ МАҲСУЛОТ. У ҚАНДЛИ ДИАБЕТНИНГ ФАҚАТГИНА БЕЛГИЛАРИНИ ЁҚОТИБГИНА ҚОЛМАЙ, КАСАЛЛИКНИНГ ИЛДИЗИГА ЧУҚУР СИНГИБ БОРАДИ ВА КАСАЛЛИКДА САМАРАЛИ ЁРДАМ БЕРА ОЛАДИ. МАҲСУЛОТ БФҚ ЁКИ ДОРИ МАҲСУЛОТИ ЭМАС.
-</p>
-</div>
-
-<button class="cta-button" onclick="openModal('АНКЕТА ТОЛДИРИШ')">АНКЕТА ТОЛДИРИШ</button>
-
-<p class="text-content fade-in" style="margin-top: 40px;">
-МАЪЛУМОТЛАРИНГИЗНИ ҚОЛДИРИНГ ВА МАҲСУЛОТ ҲАҚИДА БАТАФСИЛ МАЪЛУМОТГА ЭГА БОЛИНГ.
-</p>
-</div>
+<!-- ════════════════════════════════════════════════ CTA 1 -->
+<section style="padding:0 20px 64px;text-align:center;">
+  <button class="cta-btn open-modal">
+    ✦ БАТАФСИЛ МАЪЛУМОТ ОЛИНГ
+  </button>
 </section>
 
-<section class="certificates-section">
-<div class="container">
-<h2 class="section-title fade-in">
-ХАЛҚАРО <span class="highlight">СЕРТИФИКАТЛАР</span>
-</h2>
-
-<div class="certificates-grid">
-<div class="certificate-card">
-<img src="https://i.postimg.cc/KvbPmvDK/IMG-20260513-184343-911.jpg" alt="Сертификат 1" loading="lazy">
-</div>
-
-<div class="certificate-card">
-<img src="https://i.postimg.cc/BQ3TJQBQ/GMP-I-YI-U-RETI-M-UYGULAMALARI-ISO-22716-2013-pdf-20260508-073515.png" alt="ISO 22716:2013" loading="lazy">
-</div>
-
-<div class="certificate-card">
-<img src="https://i.postimg.cc/J48NR45H/ISO-22000-2018-GIDA-GU-VENLI-G-I-YO-NETI-M-SI-STEMI-06-10-2025.png" alt="ISO 22000:2018" loading="lazy">
-</div>
-</div>
-
-<button class="cta-button" onclick="openModal('АРИЗА ЮБОРИШ')">АРИЗА ЮБОРИШ</button>
-
-<p class="text-content fade-in" style="margin-top: 40px;">
-МАЪЛУМОТЛАРИНГИЗНИ ҚОЛДИРИНГ ВА МАҲСУЛОТ ҲАҚИДА БАТАФСИЛ МАЪЛУМОТГА ЭГА БЎЛИНГ.
-</p>
-</div>
+<!-- ════════════════════════════════════════════════ SUBHEADING 1 -->
+<section style="background:#f0fdf4;padding:56px 20px 48px;border-top:3px solid #bbf7d0;border-bottom:3px solid #bbf7d0;">
+  <div style="max-width:820px;margin:0 auto;text-align:center;">
+    <p class="sub-heading">
+      <span class="hl">ABIHAYAT ДАМЛАМАСИНИ</span> ТАНЛАГАН МАШХУР ИНСОНЛАР
+    </p>
+    <div class="section-divider"></div>
+  </div>
 </section>
 
-<div class="floating-whatsapp" onclick="openModal('Floating CTA')">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-</svg>
+<!-- ════════════════════════════════════════════════ VIDEOS 1–4 (with captions) -->
+<section style="background:#ffffff;padding:56px 20px 48px;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;">
+
+    <!-- Video 1 -->
+    <div class="media-card">
+      <div class="portrait-video-wrapper" style="padding:16px 16px 0;">
+        <iframe src="https://www.youtube.com/embed/3du4Ktbz7-8" title="ABIHAYAT video 1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="caption">
+        ИЗОҲ: <span style="color:#86efac;">ABIHAYAT ДАМЛАМАСИ</span> ҚАНД МИҚДОРИНИ НОРМАЛЛАШТИРАДИ
+      </div>
+    </div>
+
+    <!-- Video 2 -->
+    <div class="media-card">
+      <div class="portrait-video-wrapper" style="padding:16px 16px 0;">
+        <iframe src="https://www.youtube.com/embed/Dqw_AbNLd00?enablejsapi=1&rel=0&playsinline=1" title="ABIHAYAT video 2" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="caption">
+        ИЗОҲ: ДАМЛАМА ОРГАНИЗМНИ ТОЗАЛАБ, <span style="color:#86efac;">ҚУВВАТ БЕРАДИ.</span>
+      </div>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="media-card">
+      <div class="portrait-video-wrapper" style="padding:16px 16px 0;">
+        <iframe src="https://www.youtube.com/embed/g1xYZcVHPwQ?enablejsapi=1&rel=0&playsinline=1" title="ABIHAYAT video 3" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="caption">
+        ИЗОҲ: ЮҚОРИ ҚАНД БОСИМИДА <span style="color:#86efac;">САМАРАЛИ ЁРДАМ БЕРАДИ</span>
+      </div>
+    </div>
+
+    <!-- Video 4 -->
+    <div class="media-card">
+      <div class="portrait-video-wrapper" style="padding:16px 16px 0;">
+        <iframe src="https://www.youtube.com/embed/M-KiXu5N0zY?enablejsapi=1&rel=0&playsinline=1" title="ABIHAYAT video 4" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="caption">
+        ИЗОҲ: ҚОН ТОМИРЛАРДА <span style="color:#86efac;">ҚОН АЙЛАНИШИНИ НОРМАЛЛАШТИРАДИ.</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ CTA 2 -->
+<section style="padding:16px 20px 64px;text-align:center;">
+  <button class="cta-btn open-modal">
+    ✦ БУЙУРТМА БЕРИШ
+  </button>
+</section>
+
+<!-- ════════════════════════════════════════════════ SUBHEADING 2 -->
+<section style="background:#f0fdf4;padding:56px 20px 48px;border-top:3px solid #bbf7d0;border-bottom:3px solid #bbf7d0;">
+  <div style="max-width:820px;margin:0 auto;text-align:center;">
+    <p class="sub-heading">
+      МАШХУРЛАР ИШОНЧИНИ ОҚЛАГАН <span class="hl">ABIHAYAT ТУРК ДАМЛАМАСИ</span> ХАЛҚИМИЗ УЧУН ҲАМ БИРДЕК ФОЙДА ОЛИБ КЕЛМОҚДА. УЛАРНИНГ ТААСУРОТЛАРИ БИЛАН ТАНИШИНГ:
+    </p>
+    <div class="section-divider"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ VIDEOS LIST (no captions) -->
+<section style="background:#ffffff;padding:56px 20px 48px;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;">
+
+    <div class="media-card">
+      <div class="portrait-video-wrapper" style="padding:16px 16px 16px;">
+        <iframe src="https://www.youtube.com/embed/NtKVI-DevHs" title="Taassurot 1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <div class="portrait-video-wrapper" style="padding:16px 16px 16px;">
+        <iframe src="https://www.youtube.com/embed/prqj8YLhzoo?enablejsapi=1&rel=0&playsinline=1" title="Taassurot 2" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <div class="portrait-video-wrapper" style="padding:16px 16px 16px;">
+        <iframe src="https://www.youtube.com/embed/lWRTBvtwRxs?enablejsapi=1&rel=0&playsinline=1" title="Taassurot 3" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <div class="portrait-video-wrapper" style="padding:16px 16px 16px;">
+        <iframe src="https://www.youtube.com/embed/P05l05Kx90U" title="Taassurot 4" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <div class="portrait-video-wrapper" style="padding:16px 16px 16px;">
+        <iframe src="https://www.youtube.com/embed/Oajld7O8Px0?enablejsapi=1&rel=0&playsinline=1" title="Taassurot 5" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ CTA 3 -->
+<section style="padding:16px 20px 64px;text-align:center;">
+  <button class="cta-btn open-modal">
+    ✦ БАТАФСИЛ МАЪЛУМОТ ОЛИШ
+  </button>
+</section>
+
+<!-- ════════════════════════════════════════════════ TEXT BLOCK 1 -->
+<section style="background:#f0fdf4;border-top:3px solid #bbf7d0;border-bottom:3px solid #bbf7d0;padding:56px 20px;">
+  <div style="max-width:820px;margin:0 auto;text-align:center;">
+    <p class="sub-heading" style="font-size:clamp(0.95rem,2.2vw,1.15rem);margin-bottom:36px;">
+      УШБУ ИНСОНЛАР АЙНАН <span class="hl">ABIHAYAT ДАМЛАМАСИДАН</span> ИСТЕЪМОЛ ҚИЛИБ, ЎЗИНИНГ БЕБАҲО <span class="hl">САЛОМАТЛИКЛАРИГА</span> ЭЪТИБОР БЕРАМОҚДА ВА РЕАЛ НАТИЖАЛАР ОЛИШМОҚДА. СИЗ ҲАМ ҲОЗИРОҚ МАЪЛУМОТЛАРИНГИЗНИ ҚОЛДИРИНГ ВА НАТИЖАГА ЕРИШИНГ.
+    </p>
+
+    <!-- Text caption block styled as a special card -->
+    <div style="background:linear-gradient(135deg,#166534 0%,#15803d 100%);border-radius:18px;padding:24px 28px;margin-bottom:36px;box-shadow:0 6px 28px rgba(22,101,52,0.22);">
+      <p style="color:#ffffff;font-weight:800;font-size:0.85rem;line-height:1.75;text-align:center;letter-spacing:0.02em;">
+        ИЗОҲ: <span style="color:#86efac;">ABIHAYAT</span> – 100% ТАБИЙ МАҲСУЛОТ. У <span style="color:#86efac;">ҚАНДЛИ ДИАБЕТНИНГ</span> ФАҚАТГИНА БЕЛГИЛАРИНИ ЁҚОТИБГИНА ҚОЛМАЙ, КАСАЛЛИКНИНГ ИЛДИЗИГА ЧУҚУР СИНГИБ БОРАДИ ВА КАСАЛЛИКДА САМАРАЛИ ЁРДАМ БЕРА ОЛАДИ. МАҲСУЛОТ БФҚ ЁКИ ДОРИ МАҲСУЛОТИ ЭМАС.
+      </p>
+    </div>
+
+    <button class="cta-btn open-modal">
+      ✦ АНКЕТА ТЎЛДИРИШ
+    </button>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ TEXT BLOCK 2 -->
+<section style="padding:56px 20px 16px;text-align:center;">
+  <div style="max-width:820px;margin:0 auto;">
+    <p class="sub-heading" style="font-size:clamp(0.95rem,2.2vw,1.1rem);">
+      МАЪЛУМОТЛАРИНГИЗНИ ҚОЛДИРИНГ ВА МАҲСУЛОТ ҲАҚИДА <span class="hl">БАТАФСИЛ МАЪЛУМОТГА ЭГА БЎЛИНГ.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ CERTIFICATES -->
+<section style="padding:40px 20px 64px;">
+  <div style="max-width:880px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:36px;">
+      <p style="font-size:clamp(1.1rem,2.8vw,1.4rem);font-weight:900;color:#111827;letter-spacing:0.01em;">
+        СЕРТИФИКАТЛАР
+      </p>
+      <div class="section-divider"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;align-items:start;">
+      <img class="cert-img" src="https://i.postimg.cc/KvbPmvDK/IMG-20260513-184343-911.jpg" alt="Sertifikat 1" loading="lazy">
+      <img class="cert-img" src="https://i.postimg.cc/BQ3TJQBQ/GMP-I-YI-U-RETI-M-UYGULAMALARI-ISO-22716-2013-pdf-20260508-073515.png" alt="Sertifikat 2 ISO 22716" loading="lazy">
+      <img class="cert-img" src="https://i.postimg.cc/J48NR45H/ISO-22000-2018-GIDA-GU-VENLI-G-I-YO-NETI-M-SI-STEMI-06-10-2025.png" alt="Sertifikat 3 ISO 22000" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ CTA 5 + FINAL TEXT -->
+<section style="background:linear-gradient(180deg,#f0fdf4 0%,#ffffff 100%);border-top:3px solid #bbf7d0;padding:60px 20px 72px;text-align:center;">
+  <div style="max-width:680px;margin:0 auto;">
+    <p class="sub-heading" style="font-size:clamp(0.9rem,2vw,1.05rem);margin-bottom:36px;color:#374151;">
+      МАЪЛУМОТЛАРИНГИЗНИ ҚОЛДИРИНГ ВА МАҲСУЛОТ ҲАҚИДА <span class="hl">БАТАФСИЛ МАЪЛУМОТГА ЭГА БЎЛИНГ.</span>
+    </p>
+    <button class="cta-btn open-modal" style="font-size:1.1rem;padding:20px 52px;">
+      ✦ АРИЗА ЮБОРИШ
+    </button>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ FOOTER -->
+<footer>
+  <div style="color:#16a34a;font-size:1rem;font-weight:900;margin-bottom:6px;">ABIHAYAT</div>
+  <div>100% Табиий Маҳсулот · Турк Формуласи</div>
+  <div style="margin-top:6px;font-size:0.72rem;color:#9ca3af;">Маҳсулот БФҚ ёки дори маҳсулоти эмас.</div>
+</footer>
+
+<!-- ════════════════════════════════════════════════ MODAL -->
+<div id="modal-overlay">
+  <div id="modal-box">
+
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <div style="font-size:1.5rem;font-weight:900;letter-spacing:-0.01em;margin-bottom:6px;">
+        ABIHAYAT <span style="color:#86efac;">Дамламаси</span>
+      </div>
+      <div style="font-size:0.82rem;font-weight:700;opacity:0.88;letter-spacing:0.04em;">
+        БАТАФСИЛ МАЪЛУМОТ ОЛИНГ — БЕПУЛ КОНСУЛЬТАЦИЯ
+      </div>
+      <button id="modal-close" style="position:absolute;top:18px;right:22px;background:rgba(255,255,255,0.18);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;font-weight:900;display:flex;align-items:center;justify-content:center;line-height:1;">✕</button>
+    </div>
+
+    <!-- Modal Body -->
+    <div class="modal-body">
+      <form id="lead-form" novalidate>
+
+        <label class="form-label" for="field-name">Исмингиз</label>
+        <input
+          class="form-input"
+          type="text"
+          id="field-name"
+          placeholder="Тўлиқ исмингизни киритинг"
+          required
+          autocomplete="name"
+        >
+
+        <label class="form-label" for="field-phone">Телефон рақам</label>
+        <div class="phone-row" style="position:relative;margin-bottom:18px;">
+          <span class="phone-prefix">+998</span>
+          <input
+            class="form-input phone-input-field"
+            type="tel"
+            id="field-phone"
+            placeholder="XX XXX XX XX"
+            maxlength="9"
+            pattern="[0-9]{9}"
+            inputmode="numeric"
+            required
+            style="margin-bottom:0;"
+          >
+        </div>
+
+        <label class="form-label" for="field-region">Вилоят</label>
+        <select class="form-select" id="field-region" required>
+          <option value="" disabled selected>Вилоятни танланг</option>
+          <option value="Тошкент шаҳри">Тошкент шаҳри</option>
+          <option value="Тошкент вилояти">Тошкент вилояти</option>
+          <option value="Самарқанд вилояти">Самарқанд вилояти</option>
+          <option value="Фарғона вилояти">Фарғона вилояти</option>
+          <option value="Андижон вилояти">Андижон вилояти</option>
+          <option value="Наманган вилояти">Наманган вилояти</option>
+          <option value="Бухоро вилояти">Бухоро вилояти</option>
+          <option value="Хоразм вилояти">Хоразм вилояти</option>
+          <option value="Қашқадарё вилояти">Қашқадарё вилояти</option>
+          <option value="Сурхондарё вилояти">Сурхондарё вилояти</option>
+          <option value="Жиззах вилояти">Жиззах вилояти</option>
+          <option value="Сирдарё вилояти">Сирдарё вилояти</option>
+          <option value="Навоий вилояти">Навоий вилояти</option>
+          <option value="Қорақалпоғистон Республикаси">Қорақалпоғистон Республикаси</option>
+        </select>
+
+        <div id="form-error" style="display:none;color:#dc2626;font-size:0.8rem;font-weight:800;margin-bottom:14px;padding:10px 14px;background:#fef2f2;border-radius:10px;border:1.5px solid #fecaca;"></div>
+
+        <button type="submit" class="cta-btn" style="width:100%;font-size:1rem;padding:18px;animation:none;">
+          <span id="btn-text">✦ АРИЗАНИ ЮБОРИШ</span>
+        </button>
+
+      </form>
+    </div>
+  </div>
 </div>
 
-<div class="sticky-mobile-cta">
-<button class="cta-button" onclick="openModal('Sticky Mobile CTA')">МАЪЛУМОТ ОЛИШ</button>
-</div>
+<!-- ════════════════════════════════════════════════ TOAST -->
+<div id="toast">✓ Аризангиз қабул қилинди</div>
 
-<div id="leadModal" class="modal">
-<div class="modal-content">
-<div class="modal-header">
-<span class="close" onclick="closeModal()">&times;</span>
-<h2>МАЪЛУМОТЛАРИНГИЗНИ ҚОЛДИРИНГ</h2>
-</div>
-<div class="modal-body">
-<form id="leadForm">
-<div class="form-group">
-<label for="name">ИСМИНГИЗ</label>
-<input type="text" id="name" name="name" required>
-<div class="error-message" id="nameError"></div>
-</div>
-
-<div class="form-group">
-<label for="phone">РАҚАМИНГИЗ</label>
-<input type="tel" id="phone" name="phone" placeholder="+998" required>
-<div class="error-message" id="phoneError"></div>
-</div>
-
-<div class="form-group">
-<label for="region">ВИЛОЯТ</label>
-<select id="region" name="region" required>
-<option value="">Танланг</option>
-<option value="Тошкент шаҳар">Тошкент шаҳар</option>
-<option value="Андижон">Андижон</option>
-<option value="Бухоро">Бухоро</option>
-<option value="Фарғона">Фарғона</option>
-<option value="Жиззах">Жиззах</option>
-<option value="Хоразм">Хоразм</option>
-<option value="Наманган">Наманган</option>
-<option value="Навоий">Навоий</option>
-<option value="Қашқадарё">Қашқадарё</option>
-<option value="Самарқанд">Самарқанд</option>
-<option value="Сирдарё">Сирдарё</option>
-<option value="Сурхондарё">Сурхондарё</option>
-<option value="Тошкент вилояти">Тошкент вилояти</option>
-<option value="Қорақалпоғистон">Қорақалпоғистон</option>
-</select>
-<div class="error-message" id="regionError"></div>
-</div>
-
-<button type="submit" class="submit-button">
-<span class="button-text">ЮБОРИШ</span>
-<div class="loader"></div>
-</button>
-</form>
-
-<div class="success-animation">
-<div class="success-checkmark"></div>
-<div class="success-text">Раҳмат!</div>
-<div class="success-subtext">Тез орада сиз билан боғланамиз</div>
-</div>
-</div>
-</div>
-</div>
-
+<!-- ════════════════════════════════════════════════ SCRIPT -->
 <script>
-const BOT_TOKEN = '8719998569:AAFlIx2_UJFpa8Inq1jEJIPvNavAv0kI0QU';
-const CHAT_ID = '-5111791933';
-let buttonSource = '';
+(function () {
+  'use strict';
 
-function openModal(source) {
-buttonSource = source;
-const modal = document.getElementById('leadModal');
-modal.classList.add('show');
-document.body.style.overflow = 'hidden';
-resetForm();
-}
+  const BOT_TOKEN = '8719998569:AAFlIx2_UJFpa8Inq1jEJIPvNavAv0kI0QU';
+  const CHAT_ID   = '-5111791933';
 
-function closeModal() {
-const modal = document.getElementById('leadModal');
-modal.classList.remove('show');
-document.body.style.overflow = 'auto';
-}
+  const overlay   = document.getElementById('modal-overlay');
+  const modalBox  = document.getElementById('modal-box');
+  const closeBtn  = document.getElementById('modal-close');
+  const form      = document.getElementById('lead-form');
+  const errorBox  = document.getElementById('form-error');
+  const btnText   = document.getElementById('btn-text');
+  const toast     = document.getElementById('toast');
 
-function resetForm() {
-document.getElementById('leadForm').reset();
-document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
-document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
-document.querySelector('.modal-body form').style.display = 'block';
-document.querySelector('.success-animation').classList.remove('show');
-}
+  /* ── Open / Close Modal ── */
+  function openModal() {
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('field-name').focus();
+  }
 
-window.onclick = function(event) {
-const modal = document.getElementById('leadModal');
-if (event.target === modal) {
-closeModal();
-}
-}
+  function closeModal() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    form.reset();
+    hideError();
+  }
 
-function validatePhone(phone) {
-const phoneRegex = /^\+998\d{9}$/;
-return phoneRegex.test(phone);
-}
+  document.querySelectorAll('.open-modal').forEach(function (btn) {
+    btn.addEventListener('click', openModal);
+  });
 
-function formatPhone(value) {
-value = value.replace(/\D/g, '');
-if (!value.startsWith('998')) {
-value = '998' + value;
-}
-value = value.substring(0, 12);
-return '+' + value;
-}
+  closeBtn.addEventListener('click', closeModal);
 
-document.getElementById('phone').addEventListener('input', function(e) {
-let value = e.target.value;
-if (!value.startsWith('+998')) {
-value = '+998';
-}
-e.target.value = formatPhone(value);
-});
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeModal();
+  });
 
-document.getElementById('phone').addEventListener('focus', function(e) {
-if (!e.target.value) {
-e.target.value = '+998';
-}
-});
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
 
-document.getElementById('leadForm').addEventListener('submit', async function(e) {
-e.preventDefault();
-  
-const nameInput = document.getElementById('name');
-const phoneInput = document.getElementById('phone');
-const regionInput = document.getElementById('region');
+  /* ── Phone: digits only ── */
+  document.getElementById('field-phone').addEventListener('input', function () {
+    this.value = this.value.replace(/[^0-9]/g, '').slice(0, 9);
+  });
 
-let isValid = true;
+  /* ── Error helpers ── */
+  function showError(msg) {
+    errorBox.textContent = msg;
+    errorBox.style.display = 'block';
+  }
+  function hideError() {
+    errorBox.textContent = '';
+    errorBox.style.display = 'none';
+  }
 
-document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
-document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+  /* ── Toast ── */
+  function showToast() {
+    toast.classList.add('show');
+    setTimeout(function () { toast.classList.remove('show'); }, 4000);
+  }
 
-if (!nameInput.value.trim()) {
-document.getElementById('nameError').textContent = 'Исмингизни киритинг';
-nameInput.classList.add('error');
-isValid = false;
-}
+  /* ── Form Submit ── */
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    hideError();
 
-if (!validatePhone(phoneInput.value)) {
-document.getElementById('phoneError').textContent = 'Тўғри рақам киритинг (+998XXXXXXXXX)';
-phoneInput.classList.add('error');
-isValid = false;
-}
+    var name   = document.getElementById('field-name').value.trim();
+    var phone  = document.getElementById('field-phone').value.trim();
+    var region = document.getElementById('field-region').value;
 
-if (!regionInput.value) {
-document.getElementById('regionError').textContent = 'Вилоятни танланг';
-regionInput.classList.add('error');
-isValid = false;
-}
+    /* Validation */
+    if (!name) { showError('Илтимос, исмингизни киритинг.'); return; }
+    if (!/^[0-9]{9}$/.test(phone)) {
+      showError('Телефон рақам +998 дан кейин айнан 9 та рақамдан иборат бўлиши керак.');
+      return;
+    }
+    if (!region) { showError('Илтимос, вилоятни танланг.'); return; }
 
-if (!isValid) return;
+    var fullPhone = '+998' + phone;
+    var message   = 'Янги Lead:\nИсм: ' + name + '\nРақам: ' + fullPhone + '\nВилоят: ' + region;
+    var url       = 'https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage';
 
-const submitButton = document.querySelector('.submit-button');
-submitButton.disabled = true;
-submitButton.classList.add('loading');
+    btnText.textContent = '⏳ Юборилмоқда…';
+    form.querySelector('button[type="submit"]').disabled = true;
 
-const name = nameInput.value.trim();
-const phone = phoneInput.value;
-const region = regionInput.value;
-const timestamp = new Date().toLocaleString('uz-UZ');
-const deviceType = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
+    try {
+      var resp = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+      });
 
-const message = `
-🆕 ЯНГИ СЎРОВ
+      var data = await resp.json();
 
-👤 Исм: ${name}
-📱 Рақам: ${phone}
-📍 Вилоят: ${region}
+      if (data.ok) {
+        closeModal();
+        showToast();
+      } else {
+        showError('Хатолик юз берди. Илтимос, кейинроқ уриниб кўринг.');
+      }
+    } catch (err) {
+      showError('Интернет алоқасида муаммо. Илтимос, уланишни текширинг.');
+    } finally {
+      btnText.textContent = '✦ АРИЗАНИ ЮБОРИШ';
+      form.querySelector('button[type="submit"]').disabled = false;
+    }
+  });
 
-🔘 Манба: ${buttonSource}
-⏰ Вақт: ${timestamp}
-📱 Қурилма: ${deviceType}
-`;
-
-try {
-const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-method: 'POST',
-headers: {
-'Content-Type': 'application/json',
-},
-body: JSON.stringify({
-chat_id: CHAT_ID,
-text: message,
-parse_mode: 'HTML'
-})
-});
-
-const data = await response.json();
-
-if (data.ok) {
-document.querySelector('.modal-body form').style.display = 'none';
-document.querySelector('.success-animation').classList.add('show');
-  
-setTimeout(() => {
-closeModal();
-}, 3000);
-} else {
-throw new Error('Telegram API error');
-}
-} catch (error) {
-alert('Хатолик юз берди. Илтимос қайта уриниб кўринг.');
-console.error('Error:', error);
-} finally {
-submitButton.disabled = false;
-submitButton.classList.remove('loading');
-}
-});
-
-const observerOptions = {
-threshold: 0.1,
-rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-entries.forEach((entry, index) => {
-if (entry.isIntersecting) {
-setTimeout(() => {
-entry.target.classList.add('reveal');
-}, index * 100);
-observer.unobserve(entry.target);
-}
-});
-}, observerOptions);
-
-document.addEventListener('DOMContentLoaded', () => {
-document.querySelectorAll('.fade-in, .video-card, .image-card, .certificate-card').forEach(el => {
-observer.observe(el);
-});
-
-window.addEventListener('scroll', () => {
-const stickyCTA = document.querySelector('.sticky-mobile-cta');
-if (window.scrollY > 500) {
-stickyCTA.classList.add('show');
-} else {
-stickyCTA.classList.remove('show');
-}
-});
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function (e) {
-e.preventDefault();
-const target = document.querySelector(this.getAttribute('href'));
-if (target) {
-target.scrollIntoView({
-behavior: 'smooth',
-block: 'start'
-});
-}
-});
-});
-
-let touchStartY = 0;
-document.addEventListener('touchstart', (e) => {
-touchStartY = e.touches[0].clientY;
-}, { passive: true });
-
-document.addEventListener('touchmove', (e) => {
-const touchY = e.touches[0].clientY;
-const touchDiff = touchStartY - touchY;
-if (touchDiff > 50) {
-document.querySelector('.sticky-mobile-cta').classList.add('show');
-} else if (touchDiff < -50) {
-document.querySelector('.sticky-mobile-cta').classList.remove('show');
-}
-}, { passive: true });
+})();
 </script>
 
 </body>
 </html>
+
