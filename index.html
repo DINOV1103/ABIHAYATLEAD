@@ -136,8 +136,11 @@
     border-radius: 24px;
     width: 100%;
     max-width: 480px;
+    max-height: 90vh;
     box-shadow: 0 32px 80px rgba(0,0,0,0.3);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     animation: modal-in 0.3s cubic-bezier(0.34,1.56,0.64,1);
   }
   @keyframes modal-in {
@@ -152,7 +155,11 @@
     color: #fff;
   }
 
-  .modal-body { padding: 28px 30px 32px; }
+  .modal-body {
+    padding: 28px 30px 32px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 
   .form-label {
     display: block;
@@ -271,6 +278,41 @@
     flex-shrink: 0;
   }
 
+  
+  .wheel-wrap{text-align:center;margin-bottom:22px;}
+  .wheel-container{position:relative;width:260px;height:260px;margin:0 auto 16px;}
+  .wheel-pointer{
+    position:absolute;top:-8px;left:50%;transform:translateX(-50%);
+    width:0;height:0;border-left:18px solid transparent;border-right:18px solid transparent;
+    border-top:34px solid #111827;z-index:5;
+  }
+  #wheel{
+    width:260px;height:260px;border-radius:50%;
+    border:10px solid #fff;
+    box-shadow:0 8px 30px rgba(0,0,0,0.25);
+    transition:transform 5s cubic-bezier(0.17,0.67,0.16,1);
+  }
+  .wheel-spin-btn{
+    background:linear-gradient(135deg,#f97316,#dc2626);
+    color:#fff;border:none;border-radius:14px;padding:14px 28px;
+    font-weight:900;cursor:pointer;font-size:1rem;
+    box-shadow:0 6px 18px rgba(0,0,0,0.2);
+  }
+  #discount-result{
+    display:none;
+    background:#f0fdf4;
+    border:2px solid #86efac;
+    padding:14px;
+    border-radius:14px;
+    margin-bottom:20px;
+    color:#166534;
+    font-weight:900;
+    text-align:center;
+    line-height:1.6;
+  }
+  #lead-form{display:none;}
+
+
   /* Footer */
   footer {
     background: #f0fdf4;
@@ -282,6 +324,23 @@
     color: #6b7280;
   }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1512807846859980');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1512807846859980&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -544,7 +603,30 @@
     </div>
 
     <!-- Modal Body -->
+
     <div class="modal-body">
+
+      <div class="wheel-wrap" id="wheel-section">
+        <div style="font-size:1.2rem;font-weight:900;margin-bottom:10px;color:#111827;">
+          🎁 ОМАД ҒИЛДИРАГИ
+        </div>
+        <div style="font-size:0.82rem;font-weight:800;color:#6b7280;line-height:1.6;margin-bottom:18px;">
+          Имтиёзни аниқлаш учун тугмани босинг
+        </div>
+
+        <div class="wheel-container">
+          <div class="wheel-pointer"></div>
+          <canvas id="wheel" width="260" height="260"></canvas>
+        </div>
+
+        <button type="button" class="wheel-spin-btn" id="spin-btn">
+          🎯 АЙЛАНТИРИШ
+        </button>
+      </div>
+
+      <div id="discount-result"></div>
+
+
       <form id="lead-form" novalidate>
 
         <label class="form-label" for="field-name">Исмингиз</label>
@@ -604,15 +686,15 @@
 </div>
 
 <!-- ════════════════════════════════════════════════ TOAST -->
-<div id="toast">✓ Аризангиз қабул қилинди</div>
+<div id="toast">✓ Аризангиз юборилди, тез орада сиз билан боғланамиз</div>
 
 <!-- ════════════════════════════════════════════════ SCRIPT -->
 <script>
 (function () {
   'use strict';
 
-  const BOT_TOKEN = '8719998569:AAFlIx2_UJFpa8Inq1jEJIPvNavAv0kI0QU';
-  const CHAT_ID   = '-5111791933';
+  const BOT_TOKEN = '8561994274:AAGDhYoQSYMvksa2NxTQd0a3F8_-dpR5DHI';
+  const CHAT_ID   = '-1003900043839';
 
   const overlay   = document.getElementById('modal-overlay');
   const modalBox  = document.getElementById('modal-box');
@@ -622,11 +704,69 @@
   const btnText   = document.getElementById('btn-text');
   const toast     = document.getElementById('toast');
 
+
+  const spinBtn = document.getElementById('spin-btn');
+  const wheel = document.getElementById('wheel');
+  const wheelSection = document.getElementById('wheel-section');
+  const resultBox = document.getElementById('discount-result');
+  const ctx = wheel.getContext('2d');
+  const leadForm = document.getElementById('lead-form');
+
+  const segments = [
+    { text: '20%', color: '#eab308' },
+    { text: '50%', color: '#dc2626' },
+    { text: '20%', color: '#2563eb' },
+    { text: '50%', color: '#16a34a' }
+  ];
+
+  let spinning = false;
+  let currentReward = '';
+
+  function drawWheel() {
+    const radius = 130;
+    const arc = Math.PI * 2 / segments.length;
+
+    segments.forEach((seg, i) => {
+      const angle = i * arc;
+
+      ctx.beginPath();
+      ctx.moveTo(radius, radius);
+      ctx.arc(radius, radius, radius, angle, angle + arc);
+      ctx.fillStyle = seg.color;
+      ctx.fill();
+
+      ctx.save();
+      ctx.translate(radius, radius);
+      ctx.rotate(angle + arc / 2);
+      ctx.fillStyle = '#fff';
+      ctx.font = '900 28px Inter';
+      ctx.textAlign = 'right';
+      ctx.fillText(seg.text, radius - 24, 10);
+      ctx.restore();
+    });
+
+    ctx.beginPath();
+    ctx.arc(radius, radius, 20, 0, Math.PI * 2);
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+  }
+
+  drawWheel();
+
+  function resetWheelState() {
+    leadForm.style.display = 'none';
+    wheelSection.style.display = 'block';
+    resultBox.style.display = 'none';
+    wheel.style.transform = 'rotate(0deg)';
+    spinning = false;
+  }
+
+
   /* ── Open / Close Modal ── */
   function openModal() {
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
-    document.getElementById('field-name').focus();
+    resetWheelState();
   }
 
   function closeModal() {
@@ -634,11 +774,44 @@
     document.body.style.overflow = '';
     form.reset();
     hideError();
+    resetWheelState();
   }
 
   document.querySelectorAll('.open-modal').forEach(function (btn) {
     btn.addEventListener('click', openModal);
   });
+
+
+  spinBtn.addEventListener('click', function () {
+    if (spinning) return;
+
+    spinning = true;
+
+    const rewards = ['20%', '50%'];
+    const reward = rewards[Math.floor(Math.random() * rewards.length)];
+    currentReward = reward;
+
+    let targetIndex = reward === '20%' ? (Math.random() > 0.5 ? 0 : 2) : (Math.random() > 0.5 ? 1 : 3);
+
+    const segmentAngle = 360 / segments.length;
+    const stopAngle = (360 - (targetIndex * segmentAngle) - (segmentAngle / 2));
+    const extraSpins = 1800 + Math.floor(Math.random() * 360);
+
+    wheel.style.transform = 'rotate(' + (extraSpins + stopAngle) + 'deg)';
+
+    setTimeout(function () {
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = '🎉 Табриклаймиз! Сиз <span style="color:#dc2626;">' + reward + ' ЧЕГИРМА</span> ютдингиз!<br>Ҳозироқ маълумотларингизни қолдиринг.';
+      leadForm.style.display = 'block';
+
+      setTimeout(function () {
+        leadForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
+
+      spinning = false;
+    }, 5200);
+  });
+
 
   closeBtn.addEventListener('click', closeModal);
 
@@ -689,7 +862,7 @@
     if (!region) { showError('Илтимос, вилоятни танланг.'); return; }
 
     var fullPhone = '+998' + phone;
-    var message   = 'Янги Lead:\nИсм: ' + name + '\nРақам: ' + fullPhone + '\nВилоят: ' + region;
+    var message   = 'Янги Lead:\nИсм: ' + name + '\nРақам: ' + fullPhone + '\nВилоят: ' + region + '\nИмтиёз: ' + currentReward;
     var url       = 'https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage';
 
     btnText.textContent = '⏳ Юборилмоқда…';
