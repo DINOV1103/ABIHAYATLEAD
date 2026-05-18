@@ -1035,6 +1035,9 @@
           var isSuccess = responses.some(resp => resp.ok);
 
           if (isSuccess) {
+            if (typeof fbq !== 'undefined') {
+              fbq('track', 'Lead');
+            }
             closeModal();
             showToast();
           } else {
