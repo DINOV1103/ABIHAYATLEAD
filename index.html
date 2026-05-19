@@ -428,11 +428,11 @@
       s.parentNode.insertBefore(t, s)
     }(window, document, 'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1512807846859980');
+    fbq('init', '1743319896843572');
     fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1512807846859980&ev=PageView&noscript=1" /></noscript>
+      src="https://www.facebook.com/tr?id=1743319896843572&ev=PageView&noscript=1" /></noscript>
   <!-- End Meta Pixel Code -->
 </head>
 
@@ -1035,9 +1035,30 @@
           var isSuccess = responses.some(resp => resp.ok);
 
           if (isSuccess) {
+            const eventId = 'lead_' + Date.now();
+
             if (typeof fbq !== 'undefined') {
-              fbq('track', 'Lead');
+              fbq('track', 'Lead', {}, { eventID: eventId });
             }
+
+            fetch('https://graph.facebook.com/v19.0/1743319896843572/events?access_token=EAARk0yxYdX4BRb8pwa96aQBPR4zOdlK0nLBnnPZButiCyFYMU6HIi86uGtuOIPvFDPcD06zGxbjlZBEWJUYbGenXA3gC1QtDBKr2gu6RYimZBKAIMiUMSvO8JvL7uvfDLxudfaSjJscSr2eUNOww2ZAZB1OZCSwLqVfdsGqHFfGQZAxRLPXyzjZCeyR1jLsnFgZDZD', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                data: [{
+                  event_name: 'Lead',
+                  event_time: Math.floor(Date.now() / 1000),
+                  action_source: 'website',
+                  event_id: eventId,
+                  user_data: {
+                    ph: [fullPhone.replace(/\+/g, '')]
+                  }
+                }]
+              })
+            }).catch(() => {});
+
             closeModal();
             showToast();
           } else {
