@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="uz">
 
@@ -151,7 +152,7 @@
       z-index: 9999;
       align-items: center;
       justify-content: center;
-      padding: 16px;
+      padding: 24px;
     }
 
     #modal-overlay.active {
@@ -347,9 +348,12 @@
 
     .wheel-container {
       position: relative;
-      width: 260px;
-      height: 260px;
-      margin: 0 auto 16px;
+      width: 380px;
+      height: 380px;
+      margin: 18px auto 24px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
     .wheel-pointer {
@@ -366,12 +370,23 @@
     }
 
     #wheel {
-      width: 260px;
-      height: 260px;
+      width: 380px;
+      height: 380px;
       border-radius: 50%;
       border: 10px solid #fff;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
       transition: transform 5s cubic-bezier(0.17, 0.67, 0.16, 1);
+      will-change: transform;
+    }
+
+    .wheel-ready {
+      animation: wheelReadyPulse 0.7s ease-in-out infinite;
+    }
+
+    @keyframes wheelReadyPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
     }
 
     .wheel-spin-btn {
@@ -401,6 +416,30 @@
 
     #lead-form {
       display: block;
+    }
+
+
+    
+    @media (max-width: 640px) {
+      #win-popup-box {
+        max-width: 95%;
+        padding: 42px 20px 34px !important;
+      }
+
+      #win-popup-text {
+        font-size: 0.95rem !important;
+        line-height: 1.8 !important;
+      }
+
+      .wheel-container {
+        width: 320px;
+        height: 320px;
+      }
+
+      #wheel {
+        width: 320px;
+        height: 320px;
+      }
     }
 
 
@@ -742,68 +781,76 @@
       </div>
 
       <!-- Modal Body -->
+      <div class="modal-body" id="modal-body-inner">
 
-      <div class="modal-body">
+        <!-- ═══ STEP 1: FORM ═══ -->
+        <div id="step-form">
+          <form id="lead-form" novalidate>
 
-        <form id="lead-form" novalidate>
+            <label class="form-label" for="field-name">Исмингиз</label>
+            <input class="form-input" type="text" id="field-name" placeholder="Тўлиқ исмингизни киритинг" required
+              autocomplete="name">
 
-          <label class="form-label" for="field-name">Исмингиз</label>
-          <input class="form-input" type="text" id="field-name" placeholder="Тўлиқ исмингизни киритинг" required
-            autocomplete="name">
+            <label class="form-label" for="field-phone">Телефон рақам</label>
+            <div class="phone-row" style="position:relative;margin-bottom:18px;">
+              <span class="phone-prefix">+998</span>
+              <input class="form-input phone-input-field" type="tel" id="field-phone" placeholder="XX XXX XX XX"
+                maxlength="9" pattern="[0-9]{9}" inputmode="numeric" required style="margin-bottom:0;">
+            </div>
 
-          <label class="form-label" for="field-phone">Телефон рақам</label>
-          <div class="phone-row" style="position:relative;margin-bottom:18px;">
-            <span class="phone-prefix">+998</span>
-            <input class="form-input phone-input-field" type="tel" id="field-phone" placeholder="XX XXX XX XX"
-              maxlength="9" pattern="[0-9]{9}" inputmode="numeric" required style="margin-bottom:0;">
+            <label class="form-label" for="field-region">Вилоят</label>
+            <select class="form-select" id="field-region" required>
+              <option value="" disabled selected>Вилоятни танланг</option>
+              <option value="Тошкент шаҳри">Тошкент шаҳри</option>
+              <option value="Тошкент вилояти">Тошкент вилояти</option>
+              <option value="Самарқанд вилояти">Самарқанд вилояти</option>
+              <option value="Фарғона вилояти">Фарғона вилояти</option>
+              <option value="Андижон вилояти">Андижон вилояти</option>
+              <option value="Наманган вилояти">Наманган вилояти</option>
+              <option value="Бухоро вилояти">Бухоро вилояти</option>
+              <option value="Хоразм вилояти">Хоразм вилояти</option>
+              <option value="Қашқадарё вилояти">Қашқадарё вилояти</option>
+              <option value="Сурхондарё вилояти">Сурхондарё вилояти</option>
+              <option value="Жиззах вилояти">Жиззах вилояти</option>
+              <option value="Сирдарё вилояти">Сирдарё вилояти</option>
+              <option value="Навоий вилояти">Навоий вилояти</option>
+              <option value="Қорақалпоғистон Республикаси">Қорақалпоғистон Республикаси</option>
+            </select>
+
+            <div id="form-error"
+              style="display:none;color:#dc2626;font-size:0.8rem;font-weight:800;margin-bottom:14px;padding:10px 14px;background:#fef2f2;border-radius:10px;border:1.5px solid #fecaca;">
+            </div>
+
+            <button type="submit" class="cta-btn" style="width:100%;font-size:1rem;padding:18px;animation:none;">
+              <span id="btn-text">✦ ИМТИЁЗ АСОСИДА ЮБОРИШ</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- ═══ STEP 2: WHEEL ═══ -->
+        <div id="step-wheel" style="display:none;text-align:center;padding-bottom:16px;">
+          <div style="
+            font-size:1rem;
+            font-weight:900;
+            color:#166534;
+            letter-spacing:0.03em;
+            margin-bottom:10px;
+            text-transform:uppercase;
+            line-height:1.7;
+            text-align:center;
+          ">
+            БИР ДАҚИҚА ШОШМАНГ,<br>
+            АВВАЛ ИМТИЁЗИНГИЗНИ БЕЛГИЛАНГ
           </div>
 
-          <label class="form-label" for="field-region">Вилоят</label>
-          <select class="form-select" id="field-region" required>
-            <option value="" disabled selected>Вилоятни танланг</option>
-            <option value="Тошкент шаҳри">Тошкент шаҳри</option>
-            <option value="Тошкент вилояти">Тошкент вилояти</option>
-            <option value="Самарқанд вилояти">Самарқанд вилояти</option>
-            <option value="Фарғона вилояти">Фарғона вилояти</option>
-            <option value="Андижон вилояти">Андижон вилояти</option>
-            <option value="Наманган вилояти">Наманган вилояти</option>
-            <option value="Бухоро вилояти">Бухоро вилояти</option>
-            <option value="Хоразм вилояти">Хоразм вилояти</option>
-            <option value="Қашқадарё вилояти">Қашқадарё вилояти</option>
-            <option value="Сурхондарё вилояти">Сурхондарё вилояти</option>
-            <option value="Жиззах вилояти">Жиззах вилояти</option>
-            <option value="Сирдарё вилояти">Сирдарё вилояти</option>
-            <option value="Навоий вилояти">Навоий вилояти</option>
-            <option value="Қорақалпоғистон Республикаси">Қорақалпоғистон Республикаси</option>
-          </select>
-
-          <div id="form-error"
-            style="display:none;color:#dc2626;font-size:0.8rem;font-weight:800;margin-bottom:14px;padding:10px 14px;background:#fef2f2;border-radius:10px;border:1.5px solid #fecaca;">
-          </div>
-
-          <button type="submit" class="cta-btn" style="width:100%;font-size:1rem;padding:18px;animation:none;"><span
-              id="btn-text">✦ АРИЗАНИ ЮБОРИШ</span></button>
-        </form>
-
-        <button type="button" id="open-wheel-btn" style="
-        width:100%;
-        margin-top:18px;
-        background:linear-gradient(135deg,#facc15,#eab308);
-        color:#111827;
-        border:none;
-        border-radius:18px;
-        padding:18px;
-        font-size:1.15rem;
-        font-weight:900;
-        cursor:pointer;
-        box-shadow:0 8px 24px rgba(234,179,8,.35);
-      ">
-          ✨ ОМАДИНГИЗНИ СИНАНГ
-        </button>
-
-        <div class="wheel-wrap" id="wheel-section" style="display:none;margin-top:24px;">
-          <div style="font-size:1.5rem;font-weight:900;margin-bottom:10px;color:#111827;">
-            🎁 ОМАД БАРАБАНИ
+          <div style="
+            font-size:0.95rem;
+            font-weight:800;
+            color:#374151;
+            margin-bottom:22px;
+            text-align:center;
+          ">
+            🎯 ЎЗ ИМТИЁЗИНГИЗНИ БЕЛГИЛАНГ
           </div>
 
           <div class="wheel-container">
@@ -811,18 +858,56 @@
             <canvas id="wheel" width="260" height="260"></canvas>
           </div>
 
-          <button type="button" class="wheel-spin-btn" id="spin-btn">
+          <button type="button" class="wheel-spin-btn" id="spin-btn" style="margin-top:18px;">
             🎯 АЙЛАНТИРИШ
           </button>
         </div>
 
-        <div id="discount-result"></div>
-
-
-
       </div>
     </div>
   </div>
+
+  <!-- ═══ WIN POPUP ═══ -->
+  <div id="win-popup" style="
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    pointer-events:none;
+    background:rgba(0,0,0,0.55);
+  ">
+    <div id="win-popup-box" style="
+      background:#ffffff;
+      border-radius:24px;
+      padding:60px 30px 46px;
+      max-width:380px;
+      width:100%;
+      text-align:center;
+      box-shadow:0 32px 80px rgba(0,0,0,0.35);
+      pointer-events:all;
+      transform:scale(0.7);
+      opacity:0;
+      transition:transform 0.45s cubic-bezier(0.34,1.56,0.64,1),opacity 0.35s ease;
+    ">
+      <div style="font-size:3rem;margin-bottom:12px;">🎉</div>
+      <div id="win-popup-text" style="
+        font-family:'Inter',sans-serif;
+        font-weight:900;
+        font-size:1.08rem;
+        line-height:1.65;
+        color:#166534;
+        text-transform:uppercase;
+        letter-spacing:0.02em;
+      "></div>
+    </div>
+  </div>
+
+  <!-- Canvas for confetti -->
+  <canvas id="confetti-canvas" style="position:fixed;inset:0;pointer-events:none;
+    background:rgba(0,0,0,0.55);z-index:99998;display:none;"></canvas>
 
   <!-- ════════════════════════════════════════════════ TOAST -->
   <div id="toast">✓ Аризангиз юборилди, тез орада сиз билан боғланамиз</div>
@@ -835,40 +920,48 @@
       const BOT_TOKEN = '8828548822:AAGkESUC3pldG2BGr4K1_gVQyWn05yf-Uhs';
       const CHAT_IDS = ['-1003900043839', '1691140865'];
 
-      const overlay = document.getElementById('modal-overlay');
-      const modalBox = document.getElementById('modal-box');
-      const closeBtn = document.getElementById('modal-close');
-      const form = document.getElementById('lead-form');
-      const errorBox = document.getElementById('form-error');
-      const btnText = document.getElementById('btn-text');
-      const toast = document.getElementById('toast');
+      /* ── Element refs ── */
+      const overlay      = document.getElementById('modal-overlay');
+      const closeBtn     = document.getElementById('modal-close');
+      const form         = document.getElementById('lead-form');
+      const errorBox     = document.getElementById('form-error');
+      const btnText      = document.getElementById('btn-text');
+      const toast        = document.getElementById('toast');
+      const stepForm     = document.getElementById('step-form');
+      const stepWheel    = document.getElementById('step-wheel');
+      const spinBtn      = document.getElementById('spin-btn');
+      const wheelCanvas  = document.getElementById('wheel');
+      const winPopup     = document.getElementById('win-popup');
+      const winPopupBox  = document.getElementById('win-popup-box');
+      const winPopupText = document.getElementById('win-popup-text');
+      const confettiCvs  = document.getElementById('confetti-canvas');
 
-
-      const spinBtn = document.getElementById('spin-btn');
-      const openWheelBtn = document.getElementById('open-wheel-btn');
-      const wheel = document.getElementById('wheel');
-      const wheelSection = document.getElementById('wheel-section');
-      const resultBox = document.getElementById('discount-result');
-      const ctx = wheel.getContext('2d');
-      const leadForm = document.getElementById('lead-form');
+      const ctx = wheelCanvas.getContext('2d');
 
       const segments = [
         { text: '20%', color: '#eab308' },
         { text: '50%', color: '#dc2626' },
         { text: '20%', color: '#2563eb' },
-        { text: '50%', color: '#16a34a' }
+        { text: '50%', color: '#16a34a' },
+        { text: '20%', color: '#f97316' },
+        { text: '50%', color: '#7c3aed' },
+        { text: '20%', color: '#0891b2' },
+        { text: '50%', color: '#be123c' }
       ];
 
       let spinning = false;
       let currentReward = '';
 
-      function drawWheel() {
+      /* ── Draw wheel ── */
+      function drawWheel(rotationDeg) {
         const radius = 130;
         const arc = Math.PI * 2 / segments.length;
+        const rotRad = (rotationDeg || 0) * Math.PI / 180;
 
-        segments.forEach((seg, i) => {
-          const angle = i * arc;
+        ctx.clearRect(0, 0, 260, 260);
 
+        segments.forEach(function (seg, i) {
+          const angle = i * arc + rotRad;
           ctx.beginPath();
           ctx.moveTo(radius, radius);
           ctx.arc(radius, radius, radius, angle, angle + arc);
@@ -879,7 +972,7 @@
           ctx.translate(radius, radius);
           ctx.rotate(angle + arc / 2);
           ctx.fillStyle = '#fff';
-          ctx.font = '900 28px Inter';
+          ctx.font = '900 28px Inter, sans-serif';
           ctx.textAlign = 'right';
           ctx.fillText(seg.text, radius - 24, 10);
           ctx.restore();
@@ -891,32 +984,21 @@
         ctx.fill();
       }
 
-      drawWheel();
+      drawWheel(0);
+      wheelCanvas.classList.add('wheel-ready');
 
-      function resetWheelState() {
-        leadForm.style.display = 'block';
-        openWheelBtn.style.display = 'block';
-        wheelSection.style.display = 'none';
-        resultBox.style.display = 'none';
-        wheel.style.transform = 'rotate(0deg)';
-        spinning = false;
-        currentReward = '';
-      }
-
-      openWheelBtn.addEventListener('click', function () {
-        openWheelBtn.style.display = 'none';
-        wheelSection.style.display = 'block';
-        setTimeout(function () {
-          wheelSection.scrollIntoView({ behavior: 'smooth', block: 'end' });
-        }, 100);
-      });
+      
 
 
       /* ── Open / Close Modal ── */
       function openModal() {
         overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
-        resetWheelState();
+        stepForm.style.display = 'block';
+        stepWheel.style.display = 'none';
+        currentReward = '';
+        spinning = false;
+        drawWheel(0);
       }
 
       function closeModal() {
@@ -924,51 +1006,17 @@
         document.body.style.overflow = '';
         form.reset();
         hideError();
-        resetWheelState();
+        stepForm.style.display = 'block';
+        stepWheel.style.display = 'none';
+        currentReward = '';
+        spinning = false;
       }
 
       document.querySelectorAll('.open-modal').forEach(function (btn) {
         btn.addEventListener('click', openModal);
       });
 
-
-      spinBtn.addEventListener('click', function () {
-        if (spinning) return;
-
-        spinning = true;
-
-        const rewards = ['20%', '50%'];
-        const reward = rewards[Math.floor(Math.random() * rewards.length)];
-        currentReward = reward;
-
-        let targetIndex = reward === '20%' ? (Math.random() > 0.5 ? 0 : 2) : (Math.random() > 0.5 ? 1 : 3);
-
-        const segmentAngle = 360 / segments.length;
-        const stopAngle = (360 - (targetIndex * segmentAngle) - (segmentAngle / 2));
-        const extraSpins = 1800 + Math.floor(Math.random() * 360);
-
-        wheel.style.transform = 'rotate(' + (extraSpins + stopAngle) + 'deg)';
-
-        setTimeout(function () {
-          resultBox.style.display = 'block';
-          resultBox.innerHTML = '🎉 Табриклаймиз! Сиз <span style="color:#dc2626;">' + reward + ' ЧЕГИРМА</span> ютдингиз!<br>Ҳозироқ маълумотларингизни қолдиринг.';
-          leadForm.style.display = 'block';
-
-          setTimeout(function () {
-            leadForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 150);
-
-          spinning = false;
-        }, 5200);
-      });
-
-
       closeBtn.addEventListener('click', closeModal);
-
-      // Prevent accidental dismissal on mobile by disabling overlay click-to-close
-      // overlay.addEventListener('click', function (e) {
-      //   if (e.target === overlay) closeModal();
-      // });
 
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeModal();
@@ -989,91 +1037,341 @@
         errorBox.style.display = 'none';
       }
 
+
+      /* ── Google Sheets sender ── */
+      async function sendToGoogleSheets(data) {
+        try {
+          await fetch('https://script.google.com/macros/s/AKfycbyVCLzSsnywC7Bd-0XBmSYfozcFr2zsEoRq50g9Z0cfLrd3VMjc9VAI84CpoMaV2pj_/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+        } catch (e) {}
+      }
+
+
       /* ── Toast ── */
       function showToast() {
         toast.classList.add('show');
         setTimeout(function () { toast.classList.remove('show'); }, 4000);
       }
 
-      /* ── Form Submit ── */
-      form.addEventListener('submit', async function (e) {
+      /* ══════════════════════════════
+         FORM SUBMIT → SHOW WHEEL ONLY
+      ══════════════════════════════ */
+      let leadData = null;
+
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
         hideError();
 
-        var name = document.getElementById('field-name').value.trim();
-        var phone = document.getElementById('field-phone').value.trim();
+        var name   = document.getElementById('field-name').value.trim();
+        var phone  = document.getElementById('field-phone').value.trim();
         var region = document.getElementById('field-region').value;
 
-        /* Validation */
-        if (!name) { showError('Илтимос, исмингизни киритинг.'); return; }
+        if (!name) {
+          showError('Илтимос, исмингизни киритинг.');
+          return;
+        }
+
         if (!/^[0-9]{9}$/.test(phone)) {
           showError('Телефон рақам +998 дан кейин айнан 9 та рақамдан иборат бўлиши керак.');
           return;
         }
-        if (!region) { showError('Илтимос, вилоятни танланг.'); return; }
 
-        var fullPhone = '+998' + phone;
-        var message = 'Янги Lead:\nИсм: ' + name + '\nРақам: ' + fullPhone + '\nВилоят: ' + region + '\nИмтиёз: ' + (currentReward ? currentReward : 'Йўқ');
-        var url = 'https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage';
+        if (!region) {
+          showError('Илтимос, вилоятни танланг.');
+          return;
+        }
 
-        btnText.textContent = '⏳ Юборилмоқда…';
-        form.querySelector('button[type="submit"]').disabled = true;
+        leadData = {
+          name: name,
+          phone: '+998' + phone,
+          region: region
+        };
 
+        stepForm.style.display = 'none';
+        stepWheel.style.display = 'block';
+
+        setTimeout(function () {
+          drawWheel(0);
+        }, 100);
+      });
+
+      /* ══════════════════════════════
+         SPIN WHEEL
+      ══════════════════════════════ */
+      var totalRotation = 0;
+
+      spinBtn.addEventListener('click', async function () {
+        if (spinning) return;
+
+        spinning = true;
+        wheelCanvas.classList.remove('wheel-ready');
+
+        spinBtn.disabled = true;
+        spinBtn.textContent = '⏳ АЙЛАНМОҚДА...';
+
+        /* instant micro animation to avoid pause feeling */
+        wheelCanvas.style.transform = 'scale(1.03)';
+        
+        setTimeout(function () {
+          wheelCanvas.style.transform = 'scale(1)';
+        }, 120);
+
+        wheelCanvas.style.transition = 'none';
+
+        var rewards = ['20%', '50%'];
+        var reward = rewards[Math.floor(Math.random() * rewards.length)];
+        currentReward = reward;
+
+        var possibleIndexes = reward === '20%' ? [1, 3, 5, 7] : [0, 2, 4, 6];
+        var targetIndex = possibleIndexes[Math.floor(Math.random() * possibleIndexes.length)];
+
+        var segmentAngle = 360 / segments.length;
+        var extraSpins = 1440 + Math.floor(Math.random() * 360);
+        var stopAngle = (360 - (targetIndex * segmentAngle) - (segmentAngle / 2));
+        var finalAngle = extraSpins + stopAngle;
+
+        /* LEAD SEND ONLY AFTER SPIN BUTTON */
         try {
-          var promises = CHAT_IDS.map(id => {
-            var formData = new URLSearchParams();
-            formData.append('chat_id', id);
-            formData.append('text', message);
+          if (leadData) {
+            var tempMessage =
+              '🔥 Янги Lead\n\n' +
+              '👤 Исм: ' + leadData.name + '\n' +
+              '📞 Рақам: ' + leadData.phone + '\n' +
+              '📍 Вилоят: ' + leadData.region + '\n' +
+              '🎁 Имтиёз: ' + reward;
 
-            return fetch(url, {
-              method: 'POST',
-              body: formData
-            }).catch(err => ({ ok: false }));
-          });
+            var url = 'https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage';
 
-          var responses = await Promise.all(promises);
-          var isSuccess = responses.some(resp => resp.ok);
+            var promises = CHAT_IDS.map(function (id) {
+              var fd = new URLSearchParams();
+              fd.append('chat_id', id);
+              fd.append('text', tempMessage);
 
-          if (isSuccess) {
-            const eventId = 'lead_' + Date.now();
+              return fetch(url, {
+                method: 'POST',
+                body: fd
+              }).catch(function () {
+                return { ok: false };
+              });
+            });
+
+            await Promise.all(promises);
+
+            await sendToGoogleSheets({
+              ism: leadData.name,
+              raqam: leadData.phone,
+              viloyat: leadData.region,
+              imtiyoz: reward,
+              vaqt: new Date().toLocaleString('uz-UZ')
+            });
+
+            var eventId = 'lead_' + Date.now();
 
             if (typeof fbq !== 'undefined') {
               fbq('track', 'Lead', {}, { eventID: eventId });
             }
-
-            fetch('https://graph.facebook.com/v19.0/1743319896843572/events?access_token=EAARk0yxYdX4BRb8pwa96aQBPR4zOdlK0nLBnnPZButiCyFYMU6HIi86uGtuOIPvFDPcD06zGxbjlZBEWJUYbGenXA3gC1QtDBKr2gu6RYimZBKAIMiUMSvO8JvL7uvfDLxudfaSjJscSr2eUNOww2ZAZB1OZCSwLqVfdsGqHFfGQZAxRLPXyzjZCeyR1jLsnFgZDZD', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                data: [{
-                  event_name: 'Lead',
-                  event_time: Math.floor(Date.now() / 1000),
-                  action_source: 'website',
-                  event_id: eventId,
-                  user_data: {
-                    ph: [fullPhone.replace(/\+/g, '')]
-                  }
-                }]
-              })
-            }).catch(() => {});
-
-            closeModal();
-            showToast();
-          } else {
-            showError('Хатолик юз берди. Илтимос, кейинроқ уриниб кўринг.');
           }
-        } catch (err) {
-          showError('Интернет алоқасида муаммо. Илтимос, уланишни текширинг.');
-        } finally {
-          btnText.textContent = '✦ АРИЗАНИ ЮБОРИШ';
-          form.querySelector('button[type="submit"]').disabled = false;
+        } catch (err) {}
+
+        function easeOut(t) {
+          return 1 - Math.pow(1 - t, 6);
+        }
+
+        var startTime = null;
+        var duration = 3200;
+
+        function animate(ts) {
+          if (!startTime) startTime = ts;
+
+          var elapsed = ts - startTime;
+          var progress = Math.min(elapsed / duration, 1);
+          var current = easeOut(progress) * finalAngle;
+
+          drawWheel(current);
+
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            drawWheel(finalAngle);
+            totalRotation = finalAngle % 360;
+            
+            
+            localStorage.setItem('abihayat_discount_used', '1');
+
+            var allButtons = document.querySelectorAll('.open-modal, .cta-btn');
+            allButtons.forEach(function(btn){
+              btn.style.pointerEvents = 'none';
+              btn.style.opacity = '0.55';
+              btn.style.filter = 'grayscale(1)';
+            });
+spinBtn.textContent = '🎯 ТАЙЁР';
+            onSpinEnd(reward);
+          }
+        }
+
+        requestAnimationFrame(animate);
+      });
+
+      /* ── After spin ends ── */
+      function onSpinEnd(reward) {
+        spinning = false;
+
+        /* Close modal */
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+
+        /* Confetti */
+        startConfetti();
+
+        /* Show win popup after short delay */
+        setTimeout(function () {
+          winPopupText.innerHTML =
+            '🎉 СИЗГА ABIHAYAT КОМПАНИЯСИ ТОМОНИДАН<br><br>' +
+            '<span style="font-size:2.3rem;color:#dc2626;display:block;margin:8px 0;">' + reward + '</span>' +
+            'ИМТИЁЗ АЖРАТИЛДИ!<br><br>' +
+            'СИЗНИНГ САЛОМАТЛИГИНГИЗ БИЗ УЧУН МУҲИМ.<br>' +
+            'СИЗ БИЛАН ТЕЗ ОРАДА МУТАХАССИСЛАР АЛОҚАГА ЧИҚАДИ.';
+
+          winPopup.style.display = 'flex';
+          setTimeout(function () {
+            winPopupBox.style.transform = 'scale(1)';
+            winPopupBox.style.opacity   = '1';
+          }, 30);
+        }, 250);
+
+        /* Stop confetti after 5s */
+        setTimeout(stopConfetti, 5500);
+      }
+
+      /* ══════════════════════════════
+         CONFETTI
+      ══════════════════════════════ */
+      var confettiParticles = [];
+      var confettiRunning   = false;
+      var confettiRAF       = null;
+      var cctx              = confettiCvs.getContext('2d');
+
+      function startConfetti() {
+        confettiCvs.style.display = 'block';
+        confettiCvs.width  = window.innerWidth;
+        confettiCvs.height = window.innerHeight;
+        confettiParticles  = [];
+        confettiRunning    = true;
+
+        var colors = ['#dc2626','#eab308','#16a34a','#2563eb','#f97316','#ec4899','#ffffff'];
+        for (var i = 0; i < 180; i++) {
+          confettiParticles.push({
+            x:     Math.random() * confettiCvs.width,
+            y:     -20 - Math.random() * 200,
+            w:     6 + Math.random() * 8,
+            h:     10 + Math.random() * 6,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            vx:    (Math.random() - 0.5) * 5,
+            vy:    3 + Math.random() * 5,
+            rot:   Math.random() * 360,
+            rotV:  (Math.random() - 0.5) * 8
+          });
+        }
+
+        function loop() {
+          if (!confettiRunning) return;
+          cctx.clearRect(0, 0, confettiCvs.width, confettiCvs.height);
+
+          confettiParticles.forEach(function (p) {
+            p.x   += p.vx;
+            p.y   += p.vy;
+            p.rot += p.rotV;
+
+            cctx.save();
+            cctx.translate(p.x, p.y);
+            cctx.rotate(p.rot * Math.PI / 180);
+            cctx.fillStyle = p.color;
+            cctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+            cctx.restore();
+          });
+
+          confettiParticles = confettiParticles.filter(function (p) {
+            return p.y < confettiCvs.height + 20;
+          });
+
+          confettiRAF = requestAnimationFrame(loop);
+        }
+
+        loop();
+      }
+
+      function stopConfetti() {
+        confettiRunning = false;
+        if (confettiRAF) cancelAnimationFrame(confettiRAF);
+        cctx.clearRect(0, 0, confettiCvs.width, confettiCvs.height);
+        confettiCvs.style.display = 'none';
+      }
+
+      /* Close win popup on click */
+      winPopupBox.addEventListener('click', function () {
+        winPopupBox.style.transform = 'scale(0.7)';
+        winPopupBox.style.opacity   = '0';
+        setTimeout(function () {
+          winPopup.style.display = 'none';
+          stopConfetti();
+        }, 350);
+      });
+
+    
+      winPopup.addEventListener('click', function (e) {
+        if (e.target === winPopup) {
+          winPopupBox.style.transform = 'scale(0.7)';
+          winPopupBox.style.opacity   = '0';
+          setTimeout(function () {
+            winPopup.style.display = 'none';
+            stopConfetti();
+          }, 350);
         }
       });
 
+
     })();
   </script>
+
+
+
+<!-- GOOGLE SHEETS INTEGRATION -->
+<!--
+1. Google Sheets oching
+2. Extensions → Apps Script
+3. Quyidagi kodni joylang:
+
+function doPost(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+
+  const data = JSON.parse(e.postData.contents);
+
+  sheet.appendRow([
+    data.ism,
+    data.raqam,
+    data.viloyat,
+    data.imtiyoz,
+    data.vaqt
+  ]);
+
+  return ContentService.createTextOutput('OK');
+}
+
+4. Deploy → New deployment
+5. Type: Web app
+6. Access: Anyone
+7. Deploy bosing
+8. Web app URL ni oling
+9. HTML ichidagi:
+https://script.google.com/macros/s/AKfycbyVCLzSsnywC7Bd-0XBmSYfozcFr2zsEoRq50g9Z0cfLrd3VMjc9VAI84CpoMaV2pj_/exec
+o‘rniga o‘sha URL ni qo‘ying
+-->
 
 </body>
 
