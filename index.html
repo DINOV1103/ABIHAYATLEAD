@@ -889,17 +889,16 @@
             </div>
           </div>
 
-          <form id="lead-form" novalidate>
+          <form id="lead-form" novalidate autocomplete="off">
 
-            <label class="form-label" for="field-name">Исмингиз</label>
-            <input class="form-input" type="text" id="field-name" placeholder="Тўлиқ исмингизни киритинг" required
-              autocomplete="name">
+            <label class="form-label" for="usr_nm_547">Исмингиз</label>
+            <input class="form-input" type="text" id="usr_nm_547" placeholder="Тўлиқ исмингизни киритинг" required autocomplete="off">
 
-            <label class="form-label" for="field-phone">Телефон рақам</label>
+            <label class="form-label" for="usr_tel_547">Телефон рақам</label>
             <div class="phone-row" style="position:relative;margin-bottom:18px;">
               <span class="phone-prefix">+998</span>
-              <input class="form-input phone-input-field" type="tel" id="field-phone" placeholder="XX XXX XX XX"
-                maxlength="9" pattern="[0-9]{9}" inputmode="numeric" required style="margin-bottom:0;">
+              <input class="form-input phone-input-field" type="tel" id="usr_tel_547" placeholder="XX XXX XX XX"
+                maxlength="9" pattern="[0-9]{9}" inputmode="numeric" autocomplete="off" required style="margin-bottom:0;">
             </div>
 
             <label class="form-label" for="field-region">Вилоят</label>
@@ -1038,7 +1037,7 @@
       });
 
       /* ── Phone: digits only ── */
-      document.getElementById('field-phone').addEventListener('input', function () {
+      document.getElementById('usr_tel_547').addEventListener('input', function () {
         this.value = this.value.replace(/[^0-9]/g, '').slice(0, 9);
       });
 
@@ -1077,8 +1076,8 @@
         e.preventDefault();
         hideError();
 
-        var name   = document.getElementById('field-name').value.trim();
-        var phone  = document.getElementById('field-phone').value.trim();
+        var name   = document.getElementById('usr_nm_547').value.trim();
+        var phone  = document.getElementById('usr_tel_547').value.trim();
         var region = document.getElementById('field-region').value;
 
         if (!name) {
