@@ -1,159 +1,175 @@
-
-
 <!DOCTYPE html>
 <html lang="uz">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ABIHAYAT Дамламаси – Қанд Кўтарилишида Самарали Ёрдам</title>
+  <title>ABIHAYAT Дамламаси – Қандли Диабетга Самарали Ёрдам | 100% Табиий Турк Формуласи</title>
+  <meta name="description" content="ABIHAYAT табиий дамламаси қандли диабет, юқори қон босими ва ҳолсизликка самарали ёрдам беради. Туркиядан 100% натурал маҳсулот. Ҳозир имтиёзли нархда буюртма беринг!">
+  <meta property="og:title" content="ABIHAYAT Дамламаси – Қандли Диабетга Самарали Ёрдам">
+  <meta property="og:description" content="Қанд миқдорини нормаллаштиради, организмни тозалайди ва қувват беради. Машҳур инсонлар ишонадиган табиий маҳсулот.">
+  <meta property="og:image" content="https://i.postimg.cc/rs31jnTQ/IMG-0385.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uz_UZ">
+  
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap');
 
-    *,
-    *::before,
-    *::after {
+    :root {
+      --primary-green: #166534;
+      --accent-green: #16a34a;
+      --light-green: #f0fdf4;
+      --border-green: #bbf7d0;
+    }
+
+    *, *::before, *::after {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', system_ui, sans-serif;
       background: #ffffff;
       color: #111827;
-      font-weight: 700;
+      font-weight: 600;
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* ── Highlight green ── */
-    .hl {
-      color: inherit;
-      font-weight: inherit;
-    }
-
-    /* ── CTA Button ── */
-    .cta-btn {
-      display: inline-block;
-      background: #dc2626;
-      color: #ffffff;
+    .section-title {
+      font-size: clamp(1.35rem, 3.2vw, 1.85rem);
       font-weight: 900;
-      font-size: 1.2rem;
-      letter-spacing: 0.03em;
-      padding: 18px 38px;
-      border-radius: 14px;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 8px 0 #991b1b, 0 12px 24px rgba(220, 38, 38, 0.45);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      animation: pulse-cta 2.6s infinite;
-      text-transform: uppercase;
-      position: relative;
+      line-height: 1.3;
+      color: #111827;
+      text-align: center;
+      margin-bottom: 12px;
     }
 
-    .cta-btn:hover {
-      transform: scale(1.055) translateY(-3px);
-      box-shadow: 0 12px 0 #c2410c, 0 18px 32px rgba(249, 115, 22, 0.5);
-      animation: none;
+    .section-subtitle {
+      font-size: clamp(1rem, 2.1vw, 1.15rem);
+      font-weight: 700;
+      color: #374151;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 24px;
     }
 
-    .cta-btn:active {
-      transform: scale(0.97) translateY(4px);
-      box-shadow: 0 2px 0 #c2410c, 0 4px 10px rgba(249, 115, 22, 0.35);
-    }
-
-    @keyframes pulse-cta {
-
-      0%,
-      100% {
-        box-shadow: 0 8px 0 #991b1b, 0 12px 24px rgba(220, 38, 38, 0.45);
-        transform: scale(1);
-      }
-
-      50% {
-        box-shadow: 0 8px 0 #c2410c, 0 14px 36px rgba(249, 115, 22, 0.65);
-        transform: scale(1.025);
-      }
-    }
-
-    /* ── Green Media Card ── */
     .media-card {
-      background: linear-gradient(160deg, #166534 0%, #15803d 60%, #16a34a 100%);
+      background: #ffffff;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 6px 30px rgba(22, 101, 52, 0.25);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e5e7eb;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .media-card img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
+    .media-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
     }
 
     .media-card .caption {
-      width: 100%;
-      color: #ffffff;
-      font-weight: 800;
-      font-size: 0.82rem;
-      line-height: 1.65;
-      padding: 16px 20px;
-      letter-spacing: 0.02em;
-      text-align: center;
-      border-top: 2px solid rgba(255, 255, 255, 0.18);
-      background: rgba(0, 0, 0, 0.18);
+      padding: 16px 18px;
+      background: #f8fafc;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #334155;
+      line-height: 1.5;
     }
 
-    /* ── Portrait Video wrapper ── */
     .portrait-video-wrapper {
-      width: 100%;
-      max-width: 400px;
-      margin: 0 auto;
       position: relative;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
 
     .portrait-video-wrapper iframe {
       width: 100%;
-      height: 700px;
+      height: 100%;
+      min-height: 420px;
       display: block;
       border: none;
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 640px) {
       .portrait-video-wrapper iframe {
-        height: 540px;
+        min-height: 380px;
       }
     }
 
-    /* ── Section divider ── */
-    .section-divider {
-      width: 72px;
-      height: 5px;
-      background: linear-gradient(90deg, #16a34a, #86efac);
-      border-radius: 999px;
-      margin: 12px auto 0;
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      padding: 16px 36px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 0 #991b1b, 0 14px 28px rgba(220, 38, 38, 0.4);
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.2;
     }
 
-    /* ── Header gradient ── */
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 0 #991b1b, 0 20px 40px rgba(220, 38, 38, 0.5);
+    }
+
+    .cta-btn:active {
+      transform: translateY(2px) scale(0.985);
+      box-shadow: 0 3px 0 #991b1b;
+    }
+
     .site-header {
-      background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+      background: linear-gradient(to bottom, #f0fdf4, #ffffff);
       border-bottom: 3px solid #bbf7d0;
     }
 
-    /* ── Modal overlay ── */
+    .section-divider {
+      width: 64px;
+      height: 5px;
+      background: linear-gradient(to right, #16a34a, #86efac);
+      border-radius: 999px;
+      margin: 14px auto 0;
+    }
+
+    .cert-img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(22, 101, 52, 0.15);
+      border: 3px solid #bbf7d0;
+      transition: transform 0.3s ease;
+    }
+
+    .cert-img:hover {
+      transform: scale(1.025);
+    }
+
+    /* Modal */
     #modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.65);
-      backdrop-filter: blur(6px);
-      z-index: 9999;
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(8px);
+      z-index: 99999;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 16px;
     }
 
     #modal-overlay.active {
@@ -161,32 +177,23 @@
     }
 
     #modal-box {
-      width: 100vw !important;
-      height: 100vh !important;
-      max-width: 100vw !important;
-      max-height: 100vh !important;
-      border-radius: 0 !important;
-    }
-
-    #modal-box {
       background: #ffffff;
       border-radius: 24px;
       width: 100%;
-      max-width: 480px;
-      max-height: 90vh;
-      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.3);
+      max-width: 460px;
+      max-height: 92dvh;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      animation: modal-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: modal-pop 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    @keyframes modal-in {
+    @keyframes modal-pop {
       from {
         opacity: 0;
-        transform: scale(0.82) translateY(40px);
+        transform: scale(0.92) translateY(30px);
       }
-
       to {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -194,47 +201,28 @@
     }
 
     .modal-header {
-      background: linear-gradient(135deg, #166534 0%, #16a34a 100%);
-      padding: 28px 30px 22px;
-      text-align: center;
-      color: #fff;
+      background: linear-gradient(135deg, #166534, #15803d);
+      padding: 26px 24px 22px;
+      color: white;
+      position: relative;
     }
 
-    .modal-body {
-      padding: 20px 22px 24px;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .form-label {
-      display: block;
-      font-weight: 800;
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
-      color: #166534;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-    }
-
-    .form-input,
-    .form-select {
+    .form-input, .form-select {
       width: 100%;
-      padding: 18px 18px;
+      padding: 15px 18px;
       border: 2.5px solid #d1fae5;
       border-radius: 12px;
-      font-family: 'Inter', sans-serif;
+      font-size: 1.02rem;
       font-weight: 700;
-      font-size: 1.1rem;
       color: #111827;
-      background: #f0fdf4;
-      outline: none;
-      transition: border-color 0.2s;
-      margin-bottom: 18px;
+      background: #f8fafc;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
-    .form-input:focus,
-    .form-select:focus {
+    .form-input:focus, .form-select:focus {
       border-color: #16a34a;
+      box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.12);
+      outline: none;
     }
 
     .phone-row {
@@ -243,38 +231,104 @@
 
     .phone-prefix {
       position: absolute;
-      left: 14px;
+      left: 18px;
       top: 50%;
       transform: translateY(-50%);
       font-weight: 900;
-      color: #16a34a;
-      font-size: 1.1rem;
+      color: #166534;
+      font-size: 1.05rem;
       pointer-events: none;
-      margin-bottom: 18px;
     }
 
     .phone-input-field {
-      padding-left: 62px !important;
-      margin-bottom: 18px;
+      padding-left: 68px !important;
     }
 
-    /* ── Toast ── */
+    /* Wheel */
+    .wheel-container {
+      position: relative;
+      width: min(300px, 88vw);
+      height: min(300px, 88vw);
+      margin: 16px auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wheel-pointer {
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 16px solid transparent;
+      border-right: 16px solid transparent;
+      border-top: 30px solid #111827;
+      z-index: 10;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+
+    #wheel {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 12px solid #ffffff;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25), 
+                  inset 0 0 0 8px #f1f5f9;
+      transition: transform 0.1s linear;
+      background: #fff;
+    }
+
+    .wheel-spin-btn {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: white;
+      border: none;
+      border-radius: 14px;
+      padding: 14px 32px;
+      font-weight: 900;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .wheel-spin-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    #discount-result {
+      display: none;
+      background: #f0fdf4;
+      border: 2.5px solid #86efac;
+      padding: 14px 18px;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      color: #166534;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    /* Toast */
     #toast {
       position: fixed;
-      bottom: 28px;
+      bottom: 24px;
       left: 50%;
       transform: translateX(-50%) translateY(120px);
-      background: linear-gradient(135deg, #166534, #16a34a);
+      background: linear-gradient(135deg, #166534, #15803d);
       color: #fff;
-      padding: 16px 32px;
-      border-radius: 999px;
+      padding: 14px 28px;
+      border-radius: 9999px;
       font-weight: 800;
-      font-size: 1rem;
-      box-shadow: 0 8px 32px rgba(22, 101, 52, 0.4);
-      z-index: 99999;
-      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.45s;
+      font-size: 0.95rem;
+      box-shadow: 0 10px 30px rgba(22, 101, 52, 0.4);
+      z-index: 999999;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
       opacity: 0;
       white-space: nowrap;
+      pointer-events: none;
     }
 
     #toast.show {
@@ -282,929 +336,859 @@
       opacity: 1;
     }
 
-    /* ── Certificate grid ── */
-    .cert-img {
-      border-radius: 16px;
-      box-shadow: 0 4px 24px rgba(22, 101, 52, 0.18);
-      border: 3px solid #bbf7d0;
-      width: 100%;
-      object-fit: cover;
-      transition: transform 0.3s;
-    }
-
-    .cert-img:hover {
-      transform: scale(1.03);
-    }
-
-    /* ── Subheading style ── */
-    .sub-heading {
-      font-size: clamp(1.2rem, 3vw, 1.6rem);
-      font-weight: 900;
-      line-height: 1.55;
-      text-align: center;
-      color: #111827;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    /* ── Hero hook ── */
-    .hero-hook {
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      font-weight: 900;
-      line-height: 1.5;
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto;
-    }
-
-    /* ── Badge pill ── */
     .badge-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: #f0fdf4;
       border: 2px solid #bbf7d0;
-      border-radius: 999px;
-      padding: 8px 20px;
-      font-size: 0.8rem;
+      border-radius: 9999px;
+      padding: 6px 18px;
+      font-size: 0.875rem;
       font-weight: 800;
       color: #166534;
-      letter-spacing: 0.04em;
     }
 
-    .icon-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #16a34a;
-      display: inline-block;
-      flex-shrink: 0;
-    }
-
-
-    .wheel-wrap {
-      text-align: center;
-      margin-bottom: 22px;
-    }
-
-    .wheel-container {
-      position: relative;
-      width: 380px;
-      height: 380px;
-      margin: 18px auto 24px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .wheel-pointer {
-      position: absolute;
-      top: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      border-left: 18px solid transparent;
-      border-right: 18px solid transparent;
-      border-top: 34px solid #111827;
-      z-index: 5;
-    }
-
-    #wheel {
-      width: 380px;
-      height: 380px;
-      border-radius: 50%;
-      border: 10px solid #fff;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-      transition: transform 5s cubic-bezier(0.17, 0.67, 0.16, 1);
-      will-change: transform;
-    }
-
-    .wheel-ready {
-      animation: wheelReadyPulse 0.7s ease-in-out infinite;
-    }
-
-    @keyframes wheelReadyPulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.02); }
-      100% { transform: scale(1); }
-    }
-
-    .wheel-spin-btn {
-      background: linear-gradient(135deg, #f97316, #dc2626);
-      color: #fff;
-      border: none;
-      border-radius: 14px;
-      padding: 14px 28px;
-      font-weight: 900;
-      cursor: pointer;
-      font-size: 1rem;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-    }
-
-    #discount-result {
-      display: none;
-      background: #f0fdf4;
-      border: 2px solid #86efac;
-      padding: 14px;
-      border-radius: 14px;
-      margin-bottom: 20px;
-      color: #166534;
-      font-weight: 900;
-      text-align: center;
-      line-height: 1.6;
-    }
-
-    #lead-form {
-      display: block;
-    }
-
-
-    
-    @media (max-width: 640px) {
-      #win-popup-box {
-        max-width: 95%;
-        padding: 42px 20px 34px !important;
-      }
-
-      #win-popup-text {
-        font-size: 0.95rem !important;
-        line-height: 1.8 !important;
-      }
-
-      .wheel-container {
-        width: 320px;
-        height: 320px;
-      }
-
-      #wheel {
-        width: 320px;
-        height: 320px;
-      }
-    }
-
-
-    /* Footer */
     footer {
-      background: #f0fdf4;
+      background: #f8fafc;
       border-top: 3px solid #bbf7d0;
       padding: 28px 20px;
       text-align: center;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #6b7280;
+      font-size: 0.8rem;
+      color: #64748b;
     }
 
-    /* ── Eid Banner ── */
-    #eid-banner {
-      background: linear-gradient(135deg, #78350f 0%, #b45309 35%, #d97706 60%, #92400e 100%);
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      padding: 14px 20px;
-      z-index: 100;
-    }
-
-    #eid-banner::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 18px,
-        rgba(255,255,255,0.04) 18px,
-        rgba(255,255,255,0.04) 36px
-      );
-    }
-
-    .eid-banner-inner {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 10px 20px;
-    }
-
-    .eid-title {
-      font-size: clamp(1rem, 3vw, 1.3rem);
+    .highlight {
+      color: #166534;
       font-weight: 900;
-      color: #fef3c7;
-      letter-spacing: 0.04em;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.35);
-      text-transform: uppercase;
-    }
-
-    .eid-discount-pill {
-      background: linear-gradient(135deg, #dc2626, #b91c1c);
-      color: #ffffff;
-      font-size: clamp(0.85rem, 2vw, 1rem);
-      font-weight: 900;
-      padding: 7px 20px;
-      border-radius: 999px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      box-shadow: 0 4px 14px rgba(220,38,38,0.45);
-      white-space: nowrap;
-      animation: pulse-cta 2.6s infinite;
-    }
-
-    .eid-ornament {
-      color: #fbbf24;
-      font-size: 1.3rem;
-      opacity: 0.9;
-    }
-
-    /* ── Eid festive accents on site-header ── */
-    .site-header {
-      background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 40%, #ffffff 100%) !important;
-      border-bottom: 3px solid #fde68a !important;
-    }
-
-    /* Override section-divider for festive gold on hero */
-    .eid-divider {
-      width: 72px;
-      height: 5px;
-      background: linear-gradient(90deg, #d97706, #fbbf24);
-      border-radius: 999px;
-      margin: 12px auto 0;
     }
   </style>
-  <!-- Meta Pixel Code -->
+
+  <!-- Meta Pixel Code - Yangi ID -->
   <script>
-    !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return; n = f.fbq = function () {
-        n.callMethod ?
-        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-      n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1743319896843572');
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2077628519520992');
     fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1743319896843572&ev=PageView&noscript=1" /></noscript>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=2077628519520992&ev=PageView&noscript=1"/>
+  </noscript>
   <!-- End Meta Pixel Code -->
-
-  <!-- Meta Pixel Access Token (for Conversions API, optional) -->
-  <script>
-    // Meta Pixel ID: 1743319896843572
-    // Access Token: EAARk0yxYdX4BRYHhIqSP5KusdLuEO5kEYJ8PkIubvh6SrWvf2brzFarvLjdF4dSZAbfLO3ybMMiesHI1PMdDUUpoiMoENVJFg1UvhQAPQbrv2Fld5baDD8ZA1065YUcCKLiOiTEXeOGe3TT4ZCZADMaHJS2oohcB9b5WEFifCc5xTNOcbBuAZA3f3M26MtQZDZD
-    // Note: Access Token is NOT used in browser pixel script.
-    // It is used for server-side Conversions API (CAPI).
-  </script>
-
 </head>
-
 <body>
 
-  <!-- ════════════════════════════════════════════════ EID BANNER -->
-  <div id="eid-banner">
-    <div class="eid-banner-inner">
-      <span class="eid-title">ҚУРБОН ҲАЙИТИ МУНОСАБАТИ БИЛАН КОМПАНИЯ ТОМОНИДАН 50% ЧЕГИРМАГА ЭГА БЎЛИНГ!</span>
-    </div>
-  </div>
-
-  <!-- ════════════════════════════════════════════════ HEADER -->
-  <header class="site-header px-4 py-5">
-    <div style="max-width:900px;margin:0 auto;text-align:center;">
-      <div class="badge-pill" style="margin-bottom:18px;">
-        <span class="icon-dot"></span>
-        55-515-55-58
-        <span class="icon-dot"></span>
-      </div>
-      <div
-        style="font-size:clamp(2rem,5vw,2.8rem);font-weight:900;letter-spacing:-0.01em;color:#16a34a;margin-bottom:10px;">
-        ABIHAYAT
-      </div>
-      <div style="font-size:0.85rem;font-weight:800;color:#6b7280;letter-spacing:0.08em;text-transform:uppercase;">
-        Табиий Дамлама · Турк Формуласи · 100% Натурал
+  <!-- HEADER -->
+  <header class="site-header sticky top-0 z-50">
+    <div class="max-w-[980px] mx-auto px-5 py-5">
+      <div class="flex flex-col items-center text-center">
+        <div class="badge-pill mb-3">
+          <span class="inline-block w-2 h-2 bg-[#16a34a] rounded-full"></span>
+          <span class="font-black tracking-wider">55-515-55-58</span>
+        </div>
+        
+        <div class="text-[2.35rem] md:text-[2.85rem] font-black tracking-tighter text-[#166534] leading-none mb-1">
+          ABIHAYAT
+        </div>
+        <div class="text-sm font-extrabold tracking-[1.5px] text-slate-500 uppercase">
+          Табиий Дамлама • Турк Формуласи • 100% Натурал
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- ════════════════════════════════════════════════ HERO HOOK -->
-  <section style="background:#ffffff;padding:36px 16px 24px;">
-    <div style="max-width:860px;margin:0 auto;text-align:center;">
-      <p class="hero-hook">
-        <span class="hl">ҚАНД МИҚДОРИ</span> 17 ДАН 4.3 ГАЧА ТУШГАНИ САБАБ
-        "<span class="hl">ABIHAYAT" ДАМЛАМАСИ</span>
-        <span class="hl">ШИФОКОРЛАР</span> ЭЪТИБОРИГА ТУШМОҚДА.
+  <!-- HERO -->
+  <section class="pt-8 pb-6 px-5 bg-white">
+    <div class="max-w-[860px] mx-auto text-center">
+      <h1 class="text-[1.65rem] md:text-[2.1rem] font-black leading-[1.25] tracking-[-0.015em] mb-4">
+        ҚАНДЛИ ДИАБЕТ<br>
+        <span class="text-[#166534]">17 ДАН 4.3 ГАЧА ТУШИШИНИНГ</span><br>
+        САБАБИ — <span class="highlight">"ABIHAYAT ДАМЛАМАСИ"</span>
+      </h1>
+      <p class="text-lg md:text-xl font-bold text-slate-600 max-w-md mx-auto">
+        Шифокорлар эътиборига тушган табиий ёрдамчи
       </p>
-      <div class="section-divider" style="margin-top:24px;"></div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════════ IMAGE 1 -->
-  <section style="padding:0 16px 24px;">
-    <div style="max-width:520px;margin:0 auto;">
-      <div class="media-card">
-        <img src="https://i.postimg.cc/rs31jnTQ/IMG-0385.png" alt="ABIHAYAT rasm 1" loading="lazy">
-        <div class="caption">
-          ИЗОҲ: <span style="color:#86efac;">ҚАНД МИҚДОРИ</span> ЮҚОРИ ИНСОНДА УМУМИЙ ҲОЛСИЗЛИК, ЮҚОРИ ҚОН БОСИМИ ВА ТЕЗ
-          ПЕШОБ МУАММОСИ БЕЗОВТА ҚИЛАДИ, БУ ҲОЛАТДА МАШХУР <span style="color:#86efac;">САН'АТКОРЛАР</span> ҚАНДАЙ ЙЎЛ
-          ТУТАДИ?
-        </div>
+      
+      <div class="mt-7">
+        <button onclick="openModal()" 
+                class="cta-btn text-base md:text-lg px-10 py-4 shadow-xl">
+          ✦ БАТАФСИЛ МАЪЛУМОТ ОЛИНГ
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════════ IMAGE 2 -->
-  <section style="padding:0 16px 28px;">
-    <div style="max-width:520px;margin:0 auto;">
+  <!-- IMAGE 1 -->
+  <section class="px-5 pb-8">
+    <div class="max-w-[520px] mx-auto">
       <div class="media-card">
-        <img src="https://i.postimg.cc/d0BwjRgS/IMG-0943.png" alt="ABIHAYAT rasm 2" loading="lazy">
+        <img src="https://i.postimg.cc/rs31jnTQ/IMG-0385.png" 
+             alt="ABIHAYAT - Қандли диабетга ёрдам" class="w-full" loading="lazy">
         <div class="caption">
-          ИЗОҲ: <span style="color:#86efac;">ABIHAYAT ДАМЛАМАСИ</span> БУ ҲОЛАТДА САМАРАЛИ ЁРДАМ БЕРАДИ.
+          <span class="font-black text-[#166534]">ИЗОҲ:</span> Қандли диабети бор инсонда умумий ҳолсизлик, юқори қон босими ва тез пешоб муаммоси безовта қилади. Бу ҳолатда машҳур санъаткорлар қандай йўл тутади?
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════════ CTA 1 -->
-  <section style="padding:0 20px 64px;text-align:center;">
-    <button class="cta-btn open-modal">
-      ✦ БАТАФСИЛ МАЪЛУМОТ ОЛИНГ
-    </button>
-  </section>
-
-  <!-- ════════════════════════════════════════════════ SUBHEADING 1 -->
-  <section
-    style="background:#f0fdf4;padding:32px 16px 24px;border-top:3px solid #bbf7d0;border-bottom:3px solid #bbf7d0;">
-    <div style="max-width:820px;margin:0 auto;text-align:center;">
-      <p class="sub-heading">
-        <span class="hl">ABIHAYAT ДАМЛАМАСИНИ</span> ТАНЛАГАН МАШХУР ИНСОНЛАР
-      </p>
-      <div class="section-divider"></div>
+  <!-- IMAGE 2 -->
+  <section class="px-5 pb-8">
+    <div class="max-w-[520px] mx-auto">
+      <div class="media-card">
+        <img src="https://i.postimg.cc/XvgKPrPH/IMG-8373.jpg" 
+             alt="ABIHAYAT дамламаси самараси" class="w-full" loading="lazy">
+        <div class="caption">
+          <span class="font-black text-[#166534]">ИЗОҲ:</span> <span class="font-extrabold">ABIHAYAT ДАМЛАМАСИ</span> бу ҳолатда тўлиқ ёрдам беради.
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════════ VIDEOS 1–4 (with captions) -->
-  <section style="background:#ffffff;padding:32px 16px 24px;">
-    <div
-      style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;">
-
-      <!-- Video 1 -->
-      <div class="media-card">
-        <div class="portrait-video-wrapper" style="padding:16px 16px 0;">
-          <iframe src="https://www.youtube.com/embed/3du4Ktbz7-8" title="ABIHAYAT video 1" allowfullscreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            loading="lazy"></iframe>
-        </div>
-        <div class="caption">
-          ИЗОҲ: <span style="color:#86efac;">ABIHAYAT ДАМЛАМАСИ</span> ҚАНД МИҚДОРИНИ НОРМАЛЛАШТИРАДИ
-        </div>
-      </div>
-
-      <!-- Video 2 -->
-      <div class="media-card">
-        <div class="portrait-video-wrapper" style="padding:16px 16px 0;">
-          <iframe src="https://www.youtube.com/embed/Dqw_AbNLd00?enablejsapi=1&rel=0&playsinline=1"
-            title="ABIHAYAT video 2" allowfullscreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            loading="lazy"></iframe>
-        </div>
-        <div class="caption">
-          ИЗОҲ: ДАМЛАМА ОРГАНИЗМНИ ТОЗАЛАБ, <span style="color:#86efac;">ҚУВВАТ БЕРАДИ.</span>
-        </div>
-      </div>
-
-      <!-- Video 3 -->
-      <div class="media-card">
-        <div class="portrait-video-wrapper" style="padding:16px 16px 0;">
-          <iframe src="https://www.youtube.com/embed/g1xYZcVHPwQ?enablejsapi=1&rel=0&playsinline=1"
-            title="ABIHAYAT video 3" allowfullscreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            loading="lazy"></iframe>
-        </div>
-        <div class="caption">
-          ИЗОҲ: ЮҚОРИ ҚАНД БОСИМИДА <span style="color:#86efac;">САМАРАЛИ ЁРДАМ БЕРАДИ</span>
-        </div>
-      </div>
-
-      <!-- Video 4 -->
-      <div class="media-card">
-        <div class="portrait-video-wrapper" style="padding:16px 16px 0;">
-          <iframe src="https://www.youtube.com/embed/M-KiXu5N0zY?enablejsapi=1&rel=0&playsinline=1"
-            title="ABIHAYAT video 4" allowfullscreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            loading="lazy"></iframe>
-        </div>
-        <div class="caption">
-          ИЗОҲ: ҚОН ТОМИРЛАРДА <span style="color:#86efac;">ҚОН АЙЛАНИШИНИ НОРМАЛЛАШТИРАДИ.</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════════ CTA 2 -->
-  <section style="padding:16px 20px 64px;text-align:center;">
-    <button class="cta-btn open-modal">
+  <!-- CTA -->
+  <section class="text-center pb-10 px-5">
+    <button onclick="openModal()" class="cta-btn text-[1.05rem] px-9 py-[17px]">
       ✦ БУЮРТМА БЕРИШ
     </button>
   </section>
 
-  <!-- ════════════════════════════════════════════════ SUBHEADING 2 -->
-  <section
-    style="background:#f0fdf4;padding:32px 16px 24px;border-top:3px solid #bbf7d0;border-bottom:3px solid #bbf7d0;">
-    <div style="max-width:820px;margin:0 auto;text-align:center;">
-      <p class="sub-heading">
-        МАШХУРЛАР ИШОНЧИНИ ОҚЛАГАН <span class="hl">ABIHAYAT ТУРК ДАМЛАМАСИ</span> ХАЛҚИМИЗ УЧУН ҲАМ БИРДЕК ФОЙДА ОЛИБ
-        КЕЛМОҚДА. УЛАРНИНГ ТААСУРОТЛАРИ БИЛАН ТАНИШИНГ:
-      </p>
+  <!-- SUBHEADING 1 -->
+  <section class="bg-[#f0fdf4] border-y-2 border-[#bbf7d0] py-8 px-5">
+    <div class="max-w-[820px] mx-auto text-center">
+      <p class="section-title">ABIHAYAT ДАМЛАМАСИНИ ТАНЛАГАН МАШҲУР ИНСОНЛАР</p>
       <div class="section-divider"></div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════════ VIDEOS LIST (no captions) -->
-  <section style="background:#ffffff;padding:32px 16px 24px;">
-    <div
-      style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;">
+  <!-- VIDEOS 1-4 -->
+  <section class="py-9 px-5 bg-white">
+    <div class="max-w-[1140px] mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Video 1 -->
+        <div class="media-card">
+          <div class="portrait-video-wrapper" style="aspect-ratio: 9/16; max-height: 520px;">
+            <iframe src="https://www.youtube.com/embed/3du4Ktbz7-8" 
+                    title="ABIHAYAT - Қанд миқдорини нормаллаштиради" allowfullscreen loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+          <div class="caption text-center">
+            <span class="font-extrabold text-[#166534]">ABIHAYAT</span> қанд миқдорини нормаллаштиради
+          </div>
+        </div>
 
-      <div class="media-card">
-        <div class="portrait-video-wrapper" style="padding:16px 16px 16px;">
-          <iframe src="https://www.youtube.com/embed/NtKVI-DevHs" title="Taassurot 1" allowfullscreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            loading="lazy"></iframe>
+        <!-- Video 2 -->
+        <div class="media-card">
+          <div class="portrait-video-wrapper" style="aspect-ratio: 9/16; max-height: 520px;">
+            <iframe src="https://www.youtube.com/embed/Dqw_AbNLd00?enablejsapi=1&amp;rel=0&amp;playsinline=1" 
+                    title="ABIHAYAT - Организмни тозалайди ва қувват беради" allowfullscreen loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+          <div class="caption text-center">
+            Дамлама организмни тозалаб, <span class="font-extrabold text-[#166534]">қувват беради</span>
+          </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="media-card">
+          <div class="portrait-video-wrapper" style="aspect-ratio: 9/16; max-height: 520px;">
+            <iframe src="https://www.youtube.com/embed/g1xYZcVHPwQ?enablejsapi=1&amp;rel=0&amp;playsinline=1" 
+                    title="ABIHAYAT - Юқори қон босимида самарали ёрдам" allowfullscreen loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+          <div class="caption text-center">
+            Юқори қон босимида <span class="font-extrabold text-[#166534]">самарали ёрдам беради</span>
+          </div>
+        </div>
+
+        <!-- Video 4 -->
+        <div class="media-card">
+          <div class="portrait-video-wrapper" style="aspect-ratio: 9/16; max-height: 520px;">
+            <iframe src="https://www.youtube.com/embed/M-KiXu5N0zY?enablejsapi=1&amp;rel=0&amp;playsinline=1" 
+                    title="ABIHAYAT - Қон томирларда қон айланишини нормаллаштиради" allowfullscreen loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+          <div class="caption text-center">
+            Қон томирларда <span class="font-extrabold text-[#166534]">қон айланишини нормаллаштиради</span>
+          </div>
         </div>
       </div>
-
-      <div class="media-card">
-        <div class="portrait-video-wrapper" style="padding:16px 16px 16px;">
-          <iframe src="https://www.youtube.com/embed/prqj8YLhzoo?enablejsapi=1&rel=0&playsinline=1" title="Taassurot 2"
-            allowfullscreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            loading="lazy"></iframe>
-        </div>
-      </div>
-
-      <div class="media-card">
-        <div class="portrait-video-wrapper" style="padding:16px 16px 16px;">
-          <iframe src="https://www.youtube.com/embed/lWRTBvtwRxs?enablejsapi=1&rel=0&playsinline=1" title="Taassurot 3"
-            allowfullscreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            loading="lazy"></iframe>
-        </div>
-      </div>
-
-      <div class="media-card">
-        <div class="portrait-video-wrapper" style="padding:16px 16px 16px;">
-          <iframe src="https://www.youtube.com/embed/P05l05Kx90U" title="Taassurot 4" allowfullscreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            loading="lazy"></iframe>
-        </div>
-      </div>
-
-      <div class="media-card">
-        <div class="portrait-video-wrapper" style="padding:16px 16px 16px;">
-          <iframe src="https://www.youtube.com/embed/Oajld7O8Px0?enablejsapi=1&rel=0&playsinline=1" title="Taassurot 5"
-            allowfullscreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            loading="lazy"></iframe>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════════ CTA 3 -->
-  <section style="padding:16px 20px 64px;text-align:center;">
-    <button class="cta-btn open-modal">
+  <!-- CTA 2 -->
+  <section class="text-center pb-9 px-5">
+    <button onclick="openModal()" class="cta-btn text-[1.05rem] px-9 py-[17px]">
+      ✦ БУЮРТМА БЕРИШ
+    </button>
+  </section>
+
+  <!-- SUBHEADING 2 -->
+  <section class="bg-[#f0fdf4] border-y-2 border-[#bbf7d0] py-8 px-5">
+    <div class="max-w-[820px] mx-auto text-center">
+      <p class="section-title">Машҳурлар ишончини оқлаган ABIHAYAT Турк дамламаси</p>
+      <p class="section-subtitle">Халқимиз учун ҳам бирдек фойда олиб келмоқда. Уларнинг таассуротлари билан танишинг:</p>
+      <div class="section-divider"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL VIDEOS -->
+  <section class="py-9 px-5 bg-white">
+    <div class="max-w-[1200px] mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        
+        <div class="media-card">
+          <div class="portrait-video-wrapper" style="aspect-ratio: 9/16; max-height: 460px;">
+            <iframe src="https://www.youtube.com/embed/NtKVI-DevHs" title="Taassurot 1" allowfullscreen loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="portrait-video-wrapper" style="aspect-ratio: 9/16; max-height: 460px;">
+            <iframe src="https://www.youtube.com/embed/prqj8YLhzoo?enablejsapi=1&amp;rel=0&amp;playsinline=1" title="Taassurot 2" allowfullscreen loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="portrait-video-wrapper" style="aspect-ratio: 9/16; max-height: 460px;">
+            <iframe src="https://www.youtube.com/embed/lWRTBvtwRxs?enablejsapi=1&amp;rel=0&amp;playsinline=1" title="Taassurot 3" allowfullscreen loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="portrait-video-wrapper" style="aspect-ratio: 9/16; max-height: 460px;">
+            <iframe src="https://www.youtube.com/embed/P05l05Kx90U" title="Taassurot 4" allowfullscreen loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+        </div>
+        
+        <div class="media-card">
+          <div class="portrait-video-wrapper" style="aspect-ratio: 9/16; max-height: 460px;">
+            <iframe src="https://www.youtube.com/embed/Oajld7O8Px0?enablejsapi=1&amp;rel=0&amp;playsinline=1" title="Taassurot 5" allowfullscreen loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA 3 -->
+  <section class="text-center pb-10 px-5">
+    <button onclick="openModal()" class="cta-btn text-[1.05rem] px-9 py-[17px]">
       ✦ БАТАФСИЛ МАЪЛУМОТ ОЛИШ
     </button>
   </section>
 
-  <!-- ════════════════════════════════════════════════ TEXT BLOCK 1 -->
-  <section style="background:#f0fdf4;border-top:3px solid #bbf7d0;border-bottom:3px solid #bbf7d0;padding:32px 16px;">
-    <div style="max-width:820px;margin:0 auto;text-align:center;">
-      <p class="sub-heading" style="font-size:clamp(0.95rem,2.2vw,1.15rem);margin-bottom:36px;">
-        УШБУ ИНСОНЛАР АЙНАН <span class="hl">ABIHAYAT ДАМЛАМАСИДАН</span> ИСТЕЪМОЛ ҚИЛИБ, ЎЗИНИНГ БЕБАҲО <span
-          class="hl">САЛОМАТЛИКЛАРИГА</span> ЭЪТИБОР БЕРАМОҚДА ВА РЕАЛ НАТИЖАЛАР ОЛИШМОҚДА. СИЗ ҲАМ ҲОЗИРОҚ
-        МАЪЛУМОТЛАРИНГИЗНИ ҚОЛДИРИНГ ВА НАТИЖАГА ЕРИШИНГ.
+  <!-- TEXT BLOCK + SPECIAL CARD -->
+  <section class="bg-[#f0fdf4] border-y-2 border-[#bbf7d0] py-9 px-5">
+    <div class="max-w-[820px] mx-auto text-center">
+      <p class="text-[0.98rem] md:text-[1.05rem] font-extrabold leading-relaxed text-slate-700 mb-8">
+        Ушбу инсонлар айнан <span class="highlight">ABIHAYAT ДАМЛАМАСИДАН</span> истеъмол қилиб, ўзининг бебаҳо <span class="highlight">саломатликларига</span> эътибор берамоқда ва реал натижалар олишмоқда. Сиз ҳам ҳозир маълумотларингизни қолдиринг ва натижага эришинг.
       </p>
 
-      <!-- Text caption block styled as a special card -->
-      <div
-        style="background:linear-gradient(135deg,#166534 0%,#15803d 100%);border-radius:18px;padding:24px 28px;margin-bottom:36px;box-shadow:0 6px 28px rgba(22,101,52,0.22);">
-        <p
-          style="color:#ffffff;font-weight:800;font-size:0.85rem;line-height:1.75;text-align:center;letter-spacing:0.02em;">
-          ИЗОҲ: <span style="color:#86efac;">ABIHAYAT</span> – 100% ТАБИЙ МАҲСУЛОТ. У <span
-            style="color:#86efac;">ҚАНД МУАММОСИНИНГ</span> ФАҚАТГИНА БЕЛГИЛАРИНИ ЙЎҚОТИБГИНА ҚОЛМАЙ, КАСАЛЛИКНИНГ
-          ИЛДИЗИГА ЧУҚУР СИНГИБ БОРАДИ ВА КАСАЛЛИКДА САМАРАЛИ ЁРДАМ БЕРА ОЛАДИ. МАҲСУЛОТ БФҚ ЁКИ ДОРИ МАҲСУЛОТИ ЭМАС.
+      <div class="bg-gradient-to-br from-[#166534] to-[#15803d] rounded-2xl p-7 mb-8 text-white shadow-xl">
+        <p class="font-extrabold text-[0.92rem] leading-[1.7] tracking-[0.015em]">
+          <span class="text-[#86efac]">ABIHAYAT</span> — 100% табиий маҳсулот. У қандли диабетнинг фақатгина белгиларини ёқотибгина қолмай, касалликнинг илдизига чуқур сингиб боради ва самарали ёрдам бера олади. Маҳсулот БФҚ ёки дори маҳсулоти эмас.
         </p>
       </div>
 
-      <button class="cta-btn open-modal">
+      <button onclick="openModal()" class="cta-btn text-base px-10 py-4">
         ✦ АНКЕТА ТЎЛДИРИШ
       </button>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════════ TEXT BLOCK 2 -->
-  <section style="padding:56px 20px 16px;text-align:center;">
-    <div style="max-width:820px;margin:0 auto;">
-      <p class="sub-heading" style="font-size:clamp(0.95rem,2.2vw,1.1rem);">
-        МАЪЛУМОТЛАРИНГИЗНИ ҚОЛДИРИНГ ВА МАҲСУЛОТ ҲАҚИДА <span class="hl">БАТАФСИЛ МАЪЛУМОТГА ЭГА БЎЛИНГ.</span>
+  <!-- FINAL TEXT -->
+  <section class="pt-10 pb-6 px-5 text-center">
+    <div class="max-w-[780px] mx-auto">
+      <p class="text-[1.02rem] font-extrabold text-slate-600">
+        Маълумотларингизни қолдиринг ва маҳсулот ҳақида <span class="highlight">батафсил маълумотга эга бўлинг.</span>
       </p>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════════ CERTIFICATES -->
-  <section style="padding:24px 16px 32px;">
-    <div style="max-width:880px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:36px;">
-        <p style="font-size:clamp(1.1rem,2.8vw,1.4rem);font-weight:900;color:#111827;letter-spacing:0.01em;">
-         ХАЛҚАРО СЕРТИФИКАТЛАР
-        </p>
+  <!-- CERTIFICATES -->
+  <section class="px-5 pb-10">
+    <div class="max-w-[920px] mx-auto">
+      <div class="text-center mb-7">
+        <p class="text-[1.45rem] font-black tracking-tight">СЕРТИФИКАТЛАР</p>
         <div class="section-divider"></div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;align-items:start;">
-        <img class="cert-img" src="https://i.postimg.cc/KvbPmvDK/IMG-20260513-184343-911.jpg" alt="Sertifikat 1"
-          loading="lazy">
-        <img class="cert-img"
-          src="https://i.postimg.cc/BQ3TJQBQ/GMP-I-YI-U-RETI-M-UYGULAMALARI-ISO-22716-2013-pdf-20260508-073515.png"
-          alt="Sertifikat 2 ISO 22716" loading="lazy">
-        <img class="cert-img"
-          src="https://i.postimg.cc/J48NR45H/ISO-22000-2018-GIDA-GU-VENLI-G-I-YO-NETI-M-SI-STEMI-06-10-2025.png"
-          alt="Sertifikat 3 ISO 22000" loading="lazy">
+      
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <img src="https://i.postimg.cc/KvbPmvDK/IMG-20260513-184343-911.jpg" 
+             alt="Сертификат 1" class="cert-img" loading="lazy">
+        <img src="https://i.postimg.cc/BQ3TJQBQ/GMP-I-YI-U-RETI-M-UYGULAMALARI-ISO-22716-2013-pdf-20260508-073515.png" 
+             alt="ISO 22716 сертификати" class="cert-img" loading="lazy">
+        <img src="https://i.postimg.cc/J48NR45H/ISO-22000-2018-GIDA-GU-VENLI-G-I-YO-NETI-M-SI-STEMI-06-10-2025.png" 
+             alt="ISO 22000 сертификати" class="cert-img" loading="lazy">
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════════ CTA 5 + FINAL TEXT -->
-  <section
-    style="background:linear-gradient(180deg,#f0fdf4 0%,#ffffff 100%);border-top:3px solid #bbf7d0;padding:36px 16px 40px;text-align:center;">
-    <div style="max-width:680px;margin:0 auto;">
-      <p class="sub-heading" style="font-size:clamp(0.9rem,2vw,1.05rem);margin-bottom:36px;color:#374151;">
-        МАЪЛУМОТЛАРИНГИЗНИ ҚОЛДИРИНГ ВА МАҲСУЛОТ ҲАҚИДА <span class="hl">БАТАФСИЛ МАЪЛУМОТГА ЭГА БЎЛИНГ.</span>
+  <!-- FINAL CTA -->
+  <section class="bg-gradient-to-b from-[#f0fdf4] to-white border-t-2 border-[#bbf7d0] py-9 px-5 text-center">
+    <div class="max-w-[680px] mx-auto">
+      <p class="text-[0.98rem] font-extrabold text-slate-600 mb-7 leading-snug">
+        Маълумотларингизни қолдиринг ва маҳсулот ҳақида <span class="highlight">батафсил маълумотга эга бўлинг.</span>
       </p>
-      <button class="cta-btn open-modal" style="font-size:1.1rem;padding:20px 52px;">
+      
+      <button onclick="openModal()" 
+              class="cta-btn text-lg px-12 py-[19px] shadow-2xl">
         ✦ АРИЗА ЮБОРИШ
       </button>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════════ FOOTER -->
+  <!-- FOOTER -->
   <footer>
-    <div style="color:#16a34a;font-size:1rem;font-weight:900;margin-bottom:6px;">ABIHAYAT</div>
-    <div>100% Табиий Маҳсулот · Турк Формуласи</div>
-    <div style="margin-top:6px;font-size:0.72rem;color:#9ca3af;">Маҳсулот БФҚ ёки дори маҳсулоти эмас.</div>
+    <div class="font-black text-[#166534] text-lg tracking-tight mb-1">ABIHAYAT</div>
+    <div class="font-bold">100% Табиий Маҳсулот • Турк Формуласи</div>
+    <div class="mt-2 text-xs text-slate-400">Маҳсулот БФҚ ёки дори маҳсулоти эмас. Фақат саломатликка ёрдамчи маҳсулот.</div>
   </footer>
 
-  <!-- ════════════════════════════════════════════════ MODAL -->
+  <!-- MODAL -->
   <div id="modal-overlay">
     <div id="modal-box">
-
+      
       <!-- Modal Header -->
-      <div class="modal-header" style="background:linear-gradient(135deg,#78350f 0%,#b45309 50%,#d97706 100%);">
-        <div style="font-size:1.1rem;font-weight:900;color:#fef3c7;letter-spacing:0.04em;margin-bottom:4px;text-transform:uppercase;">
-          🌙 ҚУРБОН ҲАЙИТИ МУБОРАК!
+      <div class="modal-header">
+        <div class="text-center">
+          <div class="text-2xl font-black tracking-[-0.02em]">ABIHAYAT <span class="text-[#86efac]">Дамламаси</span></div>
+          <div class="text-sm font-bold opacity-90 tracking-wider mt-1">БЕПУЛ КОНСУЛЬТАЦИЯ • ИМТИЁЗЛИ НАРХ</div>
         </div>
-        <div style="font-size:1.5rem;font-weight:900;letter-spacing:-0.01em;margin-bottom:6px;">
-          ABIHAYAT <span style="color:#fbbf24;">Дамламаси</span>
-        </div>
-        <div style="font-size:0.85rem;font-weight:700;opacity:0.92;letter-spacing:0.04em;">
-          Маълумотларингизни тўлдиринг ва компания томонидан <span style="color:#fde68a;font-weight:900;">50% ҲАЙИТЛИК ИМТИЁЗИ </span>ни расмийлаштиринг
-        </div>
-        <button id="modal-close"
-          style="position:absolute;top:18px;right:22px;background:rgba(255,255,255,0.18);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;font-weight:900;display:flex;align-items:center;justify-content:center;line-height:1;">✕</button>
+        
+        <button id="modal-close" 
+                class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center text-white/90 hover:text-white text-2xl font-black transition-colors">✕</button>
       </div>
 
       <!-- Modal Body -->
-      <div class="modal-body" id="modal-body-inner">
-
-        <!-- ═══ LEAD FORM ═══ -->
+      <div class="p-6 overflow-y-auto" style="max-height: calc(92dvh - 120px);">
+        
+        <!-- STEP 1: FORM -->
         <div id="step-form">
-          <div style="text-align:center;margin-bottom:20px;padding:14px 16px;background:linear-gradient(135deg,#fffbeb,#fef3c7);border-radius:14px;border:2px solid #fde68a;">
-            <div style="font-size:1rem;font-weight:900;color:#92400e;letter-spacing:0.02em;line-height:1.6;">
-              🎁 Маълумотларингизни тўлдиринг ва<br>
-              <span style="color:#b45309;">50% ҲАЙИТЛИК ИМТИЁЗИ </span>ни расмийлаштиринг
-            </div>
-          </div>
-
-          <form id="lead-form" novalidate autocomplete="off">
-
-            <label class="form-label" for="usr_nm_547">Исмингиз</label>
-            <input class="form-input" type="text" id="usr_nm_547" placeholder="Тўлиқ исмингизни киритинг" required autocomplete="off">
-
-            <label class="form-label" for="usr_tel_547">Телефон рақам</label>
-            <div class="phone-row" style="position:relative;margin-bottom:18px;">
-              <span class="phone-prefix">+998</span>
-              <input class="form-input phone-input-field" type="tel" id="usr_tel_547" placeholder="XX XXX XX XX"
-                maxlength="9" pattern="[0-9]{9}" inputmode="numeric" autocomplete="off" required style="margin-bottom:0;">
+          <form id="lead-form" novalidate>
+            
+            <div class="mb-4">
+              <label class="block text-[#166534] font-extrabold text-xs tracking-widest mb-1.5">ИСМИНГИЗ</label>
+              <input type="text" id="field-name" class="form-input" placeholder="Тўлиқ исмингизни киритинг" required autocomplete="name">
             </div>
 
-            <label class="form-label" for="field-region">Вилоят</label>
-            <select class="form-select" id="field-region" required>
-              <option value="" disabled selected>Вилоятни танланг</option>
-              <option value="Тошкент шаҳри">Тошкент шаҳри</option>
-              <option value="Тошкент вилояти">Тошкент вилояти</option>
-              <option value="Самарқанд вилояти">Самарқанд вилояти</option>
-              <option value="Фарғона вилояти">Фарғона вилояти</option>
-              <option value="Андижон вилояти">Андижон вилояти</option>
-              <option value="Наманган вилояти">Наманган вилояти</option>
-              <option value="Бухоро вилояти">Бухоро вилояти</option>
-              <option value="Хоразм вилояти">Хоразм вилояти</option>
-              <option value="Қашқадарё вилояти">Қашқадарё вилояти</option>
-              <option value="Сурхондарё вилояти">Сурхондарё вилояти</option>
-              <option value="Жиззах вилояти">Жиззах вилояти</option>
-              <option value="Сирдарё вилояти">Сирдарё вилояти</option>
-              <option value="Навоий вилояти">Навоий вилояти</option>
-              <option value="Қорақалпоғистон Республикаси">Қорақалпоғистон Республикаси</option>
-            </select>
-
-            <div id="form-error"
-              style="display:none;color:#dc2626;font-size:0.8rem;font-weight:800;margin-bottom:14px;padding:10px 14px;background:#fef2f2;border-radius:10px;border:1.5px solid #fecaca;">
+            <div class="mb-4">
+              <label class="block text-[#166534] font-extrabold text-xs tracking-widest mb-1.5">ТЕЛЕФОН РАҚАМ</label>
+              <div class="phone-row">
+                <span class="phone-prefix">+998</span>
+                <input type="tel" id="field-phone" class="form-input phone-input-field" placeholder="XX XXX XX XX" 
+                       maxlength="9" pattern="[0-9]{9}" inputmode="numeric" required>
+              </div>
             </div>
 
-            <button type="submit" class="cta-btn" style="width:100%;font-size:1rem;padding:18px;animation:none;background:linear-gradient(135deg,#b45309,#d97706);box-shadow:0 8px 0 #78350f,0 12px 24px rgba(180,83,9,0.45);">
-              <span id="btn-text">🎁 50% ҲАЙИТЛИК ИМТИЁЗ ОЛИШ</span>
+            <div class="mb-5">
+              <label class="block text-[#166534] font-extrabold text-xs tracking-widest mb-1.5">ВИЛОЯТ</label>
+              <select id="field-region" class="form-select" required>
+                <option value="" disabled selected>Вилоятни танланг</option>
+                <option value="Тошкент шаҳри">Тошкент шаҳри</option>
+                <option value="Тошкент вилояти">Тошкент вилояти</option>
+                <option value="Самарқанд вилояти">Самарқанд вилояти</option>
+                <option value="Фарғона вилояти">Фарғона вилояти</option>
+                <option value="Андижон вилояти">Андижон вилояти</option>
+                <option value="Наманган вилояти">Наманган вилояти</option>
+                <option value="Бухоро вилояти">Бухоро вилояти</option>
+                <option value="Хоразм вилояти">Хоразм вилояти</option>
+                <option value="Қашқадарё вилояти">Қашқадарё вилояти</option>
+                <option value="Сурхондарё вилояти">Сурхондарё вилояти</option>
+                <option value="Жиззах вилояти">Жиззах вилояти</option>
+                <option value="Сирдарё вилояти">Сирдарё вилояти</option>
+                <option value="Навоий вилояти">Навоий вилояти</option>
+                <option value="Қорақалпоғистон Республикаси">Қорақалпоғистон Республикаси</option>
+              </select>
+            </div>
+
+            <div id="form-error" class="hidden mb-4 px-4 py-3 bg-red-50 border border-red-200 text-red-600 text-sm font-extrabold rounded-xl"></div>
+
+            <button type="submit" 
+                    class="cta-btn w-full text-base py-[17px] shadow-lg">
+              <span id="btn-text">✦ ИМТИЁЗ АСОСИДА ЮБОРИШ</span>
             </button>
+            
+            <p class="text-center text-[10px] text-slate-400 mt-4 font-medium">Маълумотларингиз сир сақланади ва фақат сиз билан боғланиш учун ишлатилади.</p>
           </form>
         </div>
 
-        <!-- Hidden wheel step kept for JS compatibility but never shown -->
-        <div id="step-wheel" style="display:none;"></div>
+        <!-- STEP 2: WHEEL -->
+        <div id="step-wheel" class="hidden text-center pb-2">
+          <div class="mb-3">
+            <div class="font-black text-[#166534] text-base tracking-wider">БИР ДАҚИҚА ШОШМАНГ!</div>
+            <div class="text-sm font-extrabold text-slate-600 mt-1">Аввал ўз имтиёзингизни белгиланг</div>
+          </div>
+
+          <div class="wheel-container mx-auto">
+            <div class="wheel-pointer"></div>
+            <canvas id="wheel" width="300" height="300"></canvas>
+          </div>
+
+          <button type="button" id="spin-btn"
+                  class="wheel-spin-btn mt-2 text-base px-9 py-3.5">
+            🎯 АЙЛАНТИРИШ
+          </button>
+          
+          <div class="mt-4 text-xs text-slate-400 font-medium">Битта босишда айналтирилади • Имтиёз тасодифий танланади</div>
+        </div>
 
       </div>
     </div>
   </div>
 
-  <!-- ═══ WIN POPUP ═══ -->
-  <div id="win-popup" style="
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:99999;
-    align-items:center;
-    justify-content:center;
-    padding:24px;
-    pointer-events:all;
-    background:rgba(0,0,0,0.55);
-  ">
-    <div id="win-popup-box" style="
-      background:#ffffff;
-      border-radius:24px;
-      padding:60px 30px 46px;
-      max-width:380px;
-      width:100%;
-      text-align:center;
-      box-shadow:0 32px 80px rgba(0,0,0,0.35);
-      pointer-events:all;
-      transform:scale(0.7);
-      opacity:0;
-      transition:transform 0.45s cubic-bezier(0.34,1.56,0.64,1),opacity 0.35s ease;
-    ">
-      <div style="font-size:3rem;margin-bottom:12px;">🎉</div>
-      <div id="win-popup-text" style="
-        font-family:'Inter',sans-serif;
-        font-weight:900;
-        font-size:1.08rem;
-        line-height:1.65;
-        color:#166534;
-        text-transform:uppercase;
-        letter-spacing:0.02em;
-      "></div>
+  <!-- WIN POPUP -->
+  <div id="win-popup" class="hidden fixed inset-0 z-[999999] items-center justify-center bg-black/60 p-5">
+    <div id="win-popup-box" 
+         class="bg-white rounded-3xl px-7 pt-12 pb-9 max-w-[370px] w-full text-center shadow-2xl transition-all duration-300"
+         style="transform: scale(0.75); opacity: 0;">
+      <div class="text-6xl mb-3">🎉</div>
+      <div id="win-popup-text" 
+           class="font-black text-[#166534] text-[1.05rem] leading-[1.55] tracking-[0.015em]"></div>
     </div>
   </div>
 
-  <!-- Canvas for confetti -->
-  <canvas id="confetti-canvas" style="position:fixed;inset:0;pointer-events:none;
-    background:rgba(0,0,0,0.55);z-index:99998;display:none;"></canvas>
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas" class="hidden fixed inset-0 z-[999998] pointer-events-none"></canvas>
 
-  <!-- ════════════════════════════════════════════════ TOAST -->
-  <div id="toast">✓ Аризангиз юборилди, тез орада сиз билан боғланамиз</div>
+  <!-- TOAST -->
+  <div id="toast">✓ Аризангиз юборилди! Тез орада сиз билан боғланамиз</div>
 
-  <!-- ════════════════════════════════════════════════ SCRIPT -->
   <script>
     (function () {
       'use strict';
 
+      // === CONFIG ===
       const BOT_TOKEN = '8828548822:AAGkESUC3pldG2BGr4K1_gVQyWn05yf-Uhs';
       const CHAT_IDS = ['-1003900043839', '1691140865'];
+      const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyVCLzSsnywC7Bd-0XBmSYfozcFr2zsEoRq50g9Z0cfLrd3VMjc9VAI84CpoMaV2pj_/exec';
 
-      /* ── Element refs ── */
-      const overlay      = document.getElementById('modal-overlay');
-      const closeBtn     = document.getElementById('modal-close');
-      const form         = document.getElementById('lead-form');
-      const errorBox     = document.getElementById('form-error');
-      const btnText      = document.getElementById('btn-text');
-      const toast        = document.getElementById('toast');
-      const stepForm     = document.getElementById('step-form');
-      const stepWheel    = document.getElementById('step-wheel');
-      const winPopup     = document.getElementById('win-popup');
-      const winPopupBox  = document.getElementById('win-popup-box');
+      // === ELEMENTS ===
+      const overlay = document.getElementById('modal-overlay');
+      const modalBox = document.getElementById('modal-box');
+      const closeBtn = document.getElementById('modal-close');
+      const form = document.getElementById('lead-form');
+      const errorBox = document.getElementById('form-error');
+      const btnText = document.getElementById('btn-text');
+      const toast = document.getElementById('toast');
+      const stepForm = document.getElementById('step-form');
+      const stepWheel = document.getElementById('step-wheel');
+      const spinBtn = document.getElementById('spin-btn');
+      const wheelCanvas = document.getElementById('wheel');
+      const winPopup = document.getElementById('win-popup');
+      const winPopupBox = document.getElementById('win-popup-box');
       const winPopupText = document.getElementById('win-popup-text');
-      const confettiCvs  = document.getElementById('confetti-canvas');
+      const confettiCvs = document.getElementById('confetti-canvas');
 
-      /* Dummy canvas refs for compatibility */
-      const wheelCanvas  = { classList: { add:function(){}, remove:function(){} }, style: {}, getContext: function(){ return { clearRect:function(){}, beginPath:function(){}, moveTo:function(){}, arc:function(){}, fillStyle:'', fill:function(){}, save:function(){}, translate:function(){}, rotate:function(){}, font:'', textAlign:'', fillText:function(){}, restore:function(){} }; } };
-      const spinBtn      = document.getElementById('spin-btn') || {};
+      const ctx = wheelCanvas.getContext('2d', { alpha: true });
 
-      /* ── Open / Close Modal ── */
+      // Wheel segments (alternating 20% / 50%)
+      const segments = [
+        { text: '20%', color: '#eab308' },
+        { text: '50%', color: '#dc2626' },
+        { text: '20%', color: '#2563eb' },
+        { text: '50%', color: '#16a34a' },
+        { text: '20%', color: '#f97316' },
+        { text: '50%', color: '#7c3aed' },
+        { text: '20%', color: '#0891b2' },
+        { text: '50%', color: '#be123c' }
+      ];
+
+      let spinning = false;
+      let currentReward = '';
+      let leadData = null;
+
+      /* ================== WHEEL DRAW ================== */
+      function drawWheel(rotationDeg = 0) {
+        const w = wheelCanvas.width;   // 300
+        const h = wheelCanvas.height;  // 300
+        const radius = w / 2;
+        const arc = (Math.PI * 2) / segments.length;
+        const rotRad = (rotationDeg * Math.PI) / 180;
+
+        ctx.clearRect(0, 0, w, h);
+
+        segments.forEach((seg, i) => {
+          const angle = i * arc + rotRad;
+
+          // Segment
+          ctx.beginPath();
+          ctx.moveTo(radius, radius);
+          ctx.arc(radius, radius, radius, angle, angle + arc);
+          ctx.fillStyle = seg.color;
+          ctx.fill();
+
+          // Text
+          ctx.save();
+          ctx.translate(radius, radius);
+          ctx.rotate(angle + arc / 2);
+          ctx.fillStyle = '#ffffff';
+          ctx.font = '900 26px Inter, system-ui, sans-serif';
+          ctx.textAlign = 'right';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(seg.text, radius * 0.72, 0);
+          ctx.restore();
+        });
+
+        // Center circle
+        ctx.beginPath();
+        ctx.arc(radius, radius, 22, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.fill();
+        ctx.strokeStyle = '#e2e8f0';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+      }
+
+      // Initial draw
+      drawWheel(0);
+
+      /* ================== MODAL ================== */
       function openModal() {
         overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
+        
+        // Reset to form step
         stepForm.style.display = 'block';
         stepWheel.style.display = 'none';
+        currentReward = '';
+        spinning = false;
+        leadData = null;
+        
+        // Reset wheel visual
+        drawWheel(0);
+        if (spinBtn) {
+          spinBtn.disabled = false;
+          spinBtn.textContent = '🎯 АЙЛАНТИРИШ';
+        }
       }
 
       function closeModal() {
         overlay.classList.remove('active');
         document.body.style.overflow = '';
-        form.reset();
+        
+        // Reset form
+        if (form) form.reset();
         hideError();
+        
         stepForm.style.display = 'block';
         stepWheel.style.display = 'none';
-        if (btnText) { btnText.textContent = '🎁 50% ҲАЙИТЛИК ИМТИЁЗ ОЛИШ'; }
       }
 
-      document.querySelectorAll('.open-modal').forEach(function (btn) {
+      // Open modal from any .open-modal buttons (if exist) + new onclick handlers
+      document.querySelectorAll('.open-modal').forEach(btn => {
         btn.addEventListener('click', openModal);
       });
 
       closeBtn.addEventListener('click', closeModal);
 
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeModal();
+      // Close on overlay click (outside modal box)
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          closeModal();
+        }
       });
 
-      /* ── Phone: digits only ── */
-      document.getElementById('usr_tel_547').addEventListener('input', function () {
-        this.value = this.value.replace(/[^0-9]/g, '').slice(0, 9);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+          closeModal();
+        }
       });
 
-      /* ── Error helpers ── */
+      /* ================== PHONE INPUT ================== */
+      const phoneInput = document.getElementById('field-phone');
+      if (phoneInput) {
+        phoneInput.addEventListener('input', function() {
+          this.value = this.value.replace(/[^0-9]/g, '').slice(0, 9);
+        });
+      }
+
+      /* ================== ERROR ================== */
       function showError(msg) {
+        if (!errorBox) return;
         errorBox.textContent = msg;
-        errorBox.style.display = 'block';
-      }
-      function hideError() {
-        errorBox.textContent = '';
-        errorBox.style.display = 'none';
+        errorBox.classList.remove('hidden');
+        errorBox.classList.add('block');
       }
 
-      /* ── Google Sheets sender ── */
+      function hideError() {
+        if (!errorBox) return;
+        errorBox.textContent = '';
+        errorBox.classList.remove('block');
+        errorBox.classList.add('hidden');
+      }
+
+      /* ================== SEND TO GOOGLE SHEETS ================== */
       async function sendToGoogleSheets(data) {
         try {
-          await fetch('https://script.google.com/macros/s/AKfycbyVCLzSsnywC7Bd-0XBmSYfozcFr2zsEoRq50g9Z0cfLrd3VMjc9VAI84CpoMaV2pj_/exec', {
+          await fetch(GOOGLE_SHEETS_URL, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
           });
-        } catch (e) {}
+        } catch (e) {
+          console.warn('Google Sheets error (non-blocking):', e);
+        }
       }
 
-      /* ── Toast ── */
+      /* ================== TOAST ================== */
       function showToast() {
+        if (!toast) return;
         toast.classList.add('show');
-        setTimeout(function () { toast.classList.remove('show'); }, 4000);
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 4200);
       }
 
-      /* ══════════════════════════════
-         FORM SUBMIT → SEND → WIN POPUP
-      ══════════════════════════════ */
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        hideError();
+      /* ================== FORM SUBMIT → SHOW WHEEL ================== */
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          hideError();
 
-        var name   = document.getElementById('usr_nm_547').value.trim();
-        var phone  = document.getElementById('usr_tel_547').value.trim();
-        var region = document.getElementById('field-region').value;
+          const name = document.getElementById('field-name').value.trim();
+          const phone = document.getElementById('field-phone').value.trim();
+          const region = document.getElementById('field-region').value;
 
-        if (!name) {
-          showError('Илтимос, исмингизни киритинг.');
-          return;
-        }
+          if (!name) {
+            showError('Илтимос, исмингизни киритинг.');
+            return;
+          }
+          if (!/^[0-9]{9}$/.test(phone)) {
+            showError('Телефон рақам +998 дан кейин айнан 9 та рақамдан иборат бўлиши керак.');
+            return;
+          }
+          if (!region) {
+            showError('Илтимос, вилоятни танланг.');
+            return;
+          }
 
-        if (!/^[0-9]{9}$/.test(phone)) {
-          showError('Телефон рақам +998 дан кейин айнан 9 та рақамдан иборат бўлиши керак.');
-          return;
-        }
+          leadData = {
+            name: name,
+            phone: '+998' + phone,
+            region: region
+          };
 
-        if (!region) {
-          showError('Илтимос, вилоятни танланг.');
-          return;
-        }
+          // Switch to wheel step
+          stepForm.style.display = 'none';
+          stepWheel.style.display = 'block';
 
-        /* Disable button while sending */
-        var submitBtn = form.querySelector('button[type="submit"]');
-        submitBtn.disabled = true;
-        if (btnText) btnText.textContent = '⏳ ЮБОРИЛМОҚДА...';
-
-        var reward = '50%';
-        var fullPhone = '+998' + phone;
-        var vaqt = new Date().toLocaleString('uz-UZ');
-
-        /* ── Telegram ── */
-        var tempMessage =
-          '🌙 Янги Hayitlik Lead\n\n' +
-          '👤 Исм: ' + name + '\n' +
-          '📞 Рақам: ' + fullPhone + '\n' +
-          '📍 Вилоят: ' + region + '\n' +
-          '🎁 Имтиёз: ' + reward + ' (Qurbon Hayiti)\n' +
-          '🕐 Вақт: ' + vaqt;
-
-        var tgUrl = 'https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage';
-        CHAT_IDS.forEach(function(id) {
-          var fd = new URLSearchParams();
-          fd.append('chat_id', id);
-          fd.append('text', tempMessage);
-          fetch(tgUrl, { method: 'POST', body: fd }).catch(function(){});
+          // Redraw wheel after display change
+          setTimeout(() => {
+            drawWheel(0);
+          }, 80);
         });
+      }
 
-        /* ── Google Sheets ── */
-        fetch('https://script.google.com/macros/s/AKfycbyVCLzSsnywC7Bd-0XBmSYfozcFr2zsEoRq50g9Z0cfLrd3VMjc9VAI84CpoMaV2pj_/exec', {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ism: name, raqam: fullPhone, viloyat: region, imtiyoz: reward + ' (Qurbon Hayiti)', vaqt: vaqt })
-        }).catch(function(){});
+      /* ================== SPIN WHEEL (ONE TIME ONLY) ================== */
+      let totalRotation = 0;
 
-        /* ── Meta Pixel ── */
-        if (typeof fbq !== 'undefined') {
-          fbq('track', 'Lead', {}, { eventID: 'lead_' + Date.now() });
-        }
+      if (spinBtn) {
+        spinBtn.addEventListener('click', function () {
+          if (spinning || spinBtn.disabled) return;
 
-        /* Close modal */
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
+          spinning = true;
+          spinBtn.disabled = true;
+          spinBtn.textContent = '⏳ АЙЛАНМОҚДА...';
 
-        /* Disable all CTA buttons */
-        localStorage.setItem('abihayat_discount_used', '1');
-        document.querySelectorAll('.open-modal, .cta-btn').forEach(function(btn){
-          btn.style.pointerEvents = 'none';
-          btn.style.opacity = '0.55';
-          btn.style.filter = 'grayscale(1)';
+          // Visual micro feedback (instant)
+          wheelCanvas.style.transform = 'scale(1.035)';
+          setTimeout(() => {
+            wheelCanvas.style.transform = 'scale(1)';
+          }, 120);
+
+          // === 1. Choose reward & calculate angles IMMEDIATELY ===
+          const rewards = ['20%', '50%'];
+          const reward = rewards[Math.floor(Math.random() * rewards.length)];
+          currentReward = reward;
+
+          const possibleIndexes = (reward === '20%') ? [1, 3, 5, 7] : [0, 2, 4, 6];
+          const targetIndex = possibleIndexes[Math.floor(Math.random() * possibleIndexes.length)];
+
+          const segmentAngle = 360 / segments.length;
+          const extraSpins = 1440 + Math.floor(Math.random() * 420);
+
+          // More accurate stopping: bring the CENTER of target segment under the top pointer
+          const targetCenter = targetIndex * segmentAngle + segmentAngle / 2;
+          const finalAngle = extraSpins + (360 - targetCenter);
+
+          // === 2. START ANIMATION RIGHT AWAY (no network delay) ===
+          function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 3);
+          }
+
+          const startTime = performance.now();
+          const duration = 3250;
+
+          function animate(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = easeOutCubic(progress);
+            const currentAngle = eased * finalAngle;
+
+            drawWheel(currentAngle);
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              drawWheel(finalAngle);
+              totalRotation = finalAngle % 360;
+
+              try { localStorage.setItem('abihayat_discount_claimed', '1'); } catch(e){}
+
+              document.querySelectorAll('.cta-btn, .open-modal').forEach(btn => {
+                btn.style.pointerEvents = 'none';
+                btn.style.opacity = '0.5';
+                btn.style.filter = 'grayscale(0.6)';
+              });
+
+              spinBtn.textContent = '🎯 ТАЙЁР';
+
+              // === IMPORTANT: Use ACTUAL landed reward (guarantees visual == popup == bot) ===
+              const actualReward = getLandedReward(finalAngle);
+
+              // Send lead data NOW (after animation) using the real landed value
+              if (leadData) {
+                const messageText =
+                  '🆕 Янги Lead (ABIHAYAT)\n\n' +
+                  '👤 Исм: ' + leadData.name + '\n' +
+                  '📞 Рақам: ' + leadData.phone + '\n' +
+                  '📍 Вилоят: ' + leadData.region + '\n' +
+                  '🎁 Имтиёз: ' + actualReward + '\n' +
+                  '🕒 Вақт: ' + new Date().toLocaleString('uz-UZ');
+
+                const tgUrl = 'https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage';
+
+                CHAT_IDS.forEach(chatId => {
+                  const fd = new URLSearchParams();
+                  fd.append('chat_id', chatId);
+                  fd.append('text', messageText);
+                  fetch(tgUrl, { method: 'POST', body: fd }).catch(() => {});
+                });
+
+                sendToGoogleSheets({
+                  ism: leadData.name,
+                  raqam: leadData.phone,
+                  viloyat: leadData.region,
+                  imtiyoz: actualReward,
+                  vaqt: new Date().toLocaleString('uz-UZ')
+                }).catch(() => {});
+
+                if (typeof fbq !== 'undefined') {
+                  fbq('track', 'Lead', {
+                    content_name: 'ABIHAYAT_Discount',
+                    value: actualReward === '50%' ? 50 : 20,
+                    currency: 'UZS'
+                  });
+                }
+              }
+
+              onSpinComplete(actualReward);
+            }
+          }
+
+          requestAnimationFrame(animate);
         });
+      }
 
-        /* Confetti */
+      /* ================== HELPER: Calculate which segment actually landed under pointer ================== */
+      function getLandedReward(finalRotationDeg) {
+        const segAngle = 360 / segments.length;
+        let rot = ((finalRotationDeg % 360) + 360) % 360;
+
+        // Reverse of our stopping formula.
+        // This should give us the segment that ended up under the top pointer.
+        const landedIndex = Math.floor( (360 - rot) / segAngle ) % segments.length;
+        return segments[landedIndex] ? segments[landedIndex].text : '20%';
+      }
+
+      /* ================== AFTER SPIN ================== */
+      function onSpinComplete(reward) {
+        spinning = false;
+
+        // Close modal
+        setTimeout(() => {
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }, 420);
+
+        // Start confetti
         startConfetti();
 
-        /* Show win popup */
-        winPopupText.innerHTML =
-          '<div style="font-size:2rem;margin-bottom:10px;">🎉🌙🎊</div>' +
-          '<div style="font-size:1.05rem;font-weight:900;color:#166534;line-height:1.7;text-transform:uppercase;letter-spacing:0.02em;">' +
-          'Маълумотларингиз<br>мувaффақиятли юборилди!<br><br>' +
-          '<span style="color:#b45309;">Тез орада мутахассислар<br>сизга алоқага чиқишади.</span><br><br>' +
-          '<span style="font-size:1.15rem;color:#d97706;">🌙 Қурбон ҳайитингиз<br>муборак бўлсин!</span>' +
-          '</div>';
+        // Show beautiful win popup
+        setTimeout(() => {
+          winPopupText.innerHTML = 
+            '🎉 СИЗГА <span class="text-[#dc2626]">ABIHAYAT</span> КОМПАНИЯСИДАН<br><br>' +
+            '<span style="font-size:2.65rem; line-height:1; display:block; margin:6px 0; color:#dc2626; font-weight:900;">' + reward + '</span>' +
+            'ИМТИЁЗ АЖРАТИЛДИ!<br><br>' +
+            'Сизнинг саломатлигингиз биз учун муҳим.<br>' +
+            'Мутахассисларимиз тез орада сиз билан боғланади.';
 
-        winPopup.style.display = 'flex';
-        winPopup.style.pointerEvents = 'all';
-        setTimeout(function () {
-          winPopupBox.style.transform = 'scale(1)';
-          winPopupBox.style.opacity   = '1';
-        }, 50);
+          winPopup.style.display = 'flex';
+          requestAnimationFrame(() => {
+            winPopupBox.style.transition = 'transform 0.42s cubic-bezier(0.34,1.56,0.64,1), opacity 0.35s ease';
+            winPopupBox.style.transform = 'scale(1)';
+            winPopupBox.style.opacity = '1';
+          });
+        }, 380);
 
-        setTimeout(stopConfetti, 6000);
-      });
+        // Auto stop confetti
+        setTimeout(stopConfetti, 5800);
+      }
 
-      /* ══════════════════════════════
-         CONFETTI
-      ══════════════════════════════ */
-      var confettiParticles = [];
-      var confettiRunning   = false;
-      var confettiRAF       = null;
-      var cctx              = confettiCvs.getContext('2d');
+      /* ================== CONFETTI ================== */
+      let confettiParticles = [];
+      let confettiRunning = false;
+      let confettiRAF = null;
+      let cctx = null;
 
       function startConfetti() {
+        if (!confettiCvs) return;
+        
         confettiCvs.style.display = 'block';
-        confettiCvs.width  = window.innerWidth;
+        confettiCvs.width = window.innerWidth;
         confettiCvs.height = window.innerHeight;
-        confettiParticles  = [];
-        confettiRunning    = true;
+        
+        cctx = confettiCvs.getContext('2d');
+        confettiParticles = [];
+        confettiRunning = true;
 
-        var colors = ['#d97706','#fbbf24','#16a34a','#dc2626','#f97316','#fde68a','#ffffff'];
-        for (var i = 0; i < 180; i++) {
+        const colors = ['#dc2626', '#eab308', '#16a34a', '#2563eb', '#f97316', '#ec4899', '#ffffff'];
+
+        for (let i = 0; i < 185; i++) {
           confettiParticles.push({
-            x:     Math.random() * confettiCvs.width,
-            y:     -20 - Math.random() * 200,
-            w:     6 + Math.random() * 8,
-            h:     10 + Math.random() * 6,
+            x: Math.random() * confettiCvs.width,
+            y: -30 - Math.random() * 180,
+            w: 5.5 + Math.random() * 7.5,
+            h: 9 + Math.random() * 7,
             color: colors[Math.floor(Math.random() * colors.length)],
-            vx:    (Math.random() - 0.5) * 5,
-            vy:    3 + Math.random() * 5,
-            rot:   Math.random() * 360,
-            rotV:  (Math.random() - 0.5) * 8
+            vx: (Math.random() - 0.5) * 5.2,
+            vy: 3.2 + Math.random() * 4.8,
+            rot: Math.random() * 360,
+            rotV: (Math.random() - 0.5) * 9
           });
         }
 
         function loop() {
-          if (!confettiRunning) return;
+          if (!confettiRunning || !cctx) return;
+          
           cctx.clearRect(0, 0, confettiCvs.width, confettiCvs.height);
 
-          confettiParticles.forEach(function (p) {
-            p.x   += p.vx;
-            p.y   += p.vy;
+          confettiParticles.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
             p.rot += p.rotV;
 
             cctx.save();
@@ -1215,86 +1199,71 @@
             cctx.restore();
           });
 
-          confettiParticles = confettiParticles.filter(function (p) {
-            return p.y < confettiCvs.height + 20;
-          });
+          confettiParticles = confettiParticles.filter(p => p.y < confettiCvs.height + 30);
 
-          confettiRAF = requestAnimationFrame(loop);
+          if (confettiParticles.length > 0) {
+            confettiRAF = requestAnimationFrame(loop);
+          } else {
+            stopConfetti();
+          }
         }
-
         loop();
       }
 
       function stopConfetti() {
         confettiRunning = false;
         if (confettiRAF) cancelAnimationFrame(confettiRAF);
-        cctx.clearRect(0, 0, confettiCvs.width, confettiCvs.height);
-        confettiCvs.style.display = 'none';
+        if (cctx && confettiCvs) {
+          cctx.clearRect(0, 0, confettiCvs.width, confettiCvs.height);
+        }
+        if (confettiCvs) confettiCvs.style.display = 'none';
       }
 
-      /* Close win popup on click */
-      winPopupBox.addEventListener('click', function () {
-        winPopupBox.style.transform = 'scale(0.7)';
-        winPopupBox.style.opacity   = '0';
-        setTimeout(function () {
-          winPopup.style.display = 'none';
-          stopConfetti();
-        }, 350);
-      });
-
-      winPopup.addEventListener('click', function (e) {
-        if (e.target === winPopup) {
+      // Close win popup
+      if (winPopupBox) {
+        winPopupBox.addEventListener('click', function() {
+          winPopupBox.style.transition = 'all 0.25s ease';
           winPopupBox.style.transform = 'scale(0.7)';
-          winPopupBox.style.opacity   = '0';
-          setTimeout(function () {
+          winPopupBox.style.opacity = '0';
+          
+          setTimeout(() => {
             winPopup.style.display = 'none';
             stopConfetti();
-          }, 350);
+          }, 280);
+        });
+      }
+
+      if (winPopup) {
+        winPopup.addEventListener('click', function(e) {
+          if (e.target === winPopup) {
+            winPopupBox.style.transition = 'all 0.25s ease';
+            winPopupBox.style.transform = 'scale(0.7)';
+            winPopupBox.style.opacity = '0';
+            setTimeout(() => {
+              winPopup.style.display = 'none';
+              stopConfetti();
+            }, 280);
+          }
+        });
+      }
+
+      // Keyboard accessibility for wheel
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && stepWheel.style.display === 'block' && !spinning) {
+          if (spinBtn && !spinBtn.disabled) spinBtn.click();
         }
       });
 
+      // Expose openModal for inline onclick
+      window.openModal = openModal;
+
+      // Initial wheel draw safety
+      setTimeout(() => {
+        if (wheelCanvas && ctx) drawWheel(0);
+      }, 300);
+
+      console.log('%c[ABIHAYAT] Professional site loaded successfully. Meta Pixel: 2077628519520992', 'color:#16a34a');
     })();
   </script>
-
-
-
-
-<!-- GOOGLE SHEETS INTEGRATION -->
-<!-- GOOGLE SHEETS INTEGRATION -->
-<!--
-1. Google Sheets oching
-2. Extensions → Apps Script
-3. Quyidagi kodni joylang:
-
-function doPost(e) {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-
-  const data = JSON.parse(e.postData.contents);
-
-  sheet.appendRow([
-    data.ism,
-    data.raqam,
-    data.viloyat,
-    data.imtiyoz,
-    data.vaqt
-  ]);
-
-  return ContentService.createTextOutput('OK');
-}
-
-4. Deploy → New deployment
-5. Type: Web app
-6. Access: Anyone
-7. Deploy bosing
-8. Web app URL ni oling
-9. HTML ichidagi:
-https://script.google.com/macros/s/AKfycbyVCLzSsnywC7Bd-0XBmSYfozcFr2zsEoRq50g9Z0cfLrd3VMjc9VAI84CpoMaV2pj_/exec
-o‘rniga o‘sha URL ni qo‘ying
--->
-
-<!-- Vercel Analytics -->
-<script defer src="/_vercel/insights/script.js"></script>
-
 </body>
-
 </html>
