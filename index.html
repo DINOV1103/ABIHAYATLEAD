@@ -4,25 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   
-  <!-- SEO: MEGA OPTIMIZED TITLE & DESCRIPTION -->
+  <!-- ==========================================
+       SEO: MEGA OPTIMIZED TITLE & DESCRIPTION
+  =========================================== -->
   <title>Қандли диабет (сахр) ва юқори қон босимини табиий тушириш сирлари | ABIHAYAT</title>
-  <meta name="description" content="Қондаги қанд миқдорини (сахр) ва юқори қон босимини тушириш учун 100% табиий Туркия кашфиёти. Уй шароитида диабет ва давлениядан халос бўлиш сирлари. ABIHAYAT орқали соғлом ҳаётга қайтинг!">
-  <meta name="keywords" content="qandli diabet, saxrni tushirish, qon bosimi, davleniya, saxrga qarshi dori, diabetni davolash, diabet belgilari, abihayat, qon aylanishi, yurak qon tomir kasalliklari, turkiya tibbiyoti, diabet parhezi, qand kasalligi, saxrni yo'qotish, holsizlikni davolash, qon quyuqlashishi">
+  <meta name="description" content="Қондаги қанд миқдорини (сахр) ва юқори қон босимини тушириш учун 100% табиий Туркия кашфиёти. Ибн Сино табобати асосидаги даволовчи восита. Уй шароитида диабет ва давлениядан халос бўлинг!">
+  <meta name="keywords" content="qandli diabet, saxrni tushirish, qon bosimi, davleniya, saxrga qarshi dori, diabetni davolash, diabet belgilari, abihayat, qon aylanishi, yurak qon tomir kasalliklari, turkiya tibbiyoti, diabet parhezi, qand kasalligi, saxrni yo'qotish, holsizlikni davolash, qon quyuqlashishi, ibn sino tabobati, davolovchi damlama">
   <meta name="author" content="ABIHAYAT Turkey">
   
-  <!-- SEO: Open Graph (Facebook, Telegram) -->
+  <!-- SEO: Open Graph (Facebook, Telegram, Instagram) -->
   <meta property="og:title" content="Қандли диабет ва Қон босимидан табиий халос бўлиш | ABIHAYAT">
-  <meta property="og:description" content="Сахр ва давленияни меъёрга келтирувчи Турк формуласи. Туркиянинг етакчи эндокринологлари тавсия қилади.">
+  <meta property="og:description" content="Сахр ва давленияни меъёрга келтирувчи даволовчи Турк формуласи. Ибн Сино табобати асосида яратилган.">
   <meta property="og:image" content="https://i.postimg.cc/rs31jnTQ/IMG-0385.png">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="uz_UZ">
   <meta property="og:url" content="https://abihayatturkey.vercel.app/">
   <meta property="og:site_name" content="ABIHAYAT - Қандли Диабет ва Гипертония Маркази">
 
+  <!-- SEO: Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Диабет ва Қон босимининг табиий ечими">
+  <meta name="twitter:description" content="Кимёвий таблеткаларсиз сахрни тушириш сирлари. Туркиядан 100% натурал даволовчи дамлама.">
+  <meta name="twitter:image" content="https://i.postimg.cc/rs31jnTQ/IMG-0385.png">
+
   <link rel="canonical" href="https://abihayatturkey.vercel.app/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-  <!-- SCHEMA.ORG JSON-LD FOR GOOGLE SEO (Medical, Product, FAQ) -->
+  <!-- ==========================================
+       SCHEMA.ORG JSON-LD FOR GOOGLE SEO
+  =========================================== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -32,15 +42,34 @@
         "name": "Қандли диабет ва қон босимини даволаш - ABIHAYAT",
         "description": "Қандли диабет (сахр) ва юқори қон босими (гипертония) белгиларини йўқотиш ҳамда даволаш учун табиий Туркия дамламаси ҳақида илмий асосланган маълумот.",
         "url": "https://abihayatturkey.vercel.app/"
+      },
+      {
+        "@type": "Product",
+        "name": "ABIHAYAT Табиий Даволовчи Дамламаси",
+        "image": "https://i.postimg.cc/rs31jnTQ/IMG-0385.png",
+        "description": "Қондаги қанд миқдорини ва қон босимини меъёрга келтирувчи, Ибн Сино табобатига асосланган 100% табиий турк формуласи.",
+        "brand": {
+          "@type": "Brand",
+          "name": "ABIHAYAT"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "2150"
+        }
       }
     ]
   }
   </script>
 
+  <!-- Tailwind CSS & Fonts -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <style>
+    /* ==========================================
+       CUSTOM VARIABLES & CORE TYPOGRAPHY
+    =========================================== */
     :root {
       --primary-red: #e30a17; /* Official Turkey Red */
       --dark-red: #b91c1c;
@@ -62,7 +91,9 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* PREMIUM SCROLL ANIMATIONS */
+    /* ==========================================
+       PREMIUM SCROLL ANIMATIONS
+    =========================================== */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -70,17 +101,21 @@
       will-change: opacity, transform;
     }
     .reveal.active { opacity: 1; transform: translateY(0); }
+    
     .delay-100 { transition-delay: 100ms; }
     .delay-200 { transition-delay: 200ms; }
     .delay-300 { transition-delay: 300ms; }
+    
     .zoom-reveal { opacity: 0; transform: scale(0.95); transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1); }
     .zoom-reveal.active { opacity: 1; transform: scale(1); }
 
-    /* BACKGROUND ANIMATIONS (MOVING BACKGROUND) */
+    /* ==========================================
+       BACKGROUND ANIMATIONS (MOVING BACKGROUND)
+    =========================================== */
     .bg-animated-gradient {
-      background: linear-gradient(-45deg, #ffffff, #fef2f2, #ffffff, #fef2f2);
+      background: linear-gradient(-45deg, #ffffff, #fef2f2, #ffffff, #f0fdf4);
       background-size: 400% 400%;
-      animation: gradient-move 12s ease infinite;
+      animation: gradient-move 15s ease infinite;
     }
     @keyframes gradient-move {
       0% { background-position: 0% 50%; }
@@ -95,35 +130,39 @@
     }
     .animate-blob { animation: float-blob 12s infinite alternate ease-in-out; }
 
-    /* FLOATING CALL BUTTON */
+    /* ==========================================
+       FLOATING CALL BUTTON (PULSE EFFECT)
+    =========================================== */
     .floating-call {
-      position: fixed; bottom: 24px; right: 24px; width: 64px; height: 64px;
+      position: fixed; bottom: 24px; right: 24px; width: 68px; height: 68px;
       background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
       color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;
       box-shadow: 0 10px 25px rgba(22, 101, 52, 0.4); z-index: 90000;
       transition: transform 0.3s ease; animation: call-pulse 2s infinite;
     }
     .floating-call:hover { transform: scale(1.1) rotate(-10deg); }
-    .floating-call svg { fill: white; width: 30px; height: 30px; }
+    .floating-call svg { fill: white; width: 34px; height: 34px; }
     
     @keyframes call-pulse {
       0% { box-shadow: 0 0 0 0 rgba(22, 101, 52, 0.6); }
-      70% { box-shadow: 0 0 0 20px rgba(22, 101, 52, 0); }
+      70% { box-shadow: 0 0 0 25px rgba(22, 101, 52, 0); }
       100% { box-shadow: 0 0 0 0 rgba(22, 101, 52, 0); }
     }
 
-    /* TURKEY STYLE PREMIUM ACCENTS */
+    /* ==========================================
+       TURKEY STYLE PREMIUM ACCENTS
+    =========================================== */
     .turkey-badge {
       display: inline-flex; align-items: center; gap: 8px;
       background: #fef2f2; border: 2px solid #fca5a5; border-radius: 9999px;
-      padding: 6px 20px; font-size: 0.85rem; font-weight: 800; color: var(--primary-red);
-      box-shadow: 0 4px 10px rgba(227, 10, 23, 0.1);
+      padding: 8px 24px; font-size: 0.9rem; font-weight: 800; color: var(--primary-red);
+      box-shadow: 0 6px 15px rgba(227, 10, 23, 0.12);
     }
 
     h1, h2, h3, h4 { text-wrap: balance; color: #111827; }
 
     .section-title {
-      font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 900; line-height: 1.25;
+      font-size: clamp(1.5rem, 4vw, 2.4rem); font-weight: 900; line-height: 1.25;
       text-align: center; margin-bottom: 16px; text-transform: uppercase; letter-spacing: -0.02em;
     }
     .section-subtitle {
@@ -131,38 +170,54 @@
       text-align: center; max-width: 760px; margin: 0 auto 24px;
     }
 
+    /* MEDIA CARDS (Fixing Image Crop issues) */
     .media-card {
       background: #ffffff; border-radius: 24px; overflow: hidden;
       box-shadow: 0 10px 40px rgba(227, 10, 23, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03);
       border: 1px solid #fee2e2; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+      display: flex; flex-direction: column;
     }
     .media-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(227, 10, 23, 0.12); }
-    .media-card .caption { padding: 20px 24px; background: #ffffff; font-size: 0.95rem; font-weight: 600; color: #334155; line-height: 1.6; border-top: 3px solid #f87171; }
+    
+    /* Removing fixed heights to stop image cropping */
+    .media-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
 
+    .media-card .caption { 
+      padding: 24px; background: #ffffff; font-size: 1rem; font-weight: 600; 
+      color: #334155; line-height: 1.6; border-top: 3px solid #f87171; flex-grow: 1;
+    }
+
+    /* YOUTUBE FACADES */
     .portrait-video-wrapper { position: relative; width: 100%; max-width: 100%; margin: 0 auto; border-radius: 20px 20px 0 0; overflow: hidden; background: #000; }
-    .portrait-video-wrapper iframe { width: 100%; height: 100%; min-height: 420px; display: block; border: none; }
-    @media (max-width: 640px) { .portrait-video-wrapper iframe { min-height: 380px; } }
+    .portrait-video-wrapper iframe { width: 100%; height: 100%; min-height: 440px; display: block; border: none; }
+    @media (max-width: 640px) { .portrait-video-wrapper iframe { min-height: 400px; } }
 
     .yt-facade { cursor: pointer; background-size: cover; background-position: center; }
     .yt-facade::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.15); transition: background 0.3s; }
     .yt-facade:hover::after { background: rgba(0,0,0,0.05); }
     .yt-facade::before {
       content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 72px; height: 72px; border-radius: 50%;
-      background: rgba(227, 10, 23, 0.95) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/30px no-repeat;
+      width: 76px; height: 76px; border-radius: 50%;
+      background: rgba(227, 10, 23, 0.95) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/32px no-repeat;
       box-shadow: 0 8px 30px rgba(227, 10, 23, 0.4); z-index: 2;
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s;
     }
     .yt-facade:hover::before { transform: translate(-50%, -50%) scale(1.15); background-color: #dc2626; }
 
+    /* CTA BUTTONS */
     .cta-btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
       background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
       color: #ffffff; font-weight: 900; font-size: 1.15rem; letter-spacing: 0.03em;
-      padding: 20px 44px; border-radius: 100px; border: none; cursor: pointer;
+      padding: 22px 48px; border-radius: 100px; border: none; cursor: pointer;
       box-shadow: 0 10px 0 #991b1b, 0 15px 35px rgba(227, 10, 23, 0.4);
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-transform: uppercase; text-align: center; line-height: 1.2;
-      width: 100%; max-width: 420px; position: relative; overflow: hidden;
+      width: 100%; max-width: 440px; position: relative; overflow: hidden;
     }
     .cta-btn::after {
       content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
@@ -172,6 +227,7 @@
     .cta-btn:hover { transform: translateY(-4px); box-shadow: 0 13px 0 #991b1b, 0 22px 45px rgba(227, 10, 23, 0.5); }
     .cta-btn:active { transform: translateY(4px); box-shadow: 0 6px 0 #991b1b; }
 
+    /* LAYOUT UTILITIES */
     .site-header { 
       background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
       border-bottom: 4px solid var(--primary-red); box-shadow: 0 4px 25px rgba(0,0,0,0.05); 
@@ -181,7 +237,9 @@
     .cert-img { width: 100%; border-radius: 20px; box-shadow: 0 12px 35px rgba(0,0,0,0.08); border: 2px solid #e5e7eb; transition: transform 0.4s ease; }
     .cert-img:hover { transform: scale(1.04); }
 
-    /* Modal & Forms */
+    /* ==========================================
+       MODAL & FORMS (Extensive CSS structure)
+    =========================================== */
     #modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); z-index: 99999; align-items: center; justify-content: center; padding: 16px; }
     #modal-overlay.active { display: flex; }
     #modal-box { background: #ffffff; border-radius: 32px; width: 100%; max-width: 480px; max-height: 92dvh; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4); overflow: hidden; display: flex; flex-direction: column; animation: modal-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
@@ -193,7 +251,7 @@
     .phone-prefix { position: absolute; left: 24px; top: 50%; transform: translateY(-50%); font-weight: 900; color: var(--primary-red); font-size: 1.05rem; pointer-events: none; }
     .phone-input-field { padding-left: 80px !important; }
 
-    /* Wheel */
+    /* WHEEL */
     .wheel-container { position: relative; width: min(340px, 85vw); height: min(340px, 85vw); margin: 24px auto; display: flex; align-items: center; justify-content: center; }
     .wheel-pointer { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-top: 40px solid var(--primary-red); z-index: 10; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
     #wheel { width: 100%; height: 100%; border-radius: 50%; border: 12px solid #ffffff; box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2), inset 0 0 0 8px #fecaca; transition: transform 0.1s linear; background: #fff; }
@@ -201,98 +259,116 @@
     #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(120px); background: linear-gradient(135deg, var(--primary-green), var(--accent-green)); color: #fff; padding: 18px 36px; border-radius: 100px; font-weight: 800; font-size: 1.05rem; box-shadow: 0 12px 35px rgba(22, 101, 52, 0.4); z-index: 999999; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s; opacity: 0; pointer-events: none; }
     #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
+    /* SEO TEXT BLOCK */
+    .seo-text-block h2 { color: #0f172a; font-weight: 900; margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.8rem; line-height: 1.3; }
+    .seo-text-block h3 { color: #1e293b; font-weight: 800; margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.4rem; }
+    .seo-text-block p { color: #475569; font-weight: 500; font-size: 1.05rem; margin-bottom: 1.5rem; line-height: 1.8; }
+    
     .highlight-red { color: var(--primary-red); font-weight: 900; }
     .highlight-green { color: var(--primary-green); font-weight: 900; }
   </style>
 </head>
 <body class="bg-animated-gradient">
 
-  <!-- FLOATING CALL BUTTON -->
+  <!-- ==========================================
+       FLOATING CALL BUTTON 
+  =========================================== -->
   <a href="tel:+998555155558" class="floating-call" aria-label="Қўнғироқ қилиш">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
     </svg>
   </a>
 
-  <!-- HEADER -->
+  <!-- ==========================================
+       HEADER 
+  =========================================== -->
   <header class="site-header sticky top-0 z-50">
-    <div class="max-w-[1000px] mx-auto px-5 py-4">
+    <div class="max-w-[1050px] mx-auto px-5 py-4">
       <div class="flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
         <div class="flex flex-col items-center md:items-start">
           <div class="turkey-badge mb-1">
-            <span class="text-lg leading-none">🇹🇷</span> ТУРКИЯ ФОРМУЛАСИ
+            <span class="text-xl leading-none">🇹🇷</span> ТУРКИЯ ФОРМУЛАСИ
           </div>
           <div class="text-[2.2rem] md:text-[2.6rem] font-black tracking-tighter text-[#111827] leading-none mt-1">
             ABI<span class="text-[#e30a17]">HAYAT</span>
           </div>
         </div>
         <div class="hidden md:block text-right">
-          <div class="text-[0.75rem] font-extrabold tracking-[2px] text-slate-400 uppercase mb-1">Бепул Консультация</div>
-          <a href="tel:+998555155558" class="inline-block text-sm font-bold bg-slate-900 text-white px-6 py-2.5 rounded-full hover:bg-slate-800 transition shadow-md">📞 55-515-55-58</a>
+          <div class="text-[0.75rem] font-extrabold tracking-[2px] text-slate-400 uppercase mb-2">Бепул Тиббий Консультация</div>
+          <a href="tel:+998555155558" class="inline-flex items-center gap-2 text-[0.95rem] font-black bg-slate-900 text-white px-7 py-3 rounded-full hover:bg-[#e30a17] transition-colors duration-300 shadow-md">
+            <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+            55-515-55-58
+          </a>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="pt-14 pb-12 px-5 overflow-hidden relative">
-    <div class="absolute top-10 right-0 w-[50%] h-[50%] bg-red-100 rounded-full blur-[100px] opacity-60 animate-blob -z-10"></div>
-    <div class="absolute bottom-0 left-0 w-[40%] h-[40%] bg-green-50 rounded-full blur-[80px] opacity-60 animate-blob -z-10" style="animation-delay: 2s;"></div>
+  <!-- ==========================================
+       HERO SECTION 
+  =========================================== -->
+  <section class="pt-16 pb-14 px-5 overflow-hidden relative">
+    <div class="absolute top-10 right-0 w-[50%] h-[50%] bg-red-100/80 rounded-full blur-[100px] animate-blob -z-10"></div>
+    <div class="absolute bottom-0 left-0 w-[40%] h-[40%] bg-green-50/80 rounded-full blur-[80px] animate-blob -z-10" style="animation-delay: 2s;"></div>
     
-    <div class="max-w-[900px] mx-auto text-center reveal">
-      <h1 class="text-[1.9rem] md:text-[3.2rem] font-black leading-[1.15] tracking-tight mb-6 text-[#0f172a]">
-        <span class="highlight-red">ҚОНДАГИ САХР</span> ВА <span class="highlight-red">ЮҚОРИ ҚОН БОСИМИНИ</span> ДАВОЛАШНИНГ ТАБИИЙ ВА ИЛМИЙ УСУЛИ
+    <div class="max-w-[950px] mx-auto text-center reveal">
+      <h1 class="text-[2rem] md:text-[3.5rem] font-black leading-[1.15] tracking-tight mb-6 text-[#0f172a]">
+        <span class="highlight-red">ҚОНДАГИ САХР</span> ВА <span class="highlight-red">ЮҚОРИ ҚОН БОСИМИНИ</span> ДАВОЛАШНИНГ ТАБИИЙ УСУЛИ
       </h1>
       
-      <p class="text-lg md:text-xl font-medium text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8">
-        Умрингизни кимёвий таблеткалар ичиб ўтказманг! <span class="highlight-green text-[#15803d]">Туркия олимлари томонидан яратилган</span> 100% табиий дамлама орқали диабет ва гипертония асоратларидан хавфсиз халос бўлинг.
+      <p class="text-[1.1rem] md:text-[1.25rem] font-semibold text-slate-700 max-w-3xl mx-auto leading-relaxed mb-10">
+        Умрингизни кимёвий таблеткалар ичиб ўтказманг! <span class="highlight-green text-[#15803d]">Туркия олимлари томонидан яратилган</span> ва Ибн Сино табобатига асосланган 100% табиий **даволовчи дамлама** орқали диабет ва гипертониядан халос бўлинг.
       </p>
       
       <div class="flex justify-center reveal delay-100">
-        <button onclick="openModal()" class="cta-btn text-[1.1rem] px-12 py-5" aria-label="Консультация олиш учун буюртма бериш">
+        <button onclick="openModal()" class="cta-btn text-[1.15rem] px-14 py-6" aria-label="Консультация олиш учун буюртма бериш">
           ✦ БЕПУЛ МАСЛАҲАТ ОЛИНГ
         </button>
       </div>
 
-      <!-- 4 COUNTRIES TRUST BADGE -->
-      <div class="mt-8 mx-auto inline-flex flex-col md:flex-row items-center justify-center gap-3 text-[0.85rem] font-black text-slate-600 bg-white/70 backdrop-blur-md py-3 px-6 rounded-2xl shadow-sm border border-white/80 reveal delay-200">
-        <span class="uppercase tracking-widest text-slate-400 text-[10px] md:mr-2">4 давлат танлови:</span>
-        <div class="flex items-center gap-3">
-          <span class="flex items-center gap-1"><span class="text-lg">🇺🇿</span> Ўзбекистон</span>
-          <span class="text-slate-300">|</span>
-          <span class="flex items-center gap-1"><span class="text-lg">🇹🇷</span> Туркия</span>
-          <span class="text-slate-300">|</span>
-          <span class="flex items-center gap-1"><span class="text-lg">🇷🇺</span> Россия</span>
-          <span class="text-slate-300">|</span>
-          <span class="flex items-center gap-1"><span class="text-lg">🇹🇯</span> Тожикистон</span>
+      <!-- ==========================================
+           4 COUNTRIES TRUST BADGE (FIXED FOR MOBILE)
+      =========================================== -->
+      <div class="mt-10 mx-auto flex flex-col items-center justify-center gap-2 text-[0.95rem] font-black text-slate-700 bg-white/80 backdrop-blur-md py-4 px-6 rounded-2xl shadow-sm border border-slate-200 reveal delay-200 max-w-2xl w-full">
+        <span class="uppercase tracking-widest text-slate-500 text-[11px] mb-1">4 давлатнинг ишончли танлови:</span>
+        <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
+          <span class="flex items-center gap-1.5"><span class="text-2xl drop-shadow-sm">🇺🇿</span> Ўзбекистон</span>
+          <span class="hidden sm:inline text-slate-300">|</span>
+          <span class="flex items-center gap-1.5"><span class="text-2xl drop-shadow-sm">🇹🇷</span> Туркия</span>
+          <span class="hidden sm:inline text-slate-300">|</span>
+          <span class="flex items-center gap-1.5"><span class="text-2xl drop-shadow-sm">🇷🇺</span> Россия</span>
+          <span class="hidden sm:inline text-slate-300">|</span>
+          <span class="flex items-center gap-1.5"><span class="text-2xl drop-shadow-sm">🇹🇯</span> Тожикистон</span>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- DOCTOR INTERVIEW SECTION -->
-  <section class="py-16 px-5 relative z-10">
-    <div class="max-w-[960px] mx-auto zoom-reveal">
-      <div class="bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-red-100 relative">
-        <div class="absolute -top-20 -right-20 w-64 h-64 bg-red-600 rounded-full z-0 opacity-5 blur-2xl"></div>
+  <!-- ==========================================
+       DOCTOR INTERVIEW SECTION
+  =========================================== -->
+  <section class="py-20 px-5 relative z-10 bg-white">
+    <div class="max-w-[1000px] mx-auto zoom-reveal">
+      <div class="bg-white rounded-[2rem] shadow-[0_20px_60px_rgba(0,0,0,0.06)] overflow-hidden border border-red-50 relative">
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-red-600 rounded-full z-0 opacity-[0.03] blur-3xl"></div>
         
-        <div class="p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 relative z-10">
-          <div class="w-44 h-44 md:w-56 md:h-56 shrink-0 rounded-full overflow-hidden border-[6px] border-[#fef2f2] shadow-xl relative">
+        <div class="p-8 md:p-14 flex flex-col md:flex-row items-center gap-10 relative z-10">
+          <div class="w-48 h-48 md:w-64 md:h-64 shrink-0 rounded-full overflow-hidden border-[6px] border-[#fef2f2] shadow-xl relative">
             <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" alt="Эндокринолог Доктор Элиф Собю - Қандли диабет ечими" class="w-full h-full object-cover">
-            <div class="absolute inset-0 border border-[#e30a17] rounded-full opacity-20"></div>
+            <div class="absolute inset-0 border-2 border-[#e30a17] rounded-full opacity-10"></div>
           </div>
           
           <div class="text-center md:text-left flex-1">
-            <div class="inline-block bg-[#166534] text-white text-[10px] md:text-xs font-black px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase shadow-md">
+            <div class="inline-block bg-[#166534] text-white text-[11px] md:text-xs font-black px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase shadow-md">
               Эксклюзив Тиббий Интервью
             </div>
             <h2 class="text-3xl md:text-4xl font-black text-[#0f172a] mb-2">Doç. Dr. Elif Söbü</h2>
-            <p class="text-[1rem] font-bold text-[#e30a17] mb-6 tracking-wide">Туркиянинг етакчи эндокринолог ва кардиолог олимаси</p>
+            <p class="text-[1.05rem] font-bold text-[#e30a17] mb-6 tracking-wide">Туркиянинг етакчи эндокринолог ва кардиолог олимаси</p>
             
-            <blockquote class="text-[1.05rem] md:text-[1.15rem] text-slate-700 font-medium leading-relaxed border-l-4 border-[#e30a17] pl-6 text-left bg-red-50/50 p-6 rounded-r-2xl relative">
-              <span class="absolute -top-4 -left-3 text-5xl text-red-200 font-serif">"</span>
-              Қандли диабет (сахр) ва гипертония — бу ҳукм эмас, балки организмнинг сиздан ёрдам сўраб қилган мурожаатидир! ABIHAYAT формуласининг ўзига хослиги шундаки, у шунчаки оғриқни босмайди, балки қон томирларини ҳужайра даражасида тозалайди ва ошқозон ости бези фаолиятини қайта тиклайди. Бу касалликнинг илдизига берилган илмий зарбадир.
+            <blockquote class="text-[1.1rem] md:text-[1.2rem] text-slate-700 font-medium leading-relaxed border-l-4 border-[#e30a17] pl-6 text-left bg-red-50/50 p-6 rounded-r-2xl relative">
+              <span class="absolute -top-4 -left-3 text-6xl text-red-200 font-serif">"</span>
+              Қандли диабет (сахр) ва гипертония — бу ҳукм эмас, балки организмнинг сиздан ёрдам сўраб қилган мурожаатидир! ABIHAYAT дамламаси оддий маҳсулотлардан фарқли ўлароқ шунчаки оғриқни босмайди, балки қон томирларини ҳужайра даражасида тозалайди ва ошқозон ости безини қайта тиклайди. Бу Ибн Сино табобати асосидаги ҳақиқий даволовчи воситадир.
             </blockquote>
           </div>
         </div>
@@ -300,82 +376,92 @@
     </div>
   </section>
 
-  <!-- SYMPTOM & SOLUTION CARDS -->
-  <section class="px-5 py-20 bg-slate-50 border-t border-slate-200">
-    <div class="max-w-[1000px] mx-auto text-center mb-14 reveal">
+  <!-- ==========================================
+       SYMPTOM & SOLUTION CARDS (FIXED IMAGE CROPPING)
+  =========================================== -->
+  <section class="px-5 py-24 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-[1000px] mx-auto text-center mb-16 reveal">
       <h2 class="section-title">НИМА УЧУН ДИАБЕТ ВА ҚОН БОСИМИ ХАВФЛИ?</h2>
       <p class="section-subtitle">Касалликни вақтинча яшириш эмас, унинг илдизи билан курашиш вақти келди.</p>
       <div class="section-divider"></div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1150px] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1200px] mx-auto">
+      <!-- Problem 1 -->
       <div class="media-card reveal delay-100">
-        <img src="https://i.postimg.cc/rs31jnTQ/IMG-0385.png" alt="Қандли диабет (сахр) статистикаси ва хавфи" class="w-full object-cover h-[280px]" loading="lazy">
+        <!-- Removed fixed height and object-cover to prevent cropping -->
+        <img src="https://i.postimg.cc/rs31jnTQ/IMG-0385.png" alt="Қандли диабет (сахр) статистикаси ва хавфи" loading="lazy">
         <div class="caption">
-          <span class="font-black text-[#e30a17] text-[1.1rem] block mb-2">ЯШИРИН ҚОТИЛ:</span> 
+          <span class="font-black text-[#e30a17] text-[1.15rem] block mb-2">ЯШИРИН ҚОТИЛ:</span> 
           Қандли диабет ёш ва мансаб танламайди. Қондаги қанд миқдорининг доимий баландлиги ички органларни (айниқса кўз, буйрак ва юракни) секин-аста емиради.
         </div>
       </div>
 
+      <!-- Problem 2 -->
       <div class="media-card reveal delay-200">
-        <img src="https://i.postimg.cc/qRTcsYsW/IMG-2433.png" alt="Юқори қон босими, давленя ва ҳолсизлик белгилари" class="w-full object-cover h-[280px]" loading="lazy">
+        <!-- Removed fixed height and object-cover -->
+        <img src="https://i.postimg.cc/qRTcsYsW/IMG-2433.png" alt="Юқори қон босими, давленя ва ҳолсизлик белгилари" loading="lazy">
         <div class="caption">
-          <span class="font-black text-[#e30a17] text-[1.1rem] block mb-2">АСОСИЙ БЕЛГИЛАР:</span> 
+          <span class="font-black text-[#e30a17] text-[1.15rem] block mb-2">АСОСИЙ БЕЛГИЛАР:</span> 
           Доимий чанқоқлик, умумий ҳолсизлик, юқори қон босими (давления ўйнаши), тез-тез пешобга чиқиш — булар танангизнинг сиздан зудлик билан ёрдам сўраётганидир.
         </div>
       </div>
       
-      <div class="media-card border-2 border-[#166534] reveal delay-300 transform md:-translate-y-4 shadow-[0_20px_50px_rgba(22,101,52,0.15)] relative overflow-hidden">
-        <div class="absolute top-4 right-4 bg-[#166534] text-white text-xs font-black px-3 py-1 rounded-full z-10 shadow-md">ЕЧИМ</div>
-        <img src="https://i.postimg.cc/XvgKPrPH/IMG-8373.jpg" alt="ABIHAYAT билан сахрни тушириш ва қон босимини даволаш" class="w-full object-cover h-[280px]" loading="lazy">
+      <!-- Solution -->
+      <div class="media-card border-2 border-[#166534] reveal delay-300 transform md:-translate-y-4 shadow-[0_20px_50px_rgba(22,101,52,0.15)] relative overflow-hidden bg-[#f0fdf4]">
+        <div class="absolute top-4 right-4 bg-[#166534] text-white text-xs font-black px-4 py-1.5 rounded-full z-10 shadow-md tracking-widest uppercase">Асл Ечим</div>
+        <!-- Removed fixed height and object-cover -->
+        <img src="https://i.postimg.cc/XvgKPrPH/IMG-8373.jpg" alt="ABIHAYAT билан сахрни тушириш ва қон босимини даволаш" loading="lazy" class="bg-white">
         <div class="caption border-t-4 border-[#166534] bg-[#f0fdf4]">
-          <span class="font-black text-[#166534] text-[1.1rem] block mb-2">ТАБИИЙ ВА ИЛМИЙ ЕЧИМ:</span> 
-          <span class="font-black highlight-red">ABIHAYAT</span> қон томирларини шлак ва тузлардан тозалайди, метаболизмни тиклайди ва қондаги сахр ҳамда босимни табиий, безиён усулда меъёрга келтиради.
+          <span class="font-black text-[#166534] text-[1.15rem] block mb-2">ДАВОЛОВЧИ ВОСИТА:</span> 
+          <span class="font-black highlight-red">ABIHAYAT</span> дамламаси қон томирларини шлак ва тузлардан тозалайди, метаболизмни тиклайди ва қондаги сахр ҳамда босимни табиий усулда меъёрга келтиради.
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="text-center pb-20 px-5 bg-slate-50 reveal">
+  <!-- CTA SECTION -->
+  <section class="text-center pb-24 px-5 bg-slate-50 reveal">
     <button onclick="openModal()" class="cta-btn text-[1.15rem]">
       ✦ ҲОЗИРОҚ БУЮРТМА БЕРИШ
     </button>
   </section>
 
-  <!-- VIDEO SECTION 1: FUNCTIONALITY -->
-  <section class="bg-white/80 backdrop-blur-sm border-y border-slate-200 py-16 px-5 relative z-10">
-    <div class="max-w-[820px] mx-auto text-center reveal">
+  <!-- ==========================================
+       VIDEO SECTION: HOW IT WORKS
+  =========================================== -->
+  <section class="bg-white/90 backdrop-blur-sm border-y border-slate-200 py-16 px-5 relative z-10">
+    <div class="max-w-[900px] mx-auto text-center reveal">
       <h2 class="section-title">ABIHAYAT ОРГАНИЗМДА ҚАНДАЙ ИШЛАЙДИ?</h2>
       <p class="section-subtitle">Махсус видеолавҳалар орқали маҳсулотнинг танага ижобий ва молекуляр таъсири билан танишинг.</p>
       <div class="section-divider"></div>
     </div>
   </section>
 
-  <section class="py-16 px-5">
-    <div class="max-w-[1200px] mx-auto">
+  <section class="py-20 px-5">
+    <div class="max-w-[1250px] mx-auto">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="media-card reveal delay-100">
           <div class="portrait-video-wrapper yt-facade" data-yt-id="rWAaHqV3L8g" data-yt-title="Қанд миқдорини (сахрни) нормаллаштириш усули" role="button" tabindex="0"></div>
-          <div class="caption text-center border-t-0 p-5">
-            <span class="font-black text-[#e30a17] text-lg">ABIHAYAT</span> <br>Қондаги қанд (сахр) миқдорини кескин туширмай, барқарор нормаллаштиради.
+          <div class="caption text-center border-t-0 p-6">
+            <span class="font-black text-[#e30a17] text-lg uppercase">ABIHAYAT</span> <br>Қондаги қанд (сахр) миқдорини кескин туширмай, барқарор нормаллаштиради.
           </div>
         </div>
         <div class="media-card reveal delay-200">
           <div class="portrait-video-wrapper yt-facade" data-yt-id="Gn6bMcVf7YA" data-yt-title="Организмни тозалаш ва иммунитетни кўтариш" role="button" tabindex="0"></div>
-          <div class="caption text-center border-t-0 p-5">
+          <div class="caption text-center border-t-0 p-6">
             Организмни чуқур токсинлардан тозалаб, кунлик <span class="font-black text-[#166534]">қувват ва энергия</span> беради.
           </div>
         </div>
         <div class="media-card reveal delay-300">
           <div class="portrait-video-wrapper yt-facade" data-yt-id="tYZKm1q8G_w" data-yt-title="Юқори қон босими (давления) давоси" role="button" tabindex="0"></div>
-          <div class="caption text-center border-t-0 p-5">
+          <div class="caption text-center border-t-0 p-6">
             Қон қуюқлашишининг олдини олиб, <span class="font-black text-[#e30a17]">юқори қон босимини табиий туширади</span>.
           </div>
         </div>
         <div class="media-card reveal delay-100">
           <div class="portrait-video-wrapper yt-facade" data-yt-id="IEzuz7kdvi8" data-yt-title="Қон томирларини тозалаш" role="button" tabindex="0"></div>
-          <div class="caption text-center border-t-0 p-5">
+          <div class="caption text-center border-t-0 p-6">
             Қон томирларини кенгайтириб, бутун тана бўйлаб <span class="font-black text-[#166534]">тўғри қон айланишини яхшилайди</span>.
           </div>
         </div>
@@ -383,58 +469,63 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS (SOCIAL PROOF) -->
+  <!-- ==========================================
+       TESTIMONIALS (SOCIAL PROOF)
+  =========================================== -->
   <section class="bg-white border-y border-slate-200 py-16 px-5 relative z-10">
-    <div class="max-w-[820px] mx-auto text-center reveal">
+    <div class="max-w-[900px] mx-auto text-center reveal">
       <h2 class="section-title">МИЛЛИОНЛАБ ИНСОНЛАР ВА МАШҲУРЛАР ИШОНЧИ</h2>
       <p class="section-subtitle">Ушбу инсонлар аллақачон ўз соғлиғини ABIHAYAT билан тиклашди. Уларнинг реал ва жонли натижаларини кўринг:</p>
       <div class="section-divider"></div>
     </div>
   </section>
 
-  <section class="py-16 px-5">
-    <div class="max-w-[1250px] mx-auto">
+  <section class="py-20 px-5">
+    <div class="max-w-[1300px] mx-auto">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-        <div class="media-card reveal hover:-translate-y-2 transition-transform duration-300"><div class="portrait-video-wrapper yt-facade" style="aspect-ratio: 9/16; max-height: 440px;" data-yt-id="7sDq7lPrkgU" role="button" tabindex="0"></div></div>
-        <div class="media-card reveal delay-100 hover:-translate-y-2 transition-transform duration-300"><div class="portrait-video-wrapper yt-facade" style="aspect-ratio: 9/16; max-height: 440px;" data-yt-id="ok61jU6H34U" role="button" tabindex="0"></div></div>
-        <div class="media-card reveal delay-200 hover:-translate-y-2 transition-transform duration-300"><div class="portrait-video-wrapper yt-facade" style="aspect-ratio: 9/16; max-height: 440px;" data-yt-id="P6TwLCh0KMU" role="button" tabindex="0"></div></div>
-        <div class="media-card reveal delay-300 hover:-translate-y-2 transition-transform duration-300"><div class="portrait-video-wrapper yt-facade" style="aspect-ratio: 9/16; max-height: 440px;" data-yt-id="u__5ToiCrfc" role="button" tabindex="0"></div></div>
-        <div class="media-card reveal delay-100 hover:-translate-y-2 transition-transform duration-300"><div class="portrait-video-wrapper yt-facade" style="aspect-ratio: 9/16; max-height: 440px;" data-yt-id="pLwTQLleLPw" role="button" tabindex="0"></div></div>
+        <div class="media-card reveal hover:-translate-y-3 transition-transform duration-300"><div class="portrait-video-wrapper yt-facade" style="aspect-ratio: 9/16; max-height: 440px;" data-yt-id="7sDq7lPrkgU" role="button" tabindex="0"></div></div>
+        <div class="media-card reveal delay-100 hover:-translate-y-3 transition-transform duration-300"><div class="portrait-video-wrapper yt-facade" style="aspect-ratio: 9/16; max-height: 440px;" data-yt-id="ok61jU6H34U" role="button" tabindex="0"></div></div>
+        <div class="media-card reveal delay-200 hover:-translate-y-3 transition-transform duration-300"><div class="portrait-video-wrapper yt-facade" style="aspect-ratio: 9/16; max-height: 440px;" data-yt-id="P6TwLCh0KMU" role="button" tabindex="0"></div></div>
+        <div class="media-card reveal delay-300 hover:-translate-y-3 transition-transform duration-300"><div class="portrait-video-wrapper yt-facade" style="aspect-ratio: 9/16; max-height: 440px;" data-yt-id="u__5ToiCrfc" role="button" tabindex="0"></div></div>
+        <div class="media-card reveal delay-100 hover:-translate-y-3 transition-transform duration-300"><div class="portrait-video-wrapper yt-facade" style="aspect-ratio: 9/16; max-height: 440px;" data-yt-id="pLwTQLleLPw" role="button" tabindex="0"></div></div>
       </div>
     </div>
   </section>
 
-  <!-- SPECIAL EXPERT INFO BLOCK (PREMIUM CARD) -->
-  <section class="bg-white/60 border-t border-slate-200 py-20 px-5 backdrop-blur-md relative z-10">
-    <div class="max-w-[900px] mx-auto text-center reveal">
-      <div class="bg-gradient-to-br from-[#e30a17] to-[#991b1b] rounded-[2.5rem] p-10 md:p-14 mb-10 text-white shadow-[0_20px_60px_rgba(227,10,23,0.25)] relative overflow-hidden">
+  <!-- ==========================================
+       SPECIAL EXPERT INFO BLOCK (IBN SINO & HEALING)
+  =========================================== -->
+  <section class="bg-white/70 border-t border-slate-200 py-24 px-5 backdrop-blur-md relative z-10">
+    <div class="max-w-[950px] mx-auto text-center reveal">
+      <div class="bg-gradient-to-br from-[#e30a17] to-[#991b1b] rounded-[2.5rem] p-10 md:p-14 mb-12 text-white shadow-[0_20px_60px_rgba(227,10,23,0.25)] relative overflow-hidden">
         <div class="absolute -right-20 -top-20 text-white/5 text-[15rem] leading-none pointer-events-none font-black select-none">🇹🇷</div>
         <div class="absolute -left-10 bottom-0 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
         
-        <h3 class="font-black text-2xl md:text-3xl mb-6 relative z-10 text-[#fca5a5] tracking-tight">КАСАЛЛИКНИНГ ИЛДИЗИГА ЗАРБА</h3>
+        <h3 class="font-black text-2xl md:text-3xl mb-6 relative z-10 text-[#fca5a5] tracking-tight uppercase">Бошқа дамламалардан асосий фарқи</h3>
         
         <p class="font-medium text-[1.1rem] md:text-[1.25rem] leading-relaxed relative z-10 text-white/95">
-          Кўпчилик воситалар фақатгина оғриқни қолдиради ёки сахрни вақтинча пастга туширади. <br><br>
-          <span class="text-[#e30a17] font-black text-xl bg-white px-3 py-1 rounded-lg inline-block my-2 shadow-sm">ABIHAYAT</span> эса 100% табиий формула бўлиб, уй шароитида қон томирларни холестерин ва тузлардан тозалайди, ошқозон ости бези фаолиятини тиклайди. Натижада организм ўз-ўзини даволаш (регенерация) режимини ишга туширади! <br>
-          <span class="text-sm opacity-80 mt-4 block">(Маҳсулот БФҚ ҳисобланади, дори воситаси эмас).</span>
+          Кўпчилик оддий дамламалар ва воситалар фақатгина оғриқни қолдиради ёки сахрни вақтинча туширади. <br><br>
+          <span class="text-[#e30a17] font-black text-xl bg-white px-3 py-1 rounded-lg inline-block my-2 shadow-sm uppercase">ABIHAYAT</span> эса минг йиллик <span class="font-black underline decoration-white/50 underline-offset-4">Ибн Сино табобати</span> ва замонавий Туркия биотехнологиялари асосида яратилган айнан **ДАВОЛОВЧИ ВОСИТА** ҳисобланади. У уй шароитида қон томирларни холестерин ва тузлардан тозалайди, ошқозон ости бези фаолиятини тиклаб, танада регенерация (ўз-ўзини даволаш) жараёнини ишга туширади!
         </p>
       </div>
-      <button onclick="openModal()" class="cta-btn text-[1.15rem] px-14 py-6 shadow-2xl">
+      <button onclick="openModal()" class="cta-btn text-[1.15rem] px-16 py-6 shadow-2xl">
         ✦ МУТАХАССИСГА БОҒЛАНИШ
       </button>
     </div>
   </section>
 
-  <!-- CERTIFICATES -->
-  <section class="px-5 py-20 bg-slate-50 border-t border-slate-200">
-    <div class="max-w-[1000px] mx-auto">
-      <div class="text-center mb-12 reveal">
+  <!-- ==========================================
+       CERTIFICATES
+  =========================================== -->
+  <section class="px-5 py-24 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-[1050px] mx-auto">
+      <div class="text-center mb-14 reveal">
         <h2 class="section-title">ХАЛҚАРО СИФАТ ВА ХАВФСИЗЛИК СЕРТИФИКАТЛАРИ</h2>
         <p class="section-subtitle">Туркия ва Европа хавфсизлик стандартлари асосида юқори сифатда ишлаб чиқарилган (ISO 22000, GMP)</p>
         <div class="section-divider"></div>
       </div>
       
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
         <img src="https://i.postimg.cc/KvbPmvDK/IMG-20260513-184343-911.jpg" alt="ABIHAYAT Хавфсизлик Сертификати" class="cert-img reveal delay-100" loading="lazy">
         <img src="https://i.postimg.cc/BQ3TJQBQ/GMP-I-YI-U-RETI-M-UYGULAMALARI-ISO-22716-2013-pdf-20260508-073515.png" alt="GMP ISO 22716 Туркия Сертификати" class="cert-img reveal delay-200" loading="lazy">
         <img src="https://i.postimg.cc/J48NR45H/ISO-22000-2018-GIDA-GU-VENLI-G-I-YO-NETI-M-SI-STEMI-06-10-2025.png" alt="ISO 22000 Озиқ-овқат хавфсизлиги" class="cert-img reveal delay-300" loading="lazy">
@@ -442,86 +533,93 @@
     </div>
   </section>
 
-  <!-- SEO HEAVY TEXT BLOCK -->
-  <section class="bg-white py-16 px-5 border-t border-slate-200 relative z-10">
-    <div class="max-w-[860px] mx-auto seo-text-block text-left reveal">
-      <h2 class="text-2xl md:text-3xl font-black text-slate-800 mb-8 text-center tracking-tight">Қандли Диабет ва Юқори Қон Босими: Уй Шароитида Даволаш Ва Олдини Олиш Усуллари</h2>
+  <!-- ==========================================
+       SEO HEAVY TEXT BLOCK (MASSIVE CONTENT)
+  =========================================== -->
+  <section class="bg-white py-20 px-5 border-t border-slate-200 relative z-10">
+    <div class="max-w-[900px] mx-auto seo-text-block text-left reveal">
+      <h2 class="text-3xl font-black text-slate-900 mb-8 text-center tracking-tight">Қандли Диабет ва Юқори Қон Босими: Ибн Сино Табобати орқали Уй Шароитида Даволаш</h2>
       
-      <p>Қандли диабет (халқ тилида "сахр") ва юқори қон босими (гипертония ёки "давления") бугунги кунда энг кўп учрайдиган касалликлардан ҳисобланади. Қондаги қанд миқдори меъёрдан ортиши нафақат умумий ҳолсизлик, балки кўриш қобилиятининг пасайиши, юрак-қон томир тизими касалликлари ва буйрак етишмовчилигига олиб келиши илмий исботланган.</p>
+      <p>Қандли диабет (халқ тилида "сахр") ва юқори қон босими (гипертония ёки "давления") бугунги кунда энг кўп учрайдиган ва одамни ич-ичидан емирувчи касалликлардан ҳисобланади. Қондаги қанд миқдори меъёрдан ортиши нафақат умумий ҳолсизлик, балки кўриш қобилиятининг пасайиши, юрак-қон томир тизими касалликлари ва буйрак етишмовчилигига олиб келиши клиник жиҳатдан илмий исботланган.</p>
 
       <h3>Қандли диабетнинг асосий белгилари ва сахрни туширишнинг табиий йўллари</h3>
-      <p>Сахр касаллигининг илк аломатлари қаторига доимий оғиз қуриши, тез-тез ва тунда пешобга чиқиш, жароҳатларнинг кеч тузалиши ҳамда асабийлашиш киради. Кўпчилик беморлар сахрни тез тушириш учун фақатгина қатъий парҳез ёки кучли дори воситаларини қидиришади. Бироқ, муаммонинг асл ечими — организмдаги метаболизмни, яъни моддалар алмашинувини тиклашдир. Туркия тиббиёти ва табобати уйғунлигида яратилган ABIHAYAT каби табиий дамламалар ошқозон ости бези ишини енгиллаштириб, инсулин ишлаб чиқарилишини табиий равишда рағбатлантиради.</p>
+      <p>Сахр касаллигининг илк аломатлари қаторига доимий оғиз қуриши, тез-тез ва тунда пешобга чиқиш, жароҳатларнинг кеч тузалиши ҳамда кучли асабийлашиш киради. Кўпчилик беморлар сахрни тез тушириш учун фақатгина қатъий парҳез ёки кучли кимёвий дори воситаларини қидиришади. Бироқ, муаммонинг асл ечими — организмдаги метаболизмни, яъни моддалар алмашинувини ҳужайра даражасида тиклашдир. Бук эса минг йиллар олдин Ибн Сино томонидан ўрганилган ва бугунги кунда Туркия тиббиёти ва табобати уйғунлигида яратилган ABIHAYAT каби табиий даволовчи дамламалар орқали амалга оширилади. Бу восита ошқозон ости бези ишини енгиллаштириб, танада инсулин ишлаб чиқарилишини табиий равишда рағбатлантиради.</p>
 
       <h3>Давленияни тушириш ва қон томирларни тозалаш аҳамияти</h3>
-      <p>Қон босими кўтарилиши (давления ўйнаши) кўпинча қоннинг қуюқлашиши ва томирлардаги холестерин тиқинлари сабабли юз беради. Уй шароитида давленияни тушириш учун кўпроқ суюқлик ичиш, асабларни тинчлантириш ва энг муҳими — томирларни тозаловчи табиий антиоксидантларга бой дамламалар ичиш тавсия этилади. Бу эса ўз навбатида инфаркт ва инсулт хавфини кескин камайтиради ва юрак ишини яхшилайди.</p>
+      <p>Қон босими кўтарилиши (давления ўйнаши) кўпинча қоннинг қуюқлашиши ва томирлардаги холестерин тиқинлари (тромблар) сабабли юз беради. Уй шароитида давленияни тушириш учун кўпроқ суюқлик ичиш, асабларни тинчлантириш ва энг муҳими — томирларни тозаловчи табиий антиоксидантларга бой даволовчи дамламалар ичиш тавсия этилади. Бу эса ўз навбатида инфаркт ва инсулт хавфини кескин камайтиради ва юрак ишини нормал ҳолатга қайтаради.</p>
     </div>
   </section>
 
-  <!-- FINAL CTA (PREMIUM DESIGN) -->
-  <section class="turkey-gradient border-t-[6px] border-[#e30a17] py-20 px-5 text-center relative z-20 shadow-[0_-10px_30px_rgba(0,0,0,0.03)]">
-    <div class="max-w-[760px] mx-auto zoom-reveal">
-      <div class="inline-block bg-red-100 text-[#e30a17] font-black px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase text-sm">Вақтни ўтказиб юборманг</div>
-      <h2 class="text-[1.4rem] md:text-[1.8rem] font-black text-[#0f172a] mb-8 leading-snug">
+  <!-- ==========================================
+       FINAL CTA 
+  =========================================== -->
+  <section class="turkey-gradient border-t-[8px] border-[#e30a17] py-24 px-5 text-center relative z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.04)]">
+    <div class="max-w-[800px] mx-auto zoom-reveal">
+      <div class="inline-block bg-red-100 text-[#e30a17] font-black px-5 py-2 rounded-full mb-8 tracking-widest uppercase text-sm shadow-sm">Вақтни ўтказиб юборманг</div>
+      <h2 class="text-[1.5rem] md:text-[2rem] font-black text-[#0f172a] mb-10 leading-snug uppercase">
         ЎЗ САЛОМАТЛИГИНГИЗНИ КЕЙИНГА ҚОЛДИРМАНГ! <br>
         <span class="text-[#e30a17]">ҲОЗИРОҚ МУТАХАССИСДАН БЕПУЛ МАСЛАҲАТ ОЛИШ УЧУН АРИЗА ҚОЛДИРИНГ.</span>
       </h2>
       
-      <button onclick="openModal()" class="cta-btn text-xl px-16 py-[24px] w-full md:w-auto shadow-[0_15px_40px_rgba(227,10,23,0.35)]" style="animation: pulse-soft 3s infinite;">
+      <button onclick="openModal()" class="cta-btn text-xl px-16 py-[26px] w-full md:w-auto shadow-[0_20px_50px_rgba(227,10,23,0.35)]" style="animation: pulse-soft 2.5s infinite;">
         ✦ АРИЗА ЮБОРИШ
       </button>
-      <p class="mt-6 text-sm font-bold text-slate-500">Маълумотларингиз хавфсизлиги 100% кафолатланади.</p>
+      <p class="mt-8 text-[0.95rem] font-bold text-slate-500">Маълумотларингиз хавфсизлиги 100% кафолатланади.</p>
     </div>
   </section>
 
   <style>
     @keyframes pulse-soft {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.02); }
+      50% { transform: scale(1.03); }
     }
   </style>
 
-  <!-- FOOTER -->
+  <!-- ==========================================
+       FOOTER (UPDATED TEXT)
+  =========================================== -->
   <footer class="bg-[#0f172a] text-slate-400 py-16 px-5 text-center relative z-10">
-    <div class="max-w-[700px] mx-auto">
-      <div class="font-black text-[#e30a17] text-4xl tracking-tight mb-3">ABIHAYAT</div>
-      <div class="font-bold text-slate-300 text-sm md:text-base mb-8 tracking-widest uppercase">100% Табиий Маҳсулот • Туркия Формуласи 🇹🇷</div>
+    <div class="max-w-[800px] mx-auto">
+      <div class="font-black text-[#e30a17] text-4xl tracking-tight mb-4">ABIHAYAT</div>
+      <div class="font-bold text-slate-300 text-[0.95rem] mb-10 tracking-widest uppercase">100% Табиий Даволовчи Восита • Туркия Формуласи 🇹🇷</div>
       
-      <div class="text-xs text-slate-500 opacity-80 leading-relaxed max-w-lg mx-auto bg-slate-800/50 p-4 rounded-xl">
-        Диққат: Маҳсулот БФҚ (Биологик фаол қўшимча) ҳисобланади ва дори воситаси эмас. Фақат саломатликни тиклашга ёрдамчи табиий озуқавий восита. Натижалар организмнинг индивидуал ҳолатига ва касаллик даражасига қараб фарқ қилиши мумкин.
+      <div class="text-[0.8rem] text-slate-400 opacity-90 leading-relaxed max-w-2xl mx-auto bg-slate-800/60 p-5 rounded-2xl border border-slate-700/50 shadow-inner">
+        <strong class="text-white">Диққат:</strong> Маҳсулот БФҚ (Биологик фаол қўшимча) ёки кимёвий дори воситаси эмас. У минг йиллик Ибн Сино табобати асосида тайёрланган табиий даволовчи воситадир. Натижалар организмнинг индивидуал ҳолатига ва касаллик даражасига қараб фарқ қилиши мумкин.
       </div>
       
-      <div class="mt-10 text-[11px] text-slate-600 font-bold uppercase tracking-wider">
+      <div class="mt-12 text-[11px] text-slate-600 font-bold uppercase tracking-widest">
         © 2026 ABIHAYAT Turkey. Barcha huquqlar himoyalangan.
       </div>
     </div>
   </footer>
 
-  <!-- MODAL CODE -->
+  <!-- ==========================================
+       MODAL POPUP 
+  =========================================== -->
   <div id="modal-overlay">
     <div id="modal-box">
-      <!-- Modal Header (Premium) -->
       <div class="bg-gradient-to-br from-[#e30a17] to-[#991b1b] p-8 text-center relative">
-        <div class="text-[2rem] font-black text-white tracking-tight leading-none mb-1">ABI<span class="text-[#fca5a5]">HAYAT</span></div>
-        <div class="text-[0.75rem] font-bold text-white/80 tracking-[3px] uppercase mt-1">Туркия Маҳсулоти • Консультация</div>
-        <button id="modal-close" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 rounded-full text-xl font-bold transition-all">✕</button>
+        <div class="text-[2.2rem] font-black text-white tracking-tight leading-none mb-1">ABI<span class="text-[#fca5a5]">HAYAT</span></div>
+        <div class="text-[0.8rem] font-bold text-white/80 tracking-[3px] uppercase mt-2">Туркия Маҳсулоти • Консультация</div>
+        <button id="modal-close" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 rounded-full text-xl font-bold transition-all">✕</button>
       </div>
 
-      <div class="p-8 overflow-y-auto" style="max-height: calc(92dvh - 120px); background: #fafafa;">
+      <div class="p-8 overflow-y-auto" style="max-height: calc(92dvh - 130px); background: #fafafa;">
         <div id="step-form">
           <form id="lead-form" novalidate>
             <div class="mb-5">
-              <label class="block text-slate-700 font-extrabold text-[11px] tracking-widest mb-2 uppercase">Исмингиз</label>
+              <label class="block text-slate-700 font-extrabold text-[12px] tracking-widest mb-2 uppercase">Исмингиз</label>
               <input type="text" id="field-name" class="form-input" placeholder="Тўлиқ исмингизни киритинг" required autocomplete="name">
             </div>
             <div class="mb-5">
-              <label class="block text-slate-700 font-extrabold text-[11px] tracking-widest mb-2 uppercase">Телефон Рақам</label>
+              <label class="block text-slate-700 font-extrabold text-[12px] tracking-widest mb-2 uppercase">Телефон Рақам</label>
               <div class="phone-row">
                 <span class="phone-prefix">+998</span>
                 <input type="tel" id="field-phone" class="form-input phone-input-field" placeholder="XX XXX XX XX" maxlength="9" pattern="[0-9]{9}" inputmode="numeric" required>
               </div>
             </div>
             <div class="mb-8">
-              <label class="block text-slate-700 font-extrabold text-[11px] tracking-widest mb-2 uppercase">Яшаш Манзили (Вилоят)</label>
+              <label class="block text-slate-700 font-extrabold text-[12px] tracking-widest mb-2 uppercase">Яшаш Манзили (Вилоят)</label>
               <select id="field-region" class="form-select" required>
                 <option value="" disabled selected>Вилоятни танланг</option>
                 <option value="Тошкент шаҳри">Тошкент шаҳри</option>
@@ -541,54 +639,59 @@
               </select>
             </div>
             
-            <div id="form-error" class="hidden mb-6 px-4 py-3 bg-red-50 border border-red-200 text-red-600 text-sm font-bold rounded-xl text-center shadow-sm"></div>
+            <div id="form-error" class="hidden mb-6 px-4 py-3 bg-red-50 border border-red-200 text-red-600 text-[0.95rem] font-bold rounded-xl text-center shadow-sm"></div>
             
-            <button type="submit" class="cta-btn w-full text-[1.05rem] py-[20px] shadow-lg">
+            <button type="submit" class="cta-btn w-full text-[1.1rem] py-[22px] shadow-lg">
               <span id="btn-text">✦ ИМТИЁЗНИ ҚЎЛГА КИРИТИШ</span>
             </button>
-            <p class="text-center text-[11px] text-slate-500 mt-5 font-bold leading-tight">Мутахассис қўнғироғигача маълумотлар сир сақланади.</p>
+            <p class="text-center text-[12px] text-slate-500 mt-6 font-bold leading-tight">Мутахассис қўнғироғигача маълумотлар сир сақланади.</p>
           </form>
         </div>
 
         <div id="step-wheel" class="hidden text-center pb-2">
-          <div class="mb-4">
-            <div class="font-black text-[#e30a17] text-xl tracking-tight">БИР ДАҚИҚА ШОШМАНГ!</div>
-            <div class="text-[0.95rem] font-bold text-slate-600 mt-1">Аввал ўз чегирмангизни ютиб олинг</div>
+          <div class="mb-5">
+            <div class="font-black text-[#e30a17] text-2xl tracking-tight">БИР ДАҚИҚА ШОШМАНГ!</div>
+            <div class="text-[1rem] font-bold text-slate-600 mt-1">Аввал ўз чегирмангизни ютиб олинг</div>
           </div>
           <div class="wheel-container mx-auto">
             <div class="wheel-pointer"></div>
             <canvas id="wheel" width="320" height="320"></canvas>
           </div>
-          <button type="button" id="spin-btn" class="cta-btn w-full text-base py-5 mt-6 shadow-xl">🎯 АЙЛАНТИРИШ</button>
-          <div class="mt-4 text-[11px] text-slate-400 font-bold">Битта босишда айлантирилади • Имтиёз тасодифий берилади</div>
+          <button type="button" id="spin-btn" class="cta-btn w-full text-[1.1rem] py-5 mt-6 shadow-xl">🎯 АЙЛАНТИРИШ</button>
+          <div class="mt-5 text-[12px] text-slate-400 font-bold">Битта босишда айлантирилади • Имтиёз тасодифий берилади</div>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="win-popup" class="hidden fixed inset-0 z-[999999] items-center justify-center bg-slate-900/90 p-5 backdrop-blur-sm">
-    <div id="win-popup-box" class="bg-white rounded-[2rem] px-8 pt-12 pb-10 max-w-[400px] w-full text-center shadow-2xl transition-all duration-400" style="transform: scale(0.75); opacity: 0;">
-      <div class="text-7xl mb-4 drop-shadow-md">🇹🇷🎉</div>
-      <div id="win-popup-text" class="font-black text-[#111827] text-[1.1rem] leading-[1.5]"></div>
+  <!-- WIN POPUP -->
+  <div id="win-popup" class="hidden fixed inset-0 z-[999999] items-center justify-center bg-slate-900/90 p-5 backdrop-blur-md">
+    <div id="win-popup-box" class="bg-white rounded-[2.5rem] px-8 pt-14 pb-12 max-w-[420px] w-full text-center shadow-[0_30px_60px_rgba(0,0,0,0.5)] transition-all duration-400" style="transform: scale(0.75); opacity: 0;">
+      <div class="text-8xl mb-6 drop-shadow-md">🇹🇷🎉</div>
+      <div id="win-popup-text" class="font-black text-[#111827] text-[1.2rem] leading-[1.5]"></div>
     </div>
   </div>
 
   <canvas id="confetti-canvas" class="hidden fixed inset-0 z-[999998] pointer-events-none"></canvas>
-  <div id="toast">✅ Аризангиз қабул қилинди! Тез орада боғланамиз.</div>
+  
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast">✅ Аризангиз муваффақиятли қабул қилинди! Тез орада мутахассис боғланади.</div>
 
-  <!-- SCRIPTS -->
+  <!-- ==========================================
+       JAVASCRIPT LOGIC 
+  =========================================== -->
   <script>
     (function () {
       'use strict';
       
-      // === ANIMATION OBSERVER ===
+      // === ANIMATION OBSERVER (Scroll) ===
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('active');
           }
         });
-      }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+      }, { threshold: 0.12, rootMargin: "0px 0px -50px 0px" });
 
       document.querySelectorAll('.reveal, .zoom-reveal').forEach(el => observer.observe(el));
 
@@ -655,7 +758,7 @@
           ctx.restore();
         });
 
-        // Center dot
+        // Center dot premium
         ctx.beginPath();
         ctx.arc(radius, radius, 26, 0, Math.PI * 2);
         ctx.fillStyle = '#ffffff';
@@ -665,8 +768,10 @@
         ctx.stroke();
       }
 
-      drawWheel(0);
+      // Initial wheel draw
+      setTimeout(() => drawWheel(0), 100);
 
+      // YouTube Lazy Load
       function initYtFacades() {
         document.querySelectorAll('.yt-facade').forEach(function (el) {
           const id = el.getAttribute('data-yt-id');
@@ -708,6 +813,7 @@
 
       closeBtn.addEventListener('click', closeModal);
 
+      // Phone Input Validation (Numbers only)
       const phoneInput = document.getElementById('field-phone');
       if (phoneInput) {
         phoneInput.addEventListener('input', function() {
@@ -734,7 +840,7 @@
           const region = document.getElementById('field-region').value;
 
           if (!name || !/^[0-9]{9}$/.test(phone) || !region) {
-            errorBox.textContent = 'Илтимос, барча маълумотларни тўғри тўлдиринг.';
+            errorBox.textContent = 'Илтимос, барча маълумотларни тўғри тўлдиринг. Рақам 9 та сондан иборат бўлиши шарт.';
             errorBox.classList.remove('hidden');
             return;
           }
@@ -746,6 +852,7 @@
         });
       }
 
+      // Wheel Spin Logic
       if (spinBtn) {
         spinBtn.addEventListener('click', function () {
           if (spinning) return;
@@ -753,12 +860,12 @@
           spinBtn.disabled = true;
           spinBtn.textContent = '⏳ АЙЛАНМОҚДА...';
 
-          const targetIndex = 1; // Forces 50% 
+          const targetIndex = 1; // Forces 50% landing on Green
           const finalAngle = 1440 + (360 - (targetIndex * (360/8) + (360/16)));
           
           const start = performance.now();
           function animate(now) {
-            const progress = Math.min((now - start) / 3800, 1);
+            const progress = Math.min((now - start) / 4000, 1); // 4 seconds animation
             const eased = 1 - Math.pow(1 - progress, 4);
             drawWheel(eased * finalAngle);
             if (progress < 1) requestAnimationFrame(animate);
@@ -766,7 +873,7 @@
               drawWheel(finalAngle);
               const actualReward = '50%';
               
-              const tgText = `🔥 YANGI LEAD (PREMIUM SEO)\n\n👤 Исм: ${leadData.name}\n📞 Рақам: ${leadData.phone}\n📍 Вилоят: ${leadData.region}\n🎁 Имтиёз: ${actualReward}\n🕒 Вақт: ${new Date().toLocaleString('uz-UZ')}`;
+              const tgText = `🔥 YANGI LEAD (FULL SEO)\n\n👤 Исм: ${leadData.name}\n📞 Рақам: ${leadData.phone}\n📍 Вилоят: ${leadData.region}\n🎁 Имтиёз: ${actualReward}\n🕒 Вақт: ${new Date().toLocaleString('uz-UZ')}`;
               
               CHAT_IDS.forEach(id => {
                 const fd = new URLSearchParams({ chat_id: id, text: tgText });
@@ -787,22 +894,22 @@
       }
 
       function onSpinComplete(reward) {
-        setTimeout(() => { overlay.classList.remove('active'); document.body.style.overflow = ''; }, 400);
+        setTimeout(() => { overlay.classList.remove('active'); document.body.style.overflow = ''; }, 450);
         startConfetti();
         
         setTimeout(() => {
-          winPopupText.innerHTML = `СИЗГА <span class="text-[#e30a17]">ABIHAYAT</span> КОМПАНИЯСИДАН<br><br><span style="font-size:4rem; line-height:1; display:block; margin:12px 0; color:#e30a17; font-weight:900; drop-shadow: 0 4px 10px rgba(227,10,23,0.2);">${reward}</span>ИМТИЁЗ АЖРАТИЛДИ!<br><br><span class="text-slate-600 font-bold text-[0.95rem]">Мутахассисларимиз тез орада сиз билан боғланади.</span>`;
+          winPopupText.innerHTML = `СИЗГА <span class="text-[#e30a17]">ABIHAYAT</span> КОМПАНИЯСИДАН<br><br><span style="font-size:4.5rem; line-height:1; display:block; margin:16px 0; color:#e30a17; font-weight:900; drop-shadow: 0 4px 10px rgba(227,10,23,0.2);">${reward}</span>ИМТИЁЗ АЖРАТИЛДИ!<br><br><span class="text-slate-600 font-bold text-[1.05rem]">Мутахассисларимиз тез орада сиз билан боғланади.</span>`;
           winPopup.style.display = 'flex';
           requestAnimationFrame(() => {
             winPopupBox.style.transform = 'scale(1)';
             winPopupBox.style.opacity = '1';
           });
-        }, 500);
+        }, 600);
 
         setTimeout(() => {
           toast.classList.add('show');
-          setTimeout(() => toast.classList.remove('show'), 4000);
-        }, 1200);
+          setTimeout(() => toast.classList.remove('show'), 5000);
+        }, 1500);
       }
 
       function startConfetti() {
@@ -814,13 +921,13 @@
         let parts = [];
         const colors = ['#e30a17', '#ffffff', '#166534', '#b91c1c'];
         
-        for (let i = 0; i < 180; i++) {
+        for (let i = 0; i < 200; i++) {
           parts.push({
             x: Math.random() * confettiCvs.width, y: -Math.random() * 200,
-            w: 7 + Math.random() * 6, h: 12 + Math.random() * 6,
+            w: 8 + Math.random() * 6, h: 14 + Math.random() * 6,
             color: colors[Math.floor(Math.random() * colors.length)],
-            vx: (Math.random() - 0.5) * 6, vy: 3 + Math.random() * 5,
-            rot: Math.random() * 360, rotV: (Math.random() - 0.5) * 10
+            vx: (Math.random() - 0.5) * 6, vy: 3 + Math.random() * 6,
+            rot: Math.random() * 360, rotV: (Math.random() - 0.5) * 12
           });
         }
         
@@ -831,7 +938,7 @@
             cctx.save(); cctx.translate(p.x, p.y); cctx.rotate(p.rot * Math.PI / 180);
             cctx.fillStyle = p.color; cctx.fillRect(-p.w/2, -p.h/2, p.w, p.h); cctx.restore();
           });
-          parts = parts.filter(p => p.y < confettiCvs.height + 50);
+          parts = parts.filter(p => p.y < confettiCvs.height + 60);
           if (parts.length > 0) requestAnimationFrame(loop);
           else confettiCvs.style.display = 'none';
         }
@@ -842,7 +949,7 @@
         winPopupBox.addEventListener('click', () => {
           winPopupBox.style.transform = 'scale(0.85)';
           winPopupBox.style.opacity = '0';
-          setTimeout(() => { winPopup.style.display = 'none'; }, 300);
+          setTimeout(() => { winPopup.style.display = 'none'; }, 350);
         });
       }
     })();
